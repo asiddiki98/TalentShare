@@ -16,6 +16,7 @@ class LoginForm extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    debugger
     if (nextProps.currentUser === true) {
       this.props.history.push('/tweets');
     }
@@ -37,7 +38,9 @@ class LoginForm extends React.Component {
       password: this.state.password
     };
 
-    this.props.login(user);
+    this.props.login(user).then(() => {
+      this.props.history.push('/tweets')
+    });
   }
 
   renderErrors() {
