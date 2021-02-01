@@ -37,17 +37,18 @@ module.exports = function validateRegisterInput(data) {
     }
 
     if (Validator.isEmpty(data.password2)) {
-        errors.password2 = 'Confirm Password field is required';
+        errors.password2 = 'Please confirm your password.';
     }
 
     if (!Validator.equals(data.password, data.password2)) {
         errors.password2 = 'Passwords must match';
     }
+    
     if (Validator.isEmpty(data.firstname)){
-        errors.firstname = 'Please enter your first name'
+        errors.firstname = 'Please enter your first name.'
     }
     if (Validator.isEmpty(data.lastname)){
-        errors.lastname = 'Please enter your first name'
+        errors.lastname = 'Please enter your last name.'
     }
     return {
         errors,
