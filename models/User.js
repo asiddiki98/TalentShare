@@ -24,7 +24,6 @@ const UserSchema = new Schema({
     },
     artist: {
         type: Boolean,
-        required: true,
         default: false
     },
     bio : {
