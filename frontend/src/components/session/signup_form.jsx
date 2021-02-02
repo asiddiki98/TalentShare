@@ -84,7 +84,7 @@ class SignupForm extends React.Component {
             <div className="session-form-input">
               <p className="form-prompt">
                 Username
-                {}
+                
               </p>
               <input type="text"
                 value={this.state.username}
@@ -96,19 +96,26 @@ class SignupForm extends React.Component {
             
             <div className="session-form-input">
               <p className="form-prompt">Name</p>
-              <input type="text"
-                value={this.state.firstname}
-                onChange={this.update('firstname')}
-                placeholder="Enter First name"
-              />
-              <p className="session-errors">{this.state.errors.firstname}</p>
+              <div className="name-input-fields">
+                <div>
 
-              <input type="text"
-                value={this.state.lastname}
-                onChange={this.update('lastname')}
-                placeholder="Enter Last name"
-              />
-              <p className="session-errors">{this.state.errors.lastname}</p>
+                  <input type="text"
+                    value={this.state.firstname}
+                    onChange={this.update('firstname')}
+                    placeholder="Enter First name"
+                  />
+                  <p className="session-errors">{this.state.errors.firstname}</p>
+                </div>
+                <div>
+
+                  <input type="text"
+                    value={this.state.lastname}
+                    onChange={this.update('lastname')}
+                    placeholder="Enter Last name"
+                  />
+                  <p className="session-errors">{this.state.errors.lastname}</p>
+                </div>
+              </div>
             </div>
             
             <div className="session-form-input">  

@@ -1,51 +1,81 @@
 .session-form{
-    border-radius: 5px;
+   
     box-sizing: border-box;
-    width: 500px;
-    height: 350px;
+    width: 400px;
+    height: 800px;
     font-size: 20px;
-    border: 1px solid blue;
-    padding: 16px 0px 16px 16px;
+    box-shadow: 0px 0px 7px .5px black;
+    padding: 16px 16px 16px 16px;
     
+}
+
+.login-form-container{
+    height: 400px;
 }
 
 .session-form h1{
     font-weight: bold;
     font-size: 20px;
+    height: 22px;
     margin-bottom: 20px;
 }
 .session-form-input {
     display: flex;
+    flex-direction: column;
     margin-top: 10px;
     margin-bottom: 10px;
+   
 }
 
+.name-input-fields{
+    display: flex;
 
+}
+
+.session-name-input-errors{
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.name-input-fields input{
+    width:95%;
+    
+    box-sizing: border-box;
+}
+.name-input-fields input:first-child{
+    margin-right: 5px;
+}
 
 .session-form .form-prompt{
     box-sizing: border-box;
     margin: 8px 10px 8px 0;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     font-weight: bold;
-
-    
+    text-transform: uppercase;
+    height: 20px;
 }
 
-.session-form input{
+.session-form-input input{
     box-sizing: border-box;
     font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    background-color: #f1d4d4;
-    height: 30px;
+    border: 1px solid #a3a1b1;
     padding: 5px;
-    margin-right: 8px;
+    margin-right: 10px;
     outline: none;
+    height: 50px;
 }
 
-.session-form input:focus{
-    background-color: #ddb6c6;
+.session-form-input input:focus{
+    background-color: #f6f6f6;
+}
+
+.session-errors{
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .session-form button{
@@ -54,11 +84,19 @@
     outline: none;
     background-color: #5d5fa4;
     color: white;
-    height: 30px;
-    width: 100px;
+    height: 40px;
+    width: 110px;
     font-weight: bold;
     position: absolute;
-    right: 20px;
+    right: 10px;
+}
+
+.session-form button:hover{
+    background-color: #2a3d66;
+}
+
+.session-form button:active{
+    background-color: #9d65c9;
 }
 
 .session-switch{

@@ -81,7 +81,7 @@ class LoginForm extends React.Component {
 
           <div className="session-form-footer">
             <div className="session-switch">Need an account? <Link to="/signup">Sign Up!</Link></div>
-            <input type="submit" value="Submit" />
+            <button>Submit</button>
           </div>  
           
         </form>
