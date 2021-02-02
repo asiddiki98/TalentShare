@@ -33,7 +33,7 @@ TalentShare is a social media application that provides a platform for creatives
  
  
 ## Group Members and Work Breakdown
-  * Team Lead: Azim Siddiki
-  * Backend Lead: Tasnim Saiduzzaman
-  * Frontend Lead: Paul Ramirez
-  * Flex: Stephen Yang
+  * **Team Lead**: Azim Siddiki
+  * **Backend Lead**: Tasnim Saiduzzaman
+  * **Frontend Lead**: Paul Ramirez
+  * **Flex**: Stephen Yang
