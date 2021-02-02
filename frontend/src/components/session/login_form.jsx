@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
+import '../../assets/session.css'
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -37,9 +38,7 @@ class LoginForm extends React.Component {
       password: this.state.password
     };
 
-    this.props.login(user).then(() => {
-      this.props.history.push('/tweets')
-    });
+    this.props.login(user)
   }
 
   renderErrors() {
@@ -67,7 +66,9 @@ class LoginForm extends React.Component {
               onChange={this.update('email')}
               placeholder="Email"
             />
+            <p className="session-errors">{this.state.errors.email}</p>
           </div>
+
           <div className="session-form-input">
             <p className="form-prompt">Password</p>
             <input type="password"
@@ -75,12 +76,12 @@ class LoginForm extends React.Component {
               onChange={this.update('password')}
               placeholder="Password"
             />
+            <p className="session-errors">{this.state.errors.password}</p>
           </div>
+
           <div className="session-form-footer">
-            
             <div className="session-switch">Need an account? <Link to="/signup">Sign Up!</Link></div>
             <input type="submit" value="Submit" />
-            {this.renderErrors()}
           </div>  
           
         </form>
