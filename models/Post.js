@@ -14,7 +14,7 @@ const PostSchema = new Schema({
         ref: 'User'
     },
     category: {
-        Type: String,
+        type: String,
         require: true
     },
     tags: {
