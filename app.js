@@ -10,6 +10,9 @@ const fileUploadRoutes = require("./routes/fileUploadRoutes");
 const cors = require('cors');
 const keys = require('./config/keys');
 const path = require("path");
+const Post = require('./models/Post');
+const posts = require("./routes/api/posts");
+const passport = require('passport');
 
 const crypto = require('crypto');
 const methodOverride = require('method-override');
@@ -30,13 +33,12 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 
-
+app.use(passport.initialize());
+require('./config/passport')(passport);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(methodOverride('_method'));
-// app.get("/", (req, res) => {
-//     res.send("Hello World");
-// });
+
 app.use("/api/users", users);
 // app.use("/api/document", fileUploadRoutes);
 
@@ -62,6 +64,7 @@ const upload = multer({storage});
 // app.post('/upload', upload.single('file'))
 
 app.use('/', imageRouter(upload));
+app.use("/api/posts", posts)
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
