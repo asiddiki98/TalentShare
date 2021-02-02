@@ -8,12 +8,12 @@ import MainPage from './main/main_page';
 
 const App = () => (
   <div>
-    <NavBarContainer />
     <Switch>
       <AuthRoute exact path="/" component={SplashContainer} />
       <ProtectedRoute path="/home" component={MainPage} />
       <AuthRoute path="/signup" component={SignupFormContainer} />
     </Switch>
+    <NavBarContainer />
   </div>
 );
 
