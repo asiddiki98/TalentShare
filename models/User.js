@@ -26,10 +26,8 @@ const UserSchema = new Schema({
         type: String
     },
     propic: {
-        type: Number
-    },
-    photos: {
-        type: Array
+        type: String,
+        default: "6645b20ff377f000ffe04de79a34c807.jpg"
     }
 }, {
     timestamps: true
