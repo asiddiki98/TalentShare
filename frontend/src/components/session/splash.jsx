@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../../util/route_util';
 import LoginFormContainer from '../session/login_form_container';
-import WhiteLogo from '../../images/talentsharelight.png';
+import WhiteLogo from '../../assets/images/talentsharelight.png';
 
 const Splash = () => {
   return (

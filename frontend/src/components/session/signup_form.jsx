@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
+import '../../assets/session.css';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -46,9 +47,7 @@ class SignupForm extends React.Component {
 
     };
 
-    this.props.signup(user).then(() => {
-      this.props.history.push('/tweets')
-    });
+    this.props.signup(user)
   }
 
   renderErrors() {
@@ -62,14 +61,6 @@ class SignupForm extends React.Component {
       </ul>
     );
   }
-  
-  componentDidUpdate(oldProps){
-    if(oldProps.errors.length !== 0){
-      this.setState({stage: 1});
-    }
-  }
-
-  
 
   render() {
     
@@ -77,7 +68,7 @@ class SignupForm extends React.Component {
       
       <div className="signup-form-container session-form">
           <h1>Sign Up</h1>
-          <form onSubmit={e => e.preventDefault()}>
+          <form onSubmit={this.handleSubmit}>
           <div className="signup-form">
             
             <div className="session-form-input">
@@ -87,6 +78,7 @@ class SignupForm extends React.Component {
                 onChange={this.update('email')}
                 placeholder="Enter your email"
               />
+              <p className="session-errors">{this.state.errors.email}</p>
             </div>
 
             <div className="session-form-input">
@@ -99,6 +91,7 @@ class SignupForm extends React.Component {
                 onChange={this.update('username')}
                 placeholder="Enter Username"
               />
+              <p className="session-errors">{this.state.errors.username}</p>
             </div>
             
             <div className="session-form-input">
@@ -108,14 +101,15 @@ class SignupForm extends React.Component {
                 onChange={this.update('firstname')}
                 placeholder="Enter First name"
               />
+              <p className="session-errors">{this.state.errors.firstname}</p>
+
               <input type="text"
                 value={this.state.lastname}
                 onChange={this.update('lastname')}
                 placeholder="Enter Last name"
               />
+              <p className="session-errors">{this.state.errors.lastname}</p>
             </div>
-            
-            
             
             <div className="session-form-input">  
               <p className="form-prompt">Password</p>
@@ -124,6 +118,7 @@ class SignupForm extends React.Component {
                 onChange={this.update('password')}
                 placeholder="Enter Password"
               />
+              <p className="session-errors">{this.state.errors.password}</p>
             </div>
 
             <div className="session-form-input">  
@@ -133,12 +128,12 @@ class SignupForm extends React.Component {
                 onChange={this.update('password2')}
                 placeholder="Confirm your password"
               />
+              <p className="session-errors">{this.state.errors.password2}</p>
             </div>
-            <div className="session-form-footer">
 
+            <div className="session-form-footer">
               <div className="session-switch">Already have an account? <Link to="/">Login!</Link></div>
-              <button onClick={this.handleNextStage}>Continue</button>
-              {this.renderErrors()}
+              <button onSubmit={this.handleSubmit}>Continue</button>
             </div>
           </div>
           
