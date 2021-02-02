@@ -17,11 +17,6 @@ module.exports = (upload) => {
         gfs.collection('uploads');
     });
 
-
-
-
-    
-
     imageRouter.route('/').post(upload.single('file'), (req, res, next) => {
         console.log(req.body);
 
@@ -58,6 +53,26 @@ module.exports = (upload) => {
             });
         }, err => res.status(500).json(err))
     });
+
+
+    imageRouter.route('/image/:filename').get((req,res) => {
+        gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
+            if (!file || file.length === 0) {
+                return res.status(404).json({
+                    err: 'No image exists'
+                });
+            }
+
+            if (file.contentType === 'image/jpeg' || file.contentType === 'image/png') {
+                const readstream = gfs.createReadStream(file.filename);
+                readstream.pipe(res);
+            } else {
+                res.status(404).json({
+                    err: 'Not an image'
+                })
+            }
+        })
+    })
 
 
     return imageRouter;
