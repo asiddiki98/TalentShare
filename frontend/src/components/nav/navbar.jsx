@@ -5,9 +5,7 @@ import NavLogo from '../../assets/images/talentsharelight.png'
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
-
     this.logoutUser = this.logoutUser.bind(this);
-    this.getLinks = this.getLinks.bind(this);
   }
 
   logoutUser(e) {
@@ -22,10 +20,13 @@ class NavBar extends React.Component {
 
     return (
       <div>
-        <img src={NavLogo} />
-        {/* <img src={`image/${this.props.propic}`} /> */}
-        <Link to={'/'}>TalentShare</Link>
-        { this.getLinks()}
+        <img onClick={() => this.props.fetchPosts()} className="nav-logo" src={NavLogo} />
+        <div onClick={() => this.props.fetchArt()}>Art</div>
+        <div onClick={() => this.props.fetchPhotography()}>Photography</div>
+        <div onClick={() => this.props.fetchMusic()}>Music</div>
+        <div onClick={() => this.props.fetchDance()}>Dance</div>
+        <button onClick={this.logoutUser}>logout</button>
+
       </div>
     );
   }

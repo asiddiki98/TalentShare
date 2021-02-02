@@ -1,19 +1,19 @@
 import axios from 'axios';
 
 export const fetchArt = () => {
-  return axios.get('/api/posts/category/art')
+  return axios.get('/api/posts/category/Art')
 };
 
 export const fetchDance = () => {
-  return axios.get('/api/posts/category/dance')
+  return axios.get('/api/posts/category/Dance')
 };
 
 export const fetchMusic = () => {
-  return axios.get('/api/posts/category/art')
+  return axios.get('/api/posts/category/Music')
 };
 
 export const fetchPhotography = () => {
-  return axios.get('/api/posts/category/photography')
+  return axios.get('/api/posts/category/Photography')
 };
 
 export const fetchPosts = () => {
