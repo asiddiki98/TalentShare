@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -11,11 +11,13 @@ class SignupForm extends React.Component {
       lastname: '',
       password: '',
       password2: '',
-      errors: {}
+      errors: {},
+      
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.clearedErrors = false;
+   
   }
 
   componentWillReceiveProps(nextProps) {
@@ -40,7 +42,8 @@ class SignupForm extends React.Component {
       firstname: this.state.firstname,
       lastname: this.state.lastname,
       password: this.state.password,
-      password2: this.state.password2
+      password2: this.state.password2,
+
     };
 
     this.props.signup(user).then(() => {
@@ -59,71 +62,88 @@ class SignupForm extends React.Component {
       </ul>
     );
   }
+  
+  componentDidUpdate(oldProps){
+    if(oldProps.errors.length !== 0){
+      this.setState({stage: 1});
+    }
+  }
+
+  
 
   render() {
+    
     return (
-      <div className="signup-form-container">
-        <form onSubmit={this.handleSubmit}>
+      
+      <div className="signup-form-container session-form">
+          <h1>Sign Up</h1>
+          <form onSubmit={e => e.preventDefault()}>
           <div className="signup-form">
             
             <div className="session-form-input">
-              <p className="form-prompt">What's your email?</p>
+              <p className="form-prompt">Email</p>
               <input type="text"
                 value={this.state.email}
                 onChange={this.update('email')}
-                placeholder="Enter your email."
+                placeholder="Enter your email"
               />
             </div>
 
             <div className="session-form-input">
-              <p className="form-prompt">What should we call you?</p>
+              <p className="form-prompt">
+                Username
+                {}
+              </p>
               <input type="text"
                 value={this.state.username}
                 onChange={this.update('username')}
-                placeholder="Enter a name for your profile."
+                placeholder="Enter Username"
               />
             </div>
             
             <div className="session-form-input">
-              <p className="form-prompt">What's your first name?</p>
+              <p className="form-prompt">Name</p>
               <input type="text"
                 value={this.state.firstname}
                 onChange={this.update('firstname')}
-                placeholder="Enter your first name."
+                placeholder="Enter First name"
               />
-            </div>
-            
-            <div className="session-form-input">
-              <p className="form-prompt">What's your last name?</p>
               <input type="text"
                 value={this.state.lastname}
                 onChange={this.update('lastname')}
-                placeholder="Enter your last name."
+                placeholder="Enter Last name"
               />
             </div>
             
+            
+            
             <div className="session-form-input">  
-              <p className="form-prompt">Create a password</p>
+              <p className="form-prompt">Password</p>
               <input type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
-                placeholder="Create a password."
+                placeholder="Enter Password"
               />
             </div>
 
             <div className="session-form-input">  
-              <p className="form-prompt">Confirm your password</p>
+              <p className="form-prompt">Confirm Password</p>
               <input type="password"
                 value={this.state.password2}
                 onChange={this.update('password2')}
-                placeholder="Confirm your password."
+                placeholder="Confirm your password"
               />
             </div>
+            <div className="session-form-footer">
 
-            <button onClick={this.handleSubmit}>Sign Up!</button>
-            {this.renderErrors()}
+              <div className="session-switch">Already have an account? <Link to="/">Login!</Link></div>
+              <button onClick={this.handleNextStage}>Continue</button>
+              {this.renderErrors()}
+            </div>
           </div>
+          
         </form>
+        
       </div>
     );
   }

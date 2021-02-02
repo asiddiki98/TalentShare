@@ -1,0 +1,74 @@
+.session-form{
+    border-radius: 5px;
+    box-sizing: border-box;
+    width: 500px;
+    height: 350px;
+    font-size: 20px;
+    border: 1px solid blue;
+    padding: 16px 0px 16px 16px;
+    
+}
+
+.session-form h1{
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.session-form-input {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+
+.session-form .form-prompt{
+    box-sizing: border-box;
+    margin: 8px 10px 8px 0;
+    font-size: 16px;
+    font-weight: 500;
+    font-weight: bold;
+
+    
+}
+
+.session-form input{
+    box-sizing: border-box;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f1d4d4;
+    height: 30px;
+    padding: 5px;
+    margin-right: 8px;
+    outline: none;
+}
+
+.session-form input:focus{
+    background-color: #ddb6c6;
+}
+
+.session-form button{
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background-color: #5d5fa4;
+    color: white;
+    height: 30px;
+    width: 100px;
+    font-weight: bold;
+    position: absolute;
+    right: 20px;
+}
+
+.session-switch{
+    font-size: 13px;
+    
+}
+
+.session-form-footer{
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    position: relative;
+}
