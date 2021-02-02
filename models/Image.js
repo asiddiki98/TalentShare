@@ -11,7 +11,11 @@ let ImageSchema = new Schema({
         required: true,
         type: String
     },
-    fileId: {type: Number, default: 0}
+    fileId: {type: Number, default: 0},
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: "User"
+    }
 }, {
     timestamps: true
 })

@@ -22,8 +22,14 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-    bio : {
+    bio: {
         type: String
+    },
+    propic: {
+        type: Number
+    },
+    photos: {
+        type: Array
     }
 }, {
     timestamps: true
