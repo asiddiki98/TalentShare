@@ -22,12 +22,14 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-    artist: {
-        type: Boolean,
-        default: false
-    },
-    bio : {
+    bio: {
         type: String
+    },
+    propic: {
+        type: Number
+    },
+    photos: {
+        type: Array
     }
 }, {
     timestamps: true
