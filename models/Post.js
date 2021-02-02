@@ -7,7 +7,8 @@ const PostSchema = new Schema({
         required: true
     },
     filename: {
-        type: String
+        type: String,
+        require: true
     },
     creator: {
         type: Schema.Types.ObjectId,
@@ -18,6 +19,9 @@ const PostSchema = new Schema({
         require: true
     },
     tags: {
+        type: Array
+    },
+    likers: {
         type: Array
     }
     

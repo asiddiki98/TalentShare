@@ -3,6 +3,8 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
 const Post = require('../../models/Post');
+const User = require('../../models/User');
+const Comment = require('../../models/Comment');
 const jwt = require('jsonwebtoken');
 const validatePost = require('../../validation/post');
 
@@ -16,6 +18,26 @@ router.get("/creator/:creator_id", (req, res) => {
 
 router.get("/:id", (req, res) => {
     Post.findById(req.params.id).then(post => res.json(post), err => res.status(404).json({postError: "Post does not exist"}))
+});
+
+
+router.patch("/:id", (req, res) => {
+    Post.findById(req.params.id).then(post => {
+        post.description = req.body.description;
+        post.filename = req.body.filename;
+        post.category = req.body.category;
+        post.tags = req.body.tags;
+        post.save().then(post => res.json(post));
+    }, err => res.status(404).json({postError: "Post does not exist"}));
+});
+
+router.patch("/:id/liker/:user_id", (req, res) => {
+    Post.findById(req.params.id).then(post => {
+        User.findById(req.params.user_id).then(user => {
+            post.likers.push(user);
+            post.save().then(post => res.json(post));
+        }, err => res.status(404).json({userError: "User cannot be found"}));
+    }, err => res.status(404).json({postError: "Post does not exist"}));
 });
 
 router.get("/category/:category_name", (req, res) => {

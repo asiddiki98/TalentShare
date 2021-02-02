@@ -72,7 +72,7 @@ module.exports = (upload) => {
                 })
             }
         })
-    })
+    });
 
 
     return imageRouter;

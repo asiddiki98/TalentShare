@@ -63,7 +63,7 @@ const upload = multer({storage});
 
 // app.post('/upload', upload.single('file'))
 
-app.use('/', imageRouter(upload));
+app.use('/images', imageRouter(upload));
 app.use("/api/posts", posts)
 
 const port = process.env.PORT || 5000;
