@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import MainPage from './main_page';
 import { fetchPosts } from '../../actions/post_actions'
+import { fetchAllUsers } from '../../actions/user_actions'
 
 const mstp = ({ entities: { posts } }) => {
   let postCollection;
@@ -12,7 +13,8 @@ const mstp = ({ entities: { posts } }) => {
 
 const mdtp = dispatch => {
   return {
-    fetchPosts: () => dispatch(fetchPosts())
+    fetchPosts: () => dispatch(fetchPosts()),
+    fetchAllUsers: () => dispatch(fetchAllUsers())
   };
 };
 
