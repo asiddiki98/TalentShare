@@ -23,3 +23,4 @@ export const fetchPosts = () => {
 export const fetchUserPosts = userId => (
   axios.get(`/api/posts/creator/${userId}`)
 )
+
