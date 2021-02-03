@@ -7,10 +7,10 @@ const mstp = (state, ownProps) => {
   };
 }
 
-const mapDispatchtoProps = dispatch => {
-  return {
-    null: null
-  };
-};
+// const mapDispatchtoProps = dispatch => {
+//   return {
+//     null: null
+//   };
+// };
 
 export default connect(mstp,null)(MainPage);

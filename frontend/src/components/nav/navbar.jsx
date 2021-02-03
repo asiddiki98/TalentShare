@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import NavLogo from '../../assets/images/talentsharelight.png'
 
 class NavBar extends React.Component {
@@ -20,7 +20,7 @@ class NavBar extends React.Component {
 
     return (
       <div>
-        <img onClick={() => this.props.fetchPosts()} className="nav-logo" src={NavLogo} />
+        <img onClick={() => this.props.fetchPosts()} className="nav-logo" src={NavLogo} alt='' />
         <div onClick={() => this.props.fetchArt()}>Art</div>
         <div onClick={() => this.props.fetchPhotography()}>Photography</div>
         <div onClick={() => this.props.fetchMusic()}>Music</div>
