@@ -7,6 +7,8 @@ import {
 
 const mSTP = (state, ownProps) => {
   return {
+    users: state.entities.users,
+    artist: ownProps.artist.id,
     post: ownProps.post
   }
 }
