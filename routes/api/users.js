@@ -113,4 +113,20 @@ router.get("/", (req, res) => {
     User.find().then(users => res.json(users), err => res.status(404).json({userError: "No users found"}));
 });
 
+router.post("/:id/followers/:user_id", (req, res) => {
+    User.findById(req.params.id).then(user => {
+        if(user.followers.indexOf(req.params.user_id) === -1) user.followers.push(req.params.user_id);
+        user.save().then(user => res.json(user));
+    }, err => res.status(404).json({userError: "user does not exist"}));
+});
+
+router.delete("/:id/followers/:user_id", (req, res) => {
+    User.findById(req.params.id).then(user => {
+        const index = user.followers.indexOf(req.params.user_id);
+        if (index !== -1) user.followers.splice(index, 1);
+        
+        user.save().then(user => res.json(user));
+    }, err => res.status(404).json({userError: "user does not exist"}));
+});
+
 module.exports = router;
