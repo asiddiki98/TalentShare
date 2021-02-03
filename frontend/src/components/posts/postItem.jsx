@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 export default class PostItem extends React.Component {
   constructor(props) {
     super(props);
+    this.handleMessage = this.handleMessage.bind(this);
   }
 
   renderContent(){
@@ -43,6 +44,20 @@ export default class PostItem extends React.Component {
 
     return null;
   }
+
+  handleMessage(e){
+    // debugger
+    let message = {
+      body: "initiate",
+      sender: this.props.currentUser.id,
+      receiver: this.props.artist.id,
+      initialConnectingMessage: true
+    }
+    // debugger
+    this.props.sendMessage(message).then(() =>{
+      this.props.clickMessage(this.props.artist.id)
+    })
+  }
   
   render() {
     return(
@@ -50,6 +65,7 @@ export default class PostItem extends React.Component {
 
         <div className="post-header">
           <Link to={`/portfolios/${this.props.artist.id}`}>Artist Name</Link>
+          <button onClick={this.handleMessage}>Send Message</button>
         </div>
 
         <div className="post-content">

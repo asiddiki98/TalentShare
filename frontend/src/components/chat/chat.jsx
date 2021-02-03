@@ -15,11 +15,13 @@ export default class Chat extends React.Component{
             dispChats: [],
             isMounted: false
         }
+
+        this.handleCloseChat = this.handleCloseChat.bind(this);
         
     }
 
     componentDidMount(){
-        this.props.fetchMessages(this.props.currentUser._id)
+        this.props.fetchMessages(this.props.currentUser.id)
         this.socket = openSocket('http://localhost:8000',{
             withCredentials: true,
             extraHeaders: {
@@ -29,6 +31,7 @@ export default class Chat extends React.Component{
         });
         this.socket.emit("connect user", this.props.currentUser._id)
         this.socket.on('chat message', message => {
+            debugger
             this.props.receiveMessage(message)
         })
         this.setState({isMounted: true})
@@ -37,6 +40,18 @@ export default class Chat extends React.Component{
 
     componentWillUnmount(){
         this.socket.emit("disconnect user", this.props.currentUser._id)
+    }
+
+    componentDidUpdate(oldProps){
+        if (this.props.openMessagingWith && oldProps.openMessagingWith !== this.props.openMessagingWith ){
+            let dispChats = this.state.dispChats;
+            if(!dispChats.includes(this.props.openMessagingWith)){
+
+                dispChats.push(this.props.openMessagingWith)
+            }
+            this.setState({dispChats});
+            this.props.openedMessage();
+        }
     }
 
     handleChatClick(userId){
@@ -65,8 +80,9 @@ export default class Chat extends React.Component{
                 
                 <div id="chatbox-list">
                         <ul>
-                            {
+                            {   
                                 this.state.dispChats.map((otherUserId,idx) => {
+                                    // debugger
                                     return <ChatBox otherUser={this.props.otherUsers[otherUserId]}
                                         currentUser={this.props.currentUser}
                                         messages={this.props.messages[otherUserId]}
@@ -84,14 +100,17 @@ export default class Chat extends React.Component{
         return(
             <div id="chat">
                 <div id="open-chats-container">
+                    <h1>messages</h1>
                     <ul>
                         {
+                            this.props.otherUsers ? 
                             Object.values(this.props.otherUsers).map((user,idx) => {
+                                // debugger
                                 return <li onClick={this.handleChatClick(user._id)} 
                                         key={user._id}>
                                         {user.username}
                                     </li>
-                            })
+                            }) : null
                         }
                     </ul>
                 </div>

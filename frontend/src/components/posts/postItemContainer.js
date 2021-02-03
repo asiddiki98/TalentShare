@@ -4,10 +4,13 @@ import {
   likePost,
   deletePost
 } from '../../actions/post_actions';
+import { sendInitialMessage } from '../../actions/message_action';
+import { clickMessage } from '../../actions/filter_action';
 
 const mSTP = (state, ownProps) => {
   return {
-    post: ownProps.post
+    post: ownProps.post,
+    currentUser: state.session.user
   }
 }
 
@@ -15,7 +18,10 @@ const mDTP = dispatch => {
   return {
     likePost: (post) => dispatch(likePost(post)),
     // unlikePost: (post) => dispatch(unlikePost(post)),
-    deletePost: (post) => dispatch(deletePost(post))
+    deletePost: (post) => dispatch(deletePost(post)),
+    sendMessage: message => dispatch(sendInitialMessage(message)),
+    clickMessage: userId => dispatch(clickMessage(userId)),
+    
   }
 }
 

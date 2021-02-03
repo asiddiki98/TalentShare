@@ -13,21 +13,23 @@ export default class ChatBox extends React.Component{
 
     updateBody(e){
         e.preventDefault();
-        this.setState({body: e.target.body})
+        this.setState({body: e.target.value})
     }
 
     handleSubmit(e){
         e.preventDefault();
- 
-        this.props.socket.emit('chat message', 
-            {body: this.state.body,
-                sender: this.props.currentUser._id,
+        const message = {body: this.state.body,
+                sender: this.props.currentUser.id,
                 receiver: this.props.otherUser._id,
                 initialConnectingMessage: false
-            })
+            }
+        debugger
+        this.props.socket.emit('chat message', message);
+        this.setState({body: ""})
     }
 
     render(){
+        // debugger
         return(
             <div>
                 <div className="chatbox-header">
@@ -37,8 +39,10 @@ export default class ChatBox extends React.Component{
                 <div className="chatbox-message-container">
                     <ul>
                         {
-                            this.props.messages.map((message,idx) => {
-                                return <li key={idx}>{message}</li>
+                            this.props.messages.filter(message => {
+                                return !message.initialConnectingMessage
+                            }).map((message,idx) => {
+                                return <li key={idx}>{message.body}</li>
                             })
                         }
                     </ul>

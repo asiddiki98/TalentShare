@@ -41,7 +41,7 @@ const io = require('socket.io')(http, {
     }
 });
 io.on('connection', function(socket){
-    debugger
+    // debugger
     console.log('user is connected');
     socket.on('disconnect', function(){
         console.log('user disconnected');
@@ -52,8 +52,8 @@ io.on('connection', function(socket){
     socket.on('chat message', function(msg) {
         const newMessage = new Message(msg)
         newMessage.save().then(msg => {
-            io.to(msg.sender).emit('chat message', msg)
-            io.to(msg.receiver).emit('chat message', msg)
+            io.emit('chat message', msg)
+            io.emit('chat message', msg)
         })
         
     })
