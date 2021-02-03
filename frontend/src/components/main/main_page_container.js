@@ -1,19 +1,16 @@
 import { connect } from 'react-redux';
 import MainPage from './main_page';
 
-const mapStatetoProps = (state, ownProps) => {
+const mstp = (state, ownProps) => {
   return {
-    null: null
+    posts: state.entities.posts
   };
 }
 
-const mapDispatchtoProps = dispatch => {
-  return {
-    null: null
-  };
-};
+// const mapDispatchtoProps = dispatch => {
+//   return {
+//     null: null
+//   };
+// };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchtoProps
-)(MainPage);
+export default connect(mstp,null)(MainPage);

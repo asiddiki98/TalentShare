@@ -11,10 +11,10 @@ export const receivePosts = posts => {
   }
 }
 
-export const receivePost = payload => {
+export const receivePost = post => {
   return {
     type: RECEIVE_POST,
-    post: payload.post
+    post
   }
 }
 
@@ -26,7 +26,7 @@ export const receiveErrors = errors => ({
 export const fetchPosts = () => dispatch => {
   return (
     CategoryAPIUtil.fetchPosts().then(
-      posts => (dispatch(receivePosts(posts))),
+      res => (dispatch(receivePosts(res.data))),
       err => (dispatch(receiveErrors(err.response.data)))
     )
   )
@@ -35,7 +35,7 @@ export const fetchPosts = () => dispatch => {
 export const fetchArt = () => dispatch => {
   return (
     CategoryAPIUtil.fetchArt().then(
-      posts => (dispatch(receivePosts(posts))),
+      res => (dispatch(receivePosts(res.data.posts))),
       err => (dispatch(receiveErrors(err.response.data)))
     )
   )
@@ -44,7 +44,7 @@ export const fetchArt = () => dispatch => {
 export const fetchDance = () => dispatch => {
   return (
     CategoryAPIUtil.fetchDance().then(
-      posts => (dispatch(receivePosts(posts))),
+      res => (dispatch(receivePosts(res.data.posts))),
       err => (dispatch(receiveErrors(err.response.data)))
     )
   )
@@ -53,7 +53,7 @@ export const fetchDance = () => dispatch => {
 export const fetchMusic = () => dispatch => {
   return (
     CategoryAPIUtil.fetchMusic().then(
-      posts => (dispatch(receivePosts(posts))),
+      res => (dispatch(receivePosts(res.data.posts))),
       err => (dispatch(receiveErrors(err.response.data)))
     )
   )
@@ -62,7 +62,7 @@ export const fetchMusic = () => dispatch => {
 export const fetchPhotography = () => dispatch => {
   return (
     CategoryAPIUtil.fetchPhotography().then(
-      posts => (dispatch(receivePosts(posts))),
+      res => (dispatch(receivePosts(res.data.posts))),
       err => (dispatch(receiveErrors(err.response.data)))
     )
   )
