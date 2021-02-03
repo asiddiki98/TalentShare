@@ -23,7 +23,6 @@ class PostIndex extends React.Component{
     let display;
 
     if (this.props.posts){
-      debugger
       display = this.props.posts.map((post) => { this.renderPost(post) })
     } else {
       return null;
