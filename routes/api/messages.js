@@ -18,12 +18,14 @@ router.get("/user/:user_id", passport.authenticate('jwt', {session: false}), (re
 
 //only used for initial messaging
 router.post("/", passport.authenticate('jwt',{session: false}), (req,res) => {
+    
     const newMessage = new Message({
         body: req.body.body,
         sender: req.body.sender,
         receiver: req.body.receiver,
         initialConnectingMessage: true
     })
+    // debugger
     newMessage.save().then(message => res.json(message))
 })
 

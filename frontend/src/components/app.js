@@ -8,6 +8,7 @@ import MainPageContainer from './main/main_page_container';
 import "../assets/reset.css";
 
 import PortfolioContainer from './portfolio/portfolio_container';
+import ChatContainer from './chat/chat_container';
 
 const App = () => (
   <div>
@@ -18,6 +19,7 @@ const App = () => (
       <ProtectedRoute exact path="/portfolio/:user_id" component={PortfolioContainer} />
       <AuthRoute path="/signup" component={SignupFormContainer} />
     </Switch>
+    <ProtectedRoute path="/" component={ChatContainer} />
   </div>
 );
 

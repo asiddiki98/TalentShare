@@ -1,5 +1,6 @@
 export const parseMessages = state => {
-    const currentUser = state.session.user._id;
+    // debugger
+    const currentUser = state.session.user.id;
     const chats = {};
     Object.values(state.entities.messages).forEach(message => {
         if(message.sender === currentUser){
@@ -10,13 +11,14 @@ export const parseMessages = state => {
             chats[message.sender].push(message);
         }
     })
-
+    // debugger
     return chats;
 
 }
 
 export const getUsers = state => {
-    const currentUser = state.session.user._id;
+    // debugger
+    const currentUser = state.session.user.id;
     const otherUsersIds = {};
     Object.values(state.entities.messages).forEach(message => {
         if(message.sender === currentUser){
@@ -25,10 +27,12 @@ export const getUsers = state => {
             otherUsersIds[message.sender] = true;
         }
     })
+    // debugger
 
     const otherUsers = {};
     Object.keys(otherUsersIds).forEach(userId => {
-        otherUsers[userId] = state.users[userId]
+        otherUsers[userId] = state.entities.users[userId]
     })
+    // debugger
     return otherUsers;
 }
