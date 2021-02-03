@@ -31,6 +31,7 @@
     "multer-gridfs-storage": "^4.2.0",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
+    "socket.io": "^3.1.0",
     "validator": "^13.5.2"
   },
   "devDependencies": {

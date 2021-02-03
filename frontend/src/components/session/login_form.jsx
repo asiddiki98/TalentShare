@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
-import '../../assets/session.css'
+import '../../assets/session.css';
+import Chat from '../chat/chat'
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -85,6 +86,8 @@ class LoginForm extends React.Component {
           </div>  
           
         </form>
+
+        <Chat />
       </div>
     );
   }

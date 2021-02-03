@@ -11,6 +11,8 @@ const keys = require('./config/keys');
 const path = require("path");
 const Post = require('./models/Post');
 const posts = require("./routes/api/posts");
+const Message = require('./models/Message');
+const messages = require('./routes/api/messages')
 const passport = require('passport');
 
 const crypto = require('crypto');
@@ -29,6 +31,33 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 app.use(cors());
+const http = require('http').Server(app);
+const io = require('socket.io')(http, {
+    cors: {
+        origin: "http://localhost:3000",
+        methods: ["GET", "POST"],
+        credentials: true
+    }
+});
+io.on('connection', function(socket){
+    debugger
+    console.log('user is connected');
+    socket.on('disconnect', function(){
+        console.log('user disconnected');
+    });
+    socket.on("connect user", socket.join);
+    socket.on("disconnect user", socket.leave);
+    
+    socket.on('chat message', function(msg) {
+        const newMessage = new Message(msg)
+        newMessage.save().then(msg => {
+            io.to(msg.sender).emit('chat message', msg)
+            io.to(msg.receiver).emit('chat message', msg)
+        })
+        
+    })
+})
+io.listen(8000);
 
 mongoose
     .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -71,6 +100,7 @@ const upload = multer({storage});
 
 app.use('/content', imageRouter(upload));
 app.use("/api/posts", posts)
+app.use('/api/messages', messages)
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
