@@ -3,10 +3,10 @@ import React from 'react'
 import { likePost, unlikePost } from '../../actions/post_actions'
 
 class Likes extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props)
 
-        if (this.props.likers.includes(this.props.userId)){
+        if (this.props.likers.includes(this.props.userId)) {
             this.state = {
                 liked: true
             }
@@ -18,8 +18,8 @@ class Likes extends React.Component {
         this.handleClick = this.handleClick.bind(this)
     }
 
-    handleClick(){
-        if (this.state.liked  === true){
+    handleClick() {
+        if (this.state.liked === true) {
             this.props.unlikePost(this.props.postId, this.props.userId)
             this.setState({
                 liked: false
@@ -32,7 +32,7 @@ class Likes extends React.Component {
         }
     }
 
-    render(){
+    render() {
         return (
             <p onClick={() => this.handleClick()}>{this.props.likers.length} likes</p>
         )

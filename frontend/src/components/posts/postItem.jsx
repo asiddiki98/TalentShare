@@ -79,6 +79,7 @@ export default class PostItem extends React.Component {
 
         <div className="post-content">
           {this.renderContent()}
+          <Likes likers={this.props.post.likers} postId={this.props.post._id}/>
         </div>
         <Likes likers={this.props.post.likers} postId={this.props.post._id}/>
       </div>
