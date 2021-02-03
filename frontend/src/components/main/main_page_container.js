@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import MainPage from './main_page';
 
 const mstp = ({ posts }) => {
-  let postCollection = Object.values(posts);
+  let postCollection;
+  posts ? postCollection = Object.values(posts) : postCollection = null
   return {
     posts: postCollection
   };
