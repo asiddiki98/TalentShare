@@ -67,7 +67,7 @@ export default class Chat extends React.Component{
                         <ul>
                             {
                                 this.state.dispChats.map((otherUserId,idx) => {
-                                    <ChatBox otherUser={this.props.otherUsers[otherUserId]}
+                                    return <ChatBox otherUser={this.props.otherUsers[otherUserId]}
                                         currentUser={this.props.currentUser}
                                         messages={this.props.messages[otherUserId]}
                                         receiveMessage={this.props.receiveMessage}

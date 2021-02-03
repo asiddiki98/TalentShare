@@ -87,7 +87,7 @@ class LoginForm extends React.Component {
           
         </form>
 
-        <Chat />
+        {/* <Chat /> */}
       </div>
     );
   }
