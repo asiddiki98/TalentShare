@@ -33,10 +33,13 @@ router.patch("/:id", (req, res) => {
 
 router.patch("/:id/liker/:user_id", (req, res) => {
     Post.findById(req.params.id).then(post => {
-        User.findById(req.params.user_id).then(user => {
-            post.likers.push(user);
-            post.save().then(post => res.json(post));
-        }, err => res.status(404).json({userError: "User cannot be found"}));
+        
+        post.likers.push(req.params.user_id);
+        post.save().then(post => res.json(post));
+        // User.findById(req.params.user_id).then(user => {
+        //     post.likers.push(user);
+        //     post.save().then(post => res.json(post));
+        // }, err => res.status(404).json({userError: "User cannot be found"}));
     }, err => res.status(404).json({postError: "Post does not exist"}));
 });
 

@@ -6,7 +6,6 @@ const db = require('./config/keys').mongoURI;
 const users = require("./routes/api/users");
 const bodyParser = require('body-parser');
 const User = require("./models/User");
-const fileUploadRoutes = require("./routes/fileUploadRoutes");
 const cors = require('cors');
 const keys = require('./config/keys');
 const path = require("path");
