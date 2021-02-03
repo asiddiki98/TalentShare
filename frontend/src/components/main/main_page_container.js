@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
 import MainPage from './main_page';
 
-const mstp = (state, ownProps) => {
+const mstp = ({ posts }) => {
+  let postCollection = Object.values(posts);
   return {
-    posts: state.entities.posts
+    posts: postCollection
   };
 }
 
@@ -13,4 +14,4 @@ const mstp = (state, ownProps) => {
 //   };
 // };
 
-export default connect(mstp,null)(MainPage);
+export default connect(mstp, null)(MainPage);

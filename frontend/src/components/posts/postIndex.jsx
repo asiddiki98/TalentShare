@@ -1,41 +1,39 @@
 import React from 'react';
+import PostItemContainer from './postItemContainer'
 
 class PostIndex extends React.Component{
   constructor(props) {
     super(props);
-    // this.renderPost = this.renderPost.bind(this);
+    this.renderPost = this.renderPost.bind(this);
   };
 
-  // renderPost(post) {
-  //   return (
-  //     <PostItemContainer
-  //       key=post.
-  //     />
-  //   )
-  // };
+  renderPost(post) {
+    return (
+      <PostItemContainer
+        key={post._id}
+        post={post}
+        author={
+          { id: post.creator }
+        }
+      />
+    )
+  };
 
   render(){
     let display;
+
     if (this.props.posts){
-      display = this.props.posts.map((post,idx) => {
-        return (
-          <div>
-            <video key={`post-${idx}`} src={`/content/video/${post.filename}`} controls ></video>
-            {post._id}
-          </div>
-        )
-      })    
+      display = this.props.posts.map((post) => { this.renderPostItem(post) })
     } else {
       return null;
     }
 
     return (
-      <div>
+      <div className="post-index">
         {display}
       </div>
     ) 
   }
-
 }
 
 export default PostIndex;
