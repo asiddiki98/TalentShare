@@ -31,15 +31,23 @@ router.patch("/:id", (req, res) => {
     }, err => res.status(404).json({postError: "Post does not exist"}));
 });
 
-router.patch("/:id/liker/:user_id", (req, res) => {
+router.post("/:id/liker/:user_id", (req, res) => {
     Post.findById(req.params.id).then(post => {
-        
-        post.likers.push(req.params.user_id);
+        if(post.likers.indexOf(req.params.user_id) === -1) post.likers.push(req.params.user_id);
         post.save().then(post => res.json(post));
         // User.findById(req.params.user_id).then(user => {
         //     post.likers.push(user);
         //     post.save().then(post => res.json(post));
         // }, err => res.status(404).json({userError: "User cannot be found"}));
+    }, err => res.status(404).json({postError: "Post does not exist"}));
+});
+
+router.delete("/:id/liker/:user_id", (req, res) => {
+    Post.findById(req.params.id).then(post => {
+        const index = post.likers.indexOf(req.params.user_id);
+        if (index !== -1) post.likers.splice(index, 1);
+        
+        post.save().then(post => res.json(post));
     }, err => res.status(404).json({postError: "Post does not exist"}));
 });
 
