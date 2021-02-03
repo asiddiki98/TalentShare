@@ -5,6 +5,7 @@ import NavBarContainer from './nav/navbar_container';
 import SplashContainer from './session/splash_container';
 import SignupFormContainer from './session/signup_form_container';
 import MainPageContainer from './main/main_page_container';
+import '../assets/reset.css'
 
 const App = () => (
   <div>

@@ -18,7 +18,7 @@ class LoginForm extends React.Component {
 
   UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.currentUser === true) {
-      this.props.history.push('/tweets');
+      this.props.history.push('/browse');
     }
 
     this.setState({ errors: nextProps.errors })
