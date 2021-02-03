@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import NavLogo from '../../assets/images/talentsharelight.png';
 import SearchBar from './search';
 import '../../assets/nav.css'
@@ -49,7 +49,7 @@ class NavBar extends React.Component {
         <div onClick={this.handleClick} ref={div => this.dropDown = div} >
           <img className='nav-profile-image' src={`content/image/${this.props.propic}`} alt='' /> 
           {!this.state.hidden && <div className="dropdown-contents" onClick={e => e.stopPropagation()}>
-            <div>profile</div>
+            <Link to="/portfolio" >Portfolio</Link>
             <div className="divider"></div>
             <div>notifications</div>
             <div className="divider"></div>
