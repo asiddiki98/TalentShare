@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import Likes from '../interactions/likes'
 
 export default class PostItem extends React.Component {
   constructor(props) {
@@ -70,6 +71,7 @@ export default class PostItem extends React.Component {
 
         <div className="post-content">
           {this.renderContent()}
+          <Likes likers={this.props.post.likers} postId={this.props.post._id}/>
         </div>
 
       </div>
