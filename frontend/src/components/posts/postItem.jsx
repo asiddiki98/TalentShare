@@ -6,19 +6,56 @@ export default class PostItem extends React.Component {
     super(props);
   }
 
-  // renderPhoto(){
+  renderContent(){
+    const photoTypes = ["jpg", "jpeg", "png"];
+    const videoTypes = ["mp4", "mov"];
+    const audioTypes = ["mp3", "wav"];
 
-  // }
+    let fileType = this.props.post.filename.split('.')[1];
+    let fileName = this.props.post.filename;
+
+    if (photoTypes.includes(fileType)) {
+      return (
+        <img
+          className="post-photo"
+          src={`/content/image/${fileName}`}
+        />
+      )
+    }
+
+    if (videoTypes.includes(fileType)) {
+      return (
+        <video
+          className="post-video"
+          src={`/content/video/${fileName}`}
+        />
+      )
+    }
+
+    if (audioTypes.includes(fileType)) {
+      return (
+        <audio
+          className="post-audio"
+          src={`/content/audio/${fileName}`}
+        />
+      )
+    }
+
+    return null;
+  }
   
-  // renderVideo(){
-
-  // }
-
   render() {
     return(
       <div className="post-container">
-        <video src={`/content/video/${this.props.post.filename}`} controls ></video>
-        {this.props.post._id}
+
+        <div className="post-header">
+          <Link to={`/portfolios/${this.props.artist.id}`}>Artist Name</Link>
+        </div>
+
+        <div className="post-content">
+          {this.renderContent()}
+        </div>
+
       </div>
     )
   }
