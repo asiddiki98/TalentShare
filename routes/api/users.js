@@ -17,8 +17,6 @@ router.get('/current', passport.authenticate('jwt', {session: false}), (req, res
   });
 })
 
-router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
-
 router.post('/register', (req, res) => {
     const { errors, isValid } = validateRegisterInput(req.body);
     // Check to make sure nobody has already registered with a duplicate email
@@ -102,6 +100,33 @@ router.post('/login', (req, res) => {
 
 router.get("/:id", (req, res) => {
     User.findById(req.params.id).then(user => res.json(user), err => res.status(404).json({userError: "user does not exist"}))
+});
+
+router.post("/:id/followers/:follower_id", (req, res) => {
+    User.findById(req.params.id).then(user => {
+        user.followers.push(req.params.follower_id);
+        user.save().then(user => res.json(user));
+    }, err => res.status(404).json({userError: "User does not exist"}));
+});
+
+router.get("/", (req, res) => {
+    User.find().then(users => res.json(users), err => res.status(404).json({userError: "No users found"}));
+});
+
+router.post("/:id/followers/:user_id", (req, res) => {
+    User.findById(req.params.id).then(user => {
+        if(user.followers.indexOf(req.params.user_id) === -1) user.followers.push(req.params.user_id);
+        user.save().then(user => res.json(user));
+    }, err => res.status(404).json({userError: "user does not exist"}));
+});
+
+router.delete("/:id/followers/:user_id", (req, res) => {
+    User.findById(req.params.id).then(user => {
+        const index = user.followers.indexOf(req.params.user_id);
+        if (index !== -1) user.followers.splice(index, 1);
+        
+        user.save().then(user => res.json(user));
+    }, err => res.status(404).json({userError: "user does not exist"}));
 });
 
 module.exports = router;

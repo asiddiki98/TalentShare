@@ -5,6 +5,9 @@ import NavBarContainer from './nav/navbar_container';
 import SplashContainer from './session/splash_container';
 import SignupFormContainer from './session/signup_form_container';
 import MainPageContainer from './main/main_page_container';
+import "../assets/reset.css";
+
+import PortfolioContainer from './portfolio/portfolio_container';
 
 const App = () => (
   <div>
@@ -12,6 +15,7 @@ const App = () => (
     <Switch>
       <AuthRoute exact path="/" component={SplashContainer} />
       <ProtectedRoute path="/browse" component={MainPageContainer} />
+      <ProtectedRoute path="/portfolio" component={PortfolioContainer} />
       <AuthRoute path="/signup" component={SignupFormContainer} />
     </Switch>
   </div>

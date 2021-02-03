@@ -26,12 +26,28 @@ router.patch("/:id", (req, res) => {
     }, err => res.status(404).json({commentError: "comment does not exist"}));
 });
 
-router.patch("/:id/liker/:user_id", (req, res) => {
+// router.patch("/:id/liker/:user_id", (req, res) => {
+//     Comment.findById(req.params.id).then(comment => {
+//         User.findById(req.params.user_id).then(user => {
+//             comment.likers.push(user);
+//             comment.save().then(comment => res.json(comment));
+//         }, err => res.status(404).json({userError: "User cannot be found"}));
+//     }, err => res.status(404).json({commentError: "comment does not exist"}));
+// });
+
+router.post("/:id/liker/:user_id", (req, res) => {
     Comment.findById(req.params.id).then(comment => {
-        User.findById(req.params.user_id).then(user => {
-            comment.likers.push(user);
-            comment.save().then(comment => res.json(comment));
-        }, err => res.status(404).json({userError: "User cannot be found"}));
+        if(comment.likers.indexOf(req.params.user_id) === -1) comment.likers.push(req.params.user_id);
+        comment.save().then(comment => res.json(comment));
+    }, err => res.status(404).json({commentError: "comment does not exist"}));
+});
+
+router.delete("/:id/liker/:user_id", (req, res) => {
+    Comment.findById(req.params.id).then(comment => {
+        const index = comment.likers.indexOf(req.params.user_id);
+        if (index !== -1) comment.likers.splice(index, 1);
+        
+        comment.save().then(comment => res.json(comment));
     }, err => res.status(404).json({commentError: "comment does not exist"}));
 });
 
@@ -53,7 +69,7 @@ router.post("/", passport.authenticate('jwt', {session: false}), (req, res) => {
 });
 
 router.delete("/:id", (req,res) => {
-    Comment.remove({_id: req.params.id,}).then(() => res.json({msg: 'Successfully removed'}), err => res.status(404).json({commentError: "Something went wrong"}));
+    Comment.remove({ _id: req.params.id, }).then(() => res.json({ commentId: req.params.id}), err => res.status(404).json({commentError: "Something went wrong"}));
 })
 
 module.exports = router;

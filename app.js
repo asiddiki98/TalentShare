@@ -13,6 +13,7 @@ const Post = require('./models/Post');
 const posts = require("./routes/api/posts");
 const Message = require('./models/Message');
 const messages = require('./routes/api/messages')
+const comments = require("./routes/api/comments");
 const passport = require('passport');
 
 const crypto = require('crypto');
@@ -101,6 +102,8 @@ const upload = multer({storage});
 app.use('/content', imageRouter(upload));
 app.use("/api/posts", posts)
 app.use('/api/messages', messages)
+
+app.use("/api/comments", comments);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server is running on port ${port}`));

@@ -19,3 +19,8 @@ export const fetchPhotography = () => {
 export const fetchPosts = () => {
   return axios.get('/api/posts')
 }
+
+export const fetchUserPosts = userId => {
+  return axios.get(`/api/posts/creator/${userId}`)
+}
+

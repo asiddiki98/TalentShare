@@ -31,10 +31,9 @@ router.patch("/:id", (req, res) => {
     }, err => res.status(404).json({postError: "Post does not exist"}));
 });
 
-router.patch("/:id/liker/:user_id", (req, res) => {
+router.post("/:id/liker/:user_id", (req, res) => {
     Post.findById(req.params.id).then(post => {
-        
-        post.likers.push(req.params.user_id);
+        if(post.likers.indexOf(req.params.user_id) === -1) post.likers.push(req.params.user_id);
         post.save().then(post => res.json(post));
         // User.findById(req.params.user_id).then(user => {
         //     post.likers.push(user);
@@ -43,12 +42,21 @@ router.patch("/:id/liker/:user_id", (req, res) => {
     }, err => res.status(404).json({postError: "Post does not exist"}));
 });
 
+router.delete("/:id/liker/:user_id", (req, res) => {
+    Post.findById(req.params.id).then(post => {
+        const index = post.likers.indexOf(req.params.user_id);
+        if (index !== -1) post.likers.splice(index, 1);
+        
+        post.save().then(post => res.json(post));
+    }, err => res.status(404).json({postError: "Post does not exist"}));
+});
+
 router.get("/category/:category_name", (req, res) => {
     Post.find({category: req.params.category_name}).then(posts => res.json({posts}), err => res.status(404).json({postError: "No posts found under this category"}));
 });
 
 
-router.post("/", passport.authenticate('jwt', {session: false}), (req, res) => {
+router.post("/", (req, res) => {
     const {errors, isValid} = validatePost(req.body);
 
     if (!isValid) {
@@ -67,7 +75,7 @@ router.post("/", passport.authenticate('jwt', {session: false}), (req, res) => {
 });
 
 router.delete("/:id", (req,res) => {
-    Post.remove({_id: req.params.id,}).then(() => res.json({msg: 'Successfully removed'}), err => res.status(404).json({postError: "Something went wrong"}));
+    Post.remove({_id: req.params.id,}).then(() => res.json({postId: req.params.id}), err => res.status(404).json({postError: "Something went wrong"}));
 })
 
 module.exports = router;

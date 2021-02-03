@@ -1,11 +1,19 @@
 import React from 'react';
-import PostIndexContainer from '../posts/postIndexContainer'
+import PostIndex from '../posts/postIndex';
 
 class MainPage extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
+  componentDidMount() {
+    this.props.fetchPosts();
+  }
+
   render() {
     return (
       <div>
-        <PostIndexContainer posts={this.props.posts} />
+        <PostIndex posts={this.props.posts} />
         {/* <FollowIndex /> */}
       </div>
     );
