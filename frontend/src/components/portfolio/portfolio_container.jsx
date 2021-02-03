@@ -18,8 +18,8 @@ const Portfolio = ({user, fetchUserPosts, posts}) => {
     )
 };
 
-const mstp = ({session, entities}) => ({
-    user: session.user,
+const mstp = ({entities}, ownProps) => ({
+    // user: entities[]
     posts: Object.values(entities.posts)
 });
 
