@@ -7,7 +7,7 @@ class PostIndex extends React.Component{
         if (this.props.posts){
             display = this.props.posts.map((post,idx) => {
                 return (
-                  <video key={`post-${idx}`} src={`/content/video/${post.filename}`} controls autoPlay></video>
+                  <video key={`post-${idx}`} src={`/content/video/${post.filename}`} controls ></video>
              
                 )
             })    

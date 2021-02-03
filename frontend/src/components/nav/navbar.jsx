@@ -1,7 +1,7 @@
 import React from 'react';
 // import { Link } from 'react-router-dom'
 import NavLogo from '../../assets/images/talentsharelight.png'
-
+import SearchBar from './search'
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
@@ -25,7 +25,9 @@ class NavBar extends React.Component {
         <div onClick={() => this.props.fetchPhotography()}>Photography</div>
         <div onClick={() => this.props.fetchMusic()}>Music</div>
         <div onClick={() => this.props.fetchDance()}>Dance</div>
+        <SearchBar /> 
         <button onClick={this.logoutUser}>logout</button>
+        
 
       </div>
     );

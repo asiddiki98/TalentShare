@@ -7,7 +7,7 @@ import {
   fetchPhotography,
   fetchPosts
 } from '../../actions/post_actions'
-import NavBar from './navbar';
+import NavBar from './navbar.jsx';
 
 const mapStateToProps = state => {
   return {
