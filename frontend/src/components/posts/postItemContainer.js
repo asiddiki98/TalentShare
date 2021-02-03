@@ -9,8 +9,9 @@ import { clickMessage } from '../../actions/filter_action';
 
 const mSTP = (state, ownProps) => {
   return {
-    post: ownProps.post,
-    currentUser: state.session.user
+    users: state.entities.users,
+    artist: ownProps.artist.id,
+    post: ownProps.post
   }
 }
 
