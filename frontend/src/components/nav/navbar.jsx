@@ -40,11 +40,11 @@ class NavBar extends React.Component {
     return (
       
       <div className="nav-bar">
-        <img className='nav-logo' onClick={() => this.props.fetchPosts()} src={NavLogo} alt='' />
-        <div onClick={() => this.props.fetchArt()}>Art</div>
-        <div onClick={() => this.props.fetchPhotography()}>Photography</div>
-        <div onClick={() => this.props.fetchMusic()}>Music</div>
-        <div onClick={() => this.props.fetchDance()}>Dance</div>
+        <Link to='/browse'><img className='nav-logo' onClick={() => this.props.fetchPosts()} src={NavLogo} alt='' /></Link>
+        <Link to='/browse'><div onClick={() => this.props.fetchArt()}>Art</div></Link>
+        <Link to='/browse'><div onClick={() => this.props.fetchPhotography()}>Photography</div></Link>
+        <Link to='/browse'><div onClick={() => this.props.fetchMusic()}>Music</div></Link>
+        <Link to='/browse'><div onClick={() => this.props.fetchDance()}>Dance</div></Link>
         <SearchBar /> 
         <div onClick={this.handleClick} ref={div => this.dropDown = div} >
           <img className='nav-profile-image' src={`content/image/${this.props.propic}`} alt='' /> 
