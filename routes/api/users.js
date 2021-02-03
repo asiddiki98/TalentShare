@@ -102,11 +102,15 @@ router.get("/:id", (req, res) => {
     User.findById(req.params.id).then(user => res.json(user), err => res.status(404).json({userError: "user does not exist"}))
 });
 
-router.patch("/:id/followers/:follower_id", (req, res) => {
+router.post("/:id/followers/:follower_id", (req, res) => {
     User.findById(req.params.id).then(user => {
         user.followers.push(req.params.follower_id);
         user.save().then(user => res.json(user));
     }, err => res.status(404).json({userError: "User does not exist"}));
+});
+
+router.get("/", (req, res) => {
+    User.find().then(users => res.json(users), err => res.status(404).json({userError: "No users found"}));
 });
 
 module.exports = router;
