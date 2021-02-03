@@ -7,7 +7,7 @@ const Portfolio = ({user, fetchUserPosts}) => {
     return (
         <div className="portfolio-container">
             <div className="profilepic">
-                <img src={`content/image/${user.propic}`}/>
+                <img src={`content/image/${user.propic}`} alt=''/>
             </div>
             <div>helloworld</div>
             <div className="edit-profile-button">Edit Profile</div>

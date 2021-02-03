@@ -16,18 +16,18 @@ class PostIndex extends React.Component{
 
   render(){
     let display;
-    if (this.props.posts){
-      display = this.props.posts.map((post,idx) => {
-        return (
-          <div>
-            <video key={`post-${idx}`} src={`/content/video/${post.filename}`} controls ></video>
-            {post._id}
-          </div>
-        )
-      })    
-    } else {
-      return null;
-    }
+    // if (this.props.posts){
+    //   display = this.props.posts.map((post,idx) => {
+    //     return (
+    //       <div>
+    //         {/* <video key={`post-${idx}`} src={`/content/video/${post.filename}`} controls ></video> */}
+    //         {/* {post._id} */}
+    //       </div>
+    //     )
+    //   })    
+    // } else {
+    //   return null;
+    // }
 
     return (
       <div>
