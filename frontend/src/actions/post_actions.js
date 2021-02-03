@@ -67,3 +67,12 @@ export const fetchPhotography = () => dispatch => {
     )
   )
 };
+
+export const fetchUserPosts = userId => dispatch => {
+  return (
+    CategoryAPIUtil.fetchUserPosts(userId).then(
+      res => (dispatch(receivePosts(res.data))),
+      err => (dispatch(receiveErrors(err.response.data)))
+    )
+  )
+};
