@@ -99,4 +99,9 @@ router.post('/login', (req, res) => {
         })
 })
 
+
+router.get("/:id", (req, res) => {
+    User.findById(req.params.id).then(user => res.json(user), err => res.status(404).json({userError: "user does not exist"}))
+});
+
 module.exports = router;
