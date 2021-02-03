@@ -20,7 +20,7 @@ export const fetchPosts = () => {
   return axios.get('/api/posts')
 }
 
-export const fetchUserPosts = userId => (
-  axios.get(`/api/posts/creator/${userId}`)
-)
+export const fetchUserPosts = userId => {
+  return axios.get(`/api/posts/creator/${userId}`)
+}
 
