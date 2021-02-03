@@ -119,10 +119,37 @@ export const likePost = (postId, userId) => dispatch => {
   )
 };
 
+export const unlikePost = (postId, userId) => dispatch => {
+  return (
+    PostAPIUtil.unlikePost(postId, userId).then(
+      res => (dispatch(receivePost(res.data))),
+      err => (dispatch(receiveErrors(err.response.data)))
+    )
+  )
+};
+
+export const postComments = (postId) => dispatch => {
+  return (
+    PostAPIUtil.postComments(postId).then(
+      res => (dispatch(receivePost(res.data))),
+      err => (dispatch(receiveErrors(err.response.data)))
+    )
+  )
+};
+
 export const deletePost = postId => dispatch => {
   return (
     PostAPIUtil.deletePost(postId).then(
       res => (dispatch(removePost(res.postId))),
+      err => (dispatch(receiveErrors(err.response.data)))
+    )
+  )
+}
+
+export const createPost = post => dispatch => {
+  return (
+    PostAPIUtil.createPost(post).then(
+      res => (dispatch(receivePost(res.data))),
       err => (dispatch(receiveErrors(err.response.data)))
     )
   )
