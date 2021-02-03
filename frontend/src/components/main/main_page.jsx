@@ -2,6 +2,14 @@ import React from 'react';
 import PostIndex from '../posts/postIndex';
 
 class MainPage extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
+  componentDidMount() {
+    this.props.fetchPosts();
+  }
+
   render() {
     return (
       <div>

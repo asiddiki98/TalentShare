@@ -1,10 +1,15 @@
 import { connect } from 'react-redux';
 import PostItem from './postItem';
-
 import {
   likePost,
   deletePost
 } from '../../actions/post_actions';
+
+const mSTP = (state, ownProps) => {
+  return {
+    post: ownProps.post
+  }
+}
 
 const mDTP = dispatch => {
   return {
@@ -14,4 +19,4 @@ const mDTP = dispatch => {
   }
 }
 
-export default connect(null, mDTP)(PostItem)
+export default connect(mSTP, mDTP)(PostItem)
