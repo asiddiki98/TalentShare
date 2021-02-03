@@ -4,7 +4,6 @@ import PostItemContainer from './postItemContainer'
 class PostIndex extends React.Component{
   constructor(props) {
     super(props);
-    this.renderPost = this.renderPost.bind(this);
   };
 
   renderPost(post) {
@@ -12,7 +11,7 @@ class PostIndex extends React.Component{
       <PostItemContainer
         key={post._id}
         post={post}
-        author={
+        artist={
           { id: post.creator }
         }
       />
@@ -23,7 +22,11 @@ class PostIndex extends React.Component{
     let display;
 
     if (this.props.posts){
-      display = this.props.posts.map((post) => { this.renderPost(post) })
+      display = this.props.posts.map((post) => { 
+        return (
+          this.renderPost(post)
+        )
+      })
     } else {
       return null;
     }

@@ -4,7 +4,7 @@ import {
   RECEIVE_POST
 } from '../../actions/post_actions';
 
-const initialState = [];
+const initialState = {};
 
 const PostsReducer = (state = initialState, action) => {
   Object.freeze(state);

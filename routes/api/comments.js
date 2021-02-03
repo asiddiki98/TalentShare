@@ -69,7 +69,7 @@ router.post("/", passport.authenticate('jwt', {session: false}), (req, res) => {
 });
 
 router.delete("/:id", (req,res) => {
-    Comment.remove({_id: req.params.id,}).then(() => res.json({msg: 'Successfully removed'}), err => res.status(404).json({commentError: "Something went wrong"}));
+    Comment.remove({ _id: req.params.id, }).then(() => res.json({ commentId: req.params.id}), err => res.status(404).json({commentError: "Something went wrong"}));
 })
 
 module.exports = router;
