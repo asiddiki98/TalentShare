@@ -1,17 +1,23 @@
 #chat{
-
+    background: transparent;
+    z-index: 8;
     position: fixed;
     right: 0px;
     bottom: 0px;
     display: flex;
     flex-direction: row-reverse;
+    align-items: flex-end;
     padding: 0 20px 0 20px;
 
     #open-chats-container{
+        background: white;
         box-sizing: border-box;
         width: 300px;
-        position: absolute;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
         bottom: 0px;
+        display: flex;
+        flex-direction: column-reverse;
         h1{
             font-size: 20px;
             font-weight: bold;
@@ -19,6 +25,7 @@
         }
 
         ul{
+            
             li{
                 box-sizing: border-box;
                 height: 50px;
@@ -26,6 +33,75 @@
             }
         }
         
-        
+
+    }
+    .chatbox-list{
+        background: transparent;
+        ul{
+            background: transparent;
+            display: flex;
+            flex-direction: row-reverse;
+            .chatbox{
+                background: white;
+                margin-right: 5px;
+                border: 1px #a3a1b1 solid;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+                height: 350px;
+                width: 250px;
+                display: flex;
+                flex-direction: column;
+                .chatbox-header{
+                    background-color: #5d5fa4;
+                    border-top-left-radius: 10px;
+                    border-top-right-radius: 10px;
+                    padding: 5px ;
+                    display: flex;
+                    justify-content: space-between;
+                    color: white;
+                }
+
+
+                .chatbox-message-container{
+                    height: 90%;
+                    ul{
+                        display: flex;
+                        flex-direction: column;
+                    }
+                }
+
+                .chatbox-input{
+                    
+                    
+                    form{
+
+                        align-self: flex-end;
+                        display: flex;
+                        button{
+                            align-self: flex-end;
+                            background-color: white;
+                            border: none;
+                            outline: none;
+                            width: 25px;
+                            height: 25px;
+                            box-sizing: border-box;
+                        }
+                        img{
+                            width: 25px;
+                            height: 25px;
+                        }
+                        .chatbox-input-area{
+                            border-radius: 15px;
+                            background-color: #dadde1;
+                            box-sizing: border-box;
+                            width: 220px;
+                            min-height: 25px;
+                            padding: 5px;
+                        }
+                        
+                    }
+                }
+            }
+        }
     }
 }
