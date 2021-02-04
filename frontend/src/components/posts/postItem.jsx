@@ -10,13 +10,14 @@ export default class PostItem extends React.Component {
   }
 
   renderContent(){
+
     const photoTypes = ["jpg", "jpeg", "png"];
     const videoTypes = ["mp4", "mov"];
     const audioTypes = ["mp3", "wav"];
 
     let fileType = this.props.post.filename.split('.')[1];
     let fileName = this.props.post.filename;
-
+    debugger
     if (photoTypes.includes(fileType)) {
       return (
         <img
@@ -58,6 +59,11 @@ export default class PostItem extends React.Component {
       this.props.clickMessage(this.props.artistId)
     })
   }
+  // componentDidUpdate(oldProps){
+  //   if (this.props.comments.length !== oldProps.comments.length){
+      
+  //   }
+  // }
   
   render() {
     let artist;
@@ -80,7 +86,7 @@ export default class PostItem extends React.Component {
         <div className="post-content">
           {this.renderContent()}
           <Likes likers={this.props.post.likers} postId={this.props.post._id}/>
-          <CommentIndex postId={this.props.post._id} /> 
+          <CommentIndex postId={this.props.post._id} comments={this.props.post.comments}/> 
         </div>
       </div>
     )

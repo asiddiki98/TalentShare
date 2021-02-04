@@ -4,10 +4,10 @@ import {
   fetchComment,
   likeComment,
   unlikeComment,
-  createComment,
   deleteComment,
     postComments
 } from '../../actions/comment_action'
+import { createComment } from '../../actions/post_actions'
 import CommentItem from './comment_item'
 
 
@@ -23,10 +23,9 @@ class CommentIndex extends React.Component{
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
-    componentDidMount(){
-        debugger
-        this.props.postComments(this.props.postId)
-    }
+    // componentDidMount(){
+    //     this.props.postComments(this.props.postId)
+    // }
 
     handleChange(field) {
         return (e) => {
@@ -54,6 +53,7 @@ class CommentIndex extends React.Component{
                   comment={comment}
                   postId={this.props.postId}
                   pfp={creator.propic}
+                  creator={creator}
                 />
             )
         })
@@ -76,7 +76,7 @@ const mstp = (state, ownProps) => {
     const comments = state.entities.comments;
     const postComments = Object.values(comments)
     return {
-      comments: postComments,
+    //   comments: postComments,
       currentUser: state.session.user.id,
       users: state.entities.users
     }

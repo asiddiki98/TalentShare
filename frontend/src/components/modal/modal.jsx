@@ -11,6 +11,9 @@ const Modal = ({modal, closeModal}) => {
         case 'editPortfolio':
             component = <EditPortfolio />;
             break;
+        // case 'createPost':
+        //     component = <CreatePostForm />;
+        //     break;
         default:
             return null;
     }

@@ -7,7 +7,6 @@ const commentReducer = (state = initialState, action) => {
     Object.freeze(state);
     switch (action.type) {
         case RECEIVE_COMMENTS:
-            debugger
             const comments = {};
             action.comments.forEach(element => { comments[element._id] = element })
             return comments;
