@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import {
   RECEIVE_CURRENT_USER,
   RECEIVE_USER_LOGOUT,

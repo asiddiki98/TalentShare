@@ -12,6 +12,7 @@ class Portfolio extends React.Component {
         this.props.fetchUserPosts(this.props.match.params.user_id);
     }
 
+
     render() {
         const {user, posts, editProfile, fetchUserPosts} = this.props;
         return !user ? null : (
@@ -19,6 +20,7 @@ class Portfolio extends React.Component {
                 <div className="profilepic">
                     <img src={`content/image/${user.propic}`} alt="" />
                 </div>
+                <div className="name">{user.firstname} {user.lastname}</div>
 
                 {editProfile}
 
