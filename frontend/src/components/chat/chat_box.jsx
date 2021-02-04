@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../assets/chat/chat.scss'
+import '../../assets/chat/chat_page.scss'
 import ContentEditable from 'react-contenteditable';
 
 export default class ChatBox extends React.Component{

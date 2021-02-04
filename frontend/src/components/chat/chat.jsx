@@ -74,6 +74,9 @@ export default class Chat extends React.Component{
     }
 
     render(){
+        if(this.props.location.pathname === "/chat"){
+            return null;
+        }
         let chatboxList = null;
         if(this.state.isMounted){
             chatboxList = (

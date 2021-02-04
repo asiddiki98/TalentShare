@@ -20,7 +20,7 @@ export const receiveUserErrors = (errors) => ({
 });
 
 export const fetchAllUsers = () => dispatch => {
-  UsersUtil.fetchAllUsers().then((res) => (
+  return UsersUtil.fetchAllUsers().then((res) => (
     dispatch(receiveAllUsers(res.data))
   ), err => (
     dispatch(receiveUserErrors(err.response.data))
