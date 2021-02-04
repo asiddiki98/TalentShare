@@ -56,7 +56,8 @@ router.get("/category/:category_name", (req, res) => {
 });
 
 
-router.post("/", passport.authenticate('jwt', {session: false}), (req, res) => {
+// router.post("/", passport.authenticate('jwt', {session: false}), (req, res) => {
+router.post("/", (req, res) => {
     const {errors, isValid} = validatePost(req.body);
 
     if (!isValid) {

@@ -23,6 +23,9 @@ const PostSchema = new Schema({
     },
     likers: {
         type: Array
+    },
+    comments: {
+        type: Array
     }
     
 }, {

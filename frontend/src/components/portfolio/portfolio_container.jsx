@@ -13,7 +13,7 @@ class Portfolio extends React.Component {
     }
 
     render() {
-        const {user, posts, editProfile} = this.props;
+        const {user, posts, editProfile, fetchUserPosts} = this.props;
         return !user ? null : (
             <div className="portfolio-container">
                 <div className="profilepic">
@@ -23,7 +23,7 @@ class Portfolio extends React.Component {
                 {editProfile}
 
                 <div className="bio">{user.bio}</div>
-                <PostIndex posts={posts} user={user} />
+                <PostIndex fetchUserPosts={fetchUserPosts} posts={posts} user={user} />
             </div>
         )
     }

@@ -2,6 +2,9 @@ import React from 'react';
 import PostItem from './post_item';
 
 export default class PostsIndex extends React.Component {
+    componentDidMount() {
+        this.props.fetchUserPosts(this.props.user.id);
+    }
    
     render() {
         return (
