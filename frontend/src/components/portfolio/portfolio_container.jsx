@@ -42,7 +42,8 @@ const mstp = ({entities}, ownProps) => {
 const mdtp = dispatch => ({
     fetchUserPosts: userId => dispatch(fetchUserPosts(userId)),
     fetchAllUsers: () => dispatch(fetchAllUsers()),
-    editProfile: (<div className="edit-profile-button" onClick={() => dispatch(openModal('editPortfolio'))}>Edit Profile</div>)
+    editProfile: (<div className="edit-profile-button" onClick={() => dispatch(openModal('editPortfolio'))}>Edit Profile</div>),
+    openModal: modal => dispatch(openModal('viewPost'))
 });
 
 

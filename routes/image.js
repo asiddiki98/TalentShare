@@ -74,11 +74,12 @@ module.exports = (upload) => {
             }
         })
     })
+
     imageRouter.route('/video/:filename').get((req, res) => {
         gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
             if (!file || file.length === 0) {
                 return res.status(404).json({
-                    err: 'No image exists'
+                    err: 'No video exists'
                 });
             }
 
@@ -88,7 +89,27 @@ module.exports = (upload) => {
                 readstream.pipe(res);
             } else {
                 res.status(404).json({
-                    err: 'Not an image'
+                    err: 'Not an video'
+                })
+            }
+        })
+    })
+
+    imageRouter.route('/audio/:filename').get((req, res) => {
+        gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
+            if (!file || file.length === 0) {
+                return res.status(404).json({
+                    err: 'No audio exists'
+                });
+            }
+
+            // if (file.contentType === 'video/mp4' || file.contentType === 'video/mov') {
+            if (file.contentType.includes('audio')) {
+                const readstream = gfs.createReadStream(file.filename);
+                readstream.pipe(res);
+            } else {
+                res.status(404).json({
+                    err: 'Not an audio'
                 })
             }
         })

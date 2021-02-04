@@ -77,7 +77,7 @@ export default class PostItem extends React.Component {
 
         <div className="post-header">
           <img className="post-profile-pic" src={`/content/image/${artist.propic}`} alt=""/>
-          <Link to={`/portfolios/${this.props.artist}`}>{artist.username}</Link>
+          <Link to={`/portfolios/${this.props.artist.id}`}>{artist.username}</Link>
           <button onClick={this.handleMessage}>Send Message</button>
           <p>{this.props.post.description}</p>
           <p>{this.props.post.createdAt.split('T')[0]}</p>
