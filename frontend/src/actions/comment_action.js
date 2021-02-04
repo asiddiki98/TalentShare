@@ -1,15 +1,24 @@
 import * as CommentAPIUtil from '../util/comment_util' 
 
+export const RECEIVE_COMMENTS = "RECEIVE_COMMENTS"
 export const RECEIVE_COMMENT = "RECEIVE_COMMENT"
 export const REMOVE_COMMENT = "REMOVE_COMMENT"
 export const RECEIVE_COMMENT_ERRORS = "RECEIVE_COMMENT_ERRORS"
 
 // REGULAR ACTION CREATORS 
 
+
+
 export const receiveComment = comment => {
     return {
         type: RECEIVE_COMMENT,
         comment
+    }
+}
+export const receiveComments = comments => {
+    return {
+        type: RECEIVE_COMMENTS,
+        comments
     }
 }
 
@@ -55,7 +64,7 @@ export const unlikeComment = (commentId, userId) => dispatch => {
 }
 export const createComment = (comment) => dispatch => {
     return (
-        CommentAPIUtil.postComment(comment).then(
+        CommentAPIUtil.createComment(comment).then(
             res => (dispatch(receiveComment(res.data))),
             err => (dispatch(receiveErrors(err.response.data)))
         )
@@ -79,3 +88,12 @@ export const editComment = (commentId) => dispatch => {
         )
     )
 }
+
+export const postComments = (postId) => dispatch => {
+    return (
+        CommentAPIUtil.postComments(postId).then(
+            res => (dispatch(receiveComments(res.data.comments))),
+            err => (dispatch(receiveErrors(err.response.data)))
+        )
+    )
+};

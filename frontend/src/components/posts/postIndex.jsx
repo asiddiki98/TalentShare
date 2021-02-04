@@ -9,7 +9,7 @@ class PostIndex extends React.Component{
   renderPost(post) {
     return (
       <PostItemContainer
-        key={post._id}
+        key={`post-${post._id}`}
         post={post}
         artist={
           { id: post.creator }

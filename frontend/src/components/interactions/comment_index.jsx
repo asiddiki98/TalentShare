@@ -5,9 +5,9 @@ import {
   likeComment,
   unlikeComment,
   createComment,
-  deleteComment
+  deleteComment,
+    postComments
 } from '../../actions/comment_action'
-import { postComments } from '../../actions/post_actions'
 import CommentItem from './comment_item'
 
 
@@ -24,6 +24,7 @@ class CommentIndex extends React.Component{
     }
 
     componentDidMount(){
+        debugger
         this.props.postComments(this.props.postId)
     }
 
@@ -46,8 +47,14 @@ class CommentIndex extends React.Component{
 
     render(){
         let display = this.props.comments.map((comment, idx) => {
+            const creator = this.props.users[comment.creator]
             return (
-                <CommentItem key={`comment-${idx}`} comment={comment}/>
+                <CommentItem
+                  key={`comment-${comment._id}`}
+                  comment={comment}
+                  postId={this.props.postId}
+                  pfp={creator.propic}
+                />
             )
         })
 
@@ -56,7 +63,7 @@ class CommentIndex extends React.Component{
            <div>
                {display}
                 <form onSubmit={this.handleSubmit}>
-               <input type="input" placeholder="comment on this post" value={this.state.content} onChange={this.handleChange("content")}/>
+                <input type="input" placeholder="comment on this post" value={this.state.content} onChange={this.handleChange("content")}/>
                 <button type="submit">post</button>
                </form>
            </div> 
@@ -66,14 +73,12 @@ class CommentIndex extends React.Component{
 }
 
 const mstp = (state, ownProps) => {
-    debugger
+    const comments = state.entities.comments;
+    const postComments = Object.values(comments)
     return {
-      comments: Object.values(state.entities.comments).filter(comment => {
-          return (
-            comment.post === ownProps.match
-          )
-      }),
-      currentUser: state.session.user.id
+      comments: postComments,
+      currentUser: state.session.user.id,
+      users: state.entities.users
     }
 }
 

@@ -78,7 +78,7 @@ export default class Chat extends React.Component{
         if(this.state.isMounted){
             chatboxList = (
                 
-                <div class="chatbox-list">
+                <div className="chatbox-list">
                         <ul>
                             {   
                                 this.state.dispChats.map((otherUserId,idx) => {
