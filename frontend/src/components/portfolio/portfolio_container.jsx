@@ -14,7 +14,7 @@ class Portfolio extends React.Component {
 
 
     render() {
-        const {user, posts, editProfile, fetchUserPosts} = this.props;
+        const {currentUser, user, posts, editProfile, fetchUserPosts} = this.props;
         return !user ? null : (
             <div className="portfolio-container">
                 <div className="profilepic">
@@ -22,7 +22,7 @@ class Portfolio extends React.Component {
                 </div>
                 <div className="name">{user.firstname} {user.lastname}</div>
 
-                {editProfile}
+                {currentUser.id === user._id ? editProfile : null}
 
                 <div className="bio">{user.bio}</div>
                 <PostIndex fetchUserPosts={fetchUserPosts} posts={posts} user={user} />
@@ -32,9 +32,11 @@ class Portfolio extends React.Component {
 }
    
 
-const mstp = ({entities}, ownProps) => {
+const mstp = ({entities, session}, ownProps) => {
+    debugger
     return {
         user: entities.users[ownProps.match.params.user_id],
+        currentUser: session.user,
         posts: Object.values(entities.posts)
     }
 };
