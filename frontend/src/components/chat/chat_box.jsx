@@ -72,7 +72,11 @@ export default class ChatBox extends React.Component{
                             this.props.messages.filter(message => {
                                 return !message.initialConnectingMessage
                             }).map((message,idx) => {
-                                return <li key={idx}>{message.body}</li>
+                                debugger
+                                return <li key={idx}>
+                                        <div className="message-sender">{message.sender === this.props.currentUser.id ? this.props.currentUser.username : this.props.otherUser.username}</div>
+                                        <div>{message.body}</div>
+                                    </li>
                             })
                         }
                     </ul>

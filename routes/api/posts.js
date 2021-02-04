@@ -69,7 +69,7 @@ router.post("/", (req, res) => {
         filename: req.body.filename,
         creator: req.body.creator,
         category: req.body.category,
-        tags: req.body.tags,
+        
     });
 
     newPost.save().then(post => res.json(post));
