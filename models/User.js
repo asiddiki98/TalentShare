@@ -27,7 +27,7 @@ const UserSchema = new Schema({
     },
     propic: {
         type: String,
-        default: "6645b20ff377f000ffe04de79a34c807.jpg"
+        default: "e797f14c19201a08924cb11372b00ea9.png"
     },
     followers: {
         type: Array
