@@ -3,7 +3,7 @@ import React from 'react'
 class SearchBar extends React.Component {
     render(){
         return (
-            <input type="input" placeholder="search" />
+            <input className="search-bar" type="input" placeholder="search" />
         )
     }
 }

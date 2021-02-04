@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import NavLogo from '../../assets/images/talentsharelight.png';
 import SearchBar from './search';
-import '../../assets/nav.css'
+import '../../assets/nav.scss'
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -41,21 +41,21 @@ class NavBar extends React.Component {
       
       <div className="nav-bar">
         <Link to='/browse'><img className='nav-logo' onClick={() => this.props.fetchPosts()} src={NavLogo} alt='' /></Link>
-        <Link to='/browse'><div onClick={() => this.props.fetchArt()}>Art</div></Link>
-        <Link to='/browse'><div onClick={() => this.props.fetchPhotography()}>Photography</div></Link>
-        <Link to='/browse'><div onClick={() => this.props.fetchMusic()}>Music</div></Link>
-        <Link to='/browse'><div onClick={() => this.props.fetchDance()}>Dance</div></Link>
+        <Link className='categories' to='/browse'><div className='categories' onClick={() => this.props.fetchArt()}>Art</div></Link>
+        <Link className='categories' to='/browse'><div className='categories' onClick={() => this.props.fetchPhotography()}>Photography</div></Link>
+        <Link className='categories' to='/browse'><div className='categories' onClick={() => this.props.fetchMusic()}>Music</div></Link>
+        <Link className='categories' to='/browse'><div className='categories' onClick={() => this.props.fetchDance()}>Dance</div></Link>
         <SearchBar /> 
-        <div onClick={this.handleClick} ref={div => this.dropDown = div} >
+        <div className="dropdown" onClick={this.handleClick} ref={div => this.dropDown = div} >
           <img className='nav-profile-image' src={`content/image/${this.props.propic}`} alt='' /> 
           {!this.state.hidden && <div className="dropdown-contents" onClick={e => e.stopPropagation()}>
-            <Link to={`/portfolio/${this.props.user.id}`} >Portfolio</Link>
+            <div className="dropdown-options"><Link className="dropdown-portfolio"  to={`/portfolio/${this.props.user.id}`} >portfolio</Link></div>
             <div className="divider"></div>
-            <div>notifications</div>
+            <div className="dropdown-options">notifications</div>
             <div className="divider"></div>
-            <div>messages</div>
+            <div className="dropdown-options" >messages</div>
             <div className="divider"></div>
-            <div onClick={this.logoutUser}>
+            <div className="dropdown-options" onClick={this.logoutUser}>
               <div>logout</div>
             </div>
 
