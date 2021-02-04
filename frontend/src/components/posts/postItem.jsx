@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import Likes from '../interactions/likes'
+import CommentIndex from '../interactions/comment_index'
 
 export default class PostItem extends React.Component {
   constructor(props) {
@@ -47,26 +48,23 @@ export default class PostItem extends React.Component {
   }
 
   handleMessage(e){
-    debugger
     let message = {
       body: "initiate",
       sender: this.props.currentUser.id,
-      receiver: this.props.artist,
+      receiver: this.props.artistId,
       initialConnectingMessage: true
     }
-    debugger
     this.props.sendMessage(message).then(() =>{
-      this.props.clickMessage(this.props.artist)
+      this.props.clickMessage(this.props.artistId)
     })
   }
   
   render() {
-    debugger
     let artist;
     if (!this.props.users){
       artist = null
     } else {
-      artist = this.props.users[this.props.artist]
+      artist = this.props.users[this.props.artistId]
     }
     return !artist ? null :  (
       <div className="post-container">
@@ -82,6 +80,7 @@ export default class PostItem extends React.Component {
         <div className="post-content">
           {this.renderContent()}
           <Likes likers={this.props.post.likers} postId={this.props.post._id}/>
+          <CommentIndex postId={this.props.post._id} /> 
         </div>
       </div>
     )

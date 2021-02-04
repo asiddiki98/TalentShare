@@ -23,7 +23,7 @@ export default class ChatBox extends React.Component{
                 receiver: this.props.otherUser._id,
                 initialConnectingMessage: false
             }
-        debugger
+        // debugger
         this.props.socket.emit('chat message', message);
         this.setState({body: ""})
     }

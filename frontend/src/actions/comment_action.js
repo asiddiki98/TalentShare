@@ -53,7 +53,7 @@ export const unlikeComment = (commentId, userId) => dispatch => {
         )
     )
 }
-export const postComment = (comment) => dispatch => {
+export const createComment = (comment) => dispatch => {
     return (
         CommentAPIUtil.postComment(comment).then(
             res => (dispatch(receiveComment(res.data))),
@@ -61,10 +61,20 @@ export const postComment = (comment) => dispatch => {
         )
     )
 }
+
 export const deleteComment = (commentId) => dispatch => {
     return (
         CommentAPIUtil.deleteComment(commentId).then(
             res => (dispatch(removeComment(res.commentId))),
+            err => (dispatch(receiveErrors(err.response.data)))
+        )
+    )
+}
+
+export const editComment = (commentId) => dispatch => {
+    return (
+        CommentAPIUtil.editComment(commentId).then(
+            res => (dispatch(receiveComment(res.commentId))),
             err => (dispatch(receiveErrors(err.response.data)))
         )
     )

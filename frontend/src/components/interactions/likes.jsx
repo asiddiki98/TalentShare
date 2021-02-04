@@ -50,7 +50,6 @@ const mdtp = (dispatch) => {
     return {
         likePost: (postId, userId) => dispatch(likePost(postId, userId)),
         unlikePost: (postId, userId) => dispatch(unlikePost(postId, userId))
-
     }
 }
 

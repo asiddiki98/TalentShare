@@ -19,3 +19,6 @@ export const deleteComment = (commentId) => {
    return axios.delete(`/api/comments/${commentId}`)
 }
 
+export const editComment = (commentId) => {
+   return axios.patch(`/api/comments/${commentId}`)
+}

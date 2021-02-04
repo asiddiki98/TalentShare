@@ -31,7 +31,7 @@ export default class Chat extends React.Component{
         });
         this.socket.emit("connect user", this.props.currentUser._id)
         this.socket.on('chat message', message => {
-            debugger
+            // debugger
             this.props.receiveMessage(message)
         })
         this.setState({isMounted: true})
@@ -105,7 +105,7 @@ export default class Chat extends React.Component{
                         {
                             this.props.otherUsers ? 
                             Object.values(this.props.otherUsers).map((user,idx) => {
-                                debugger
+                                // debugger
                                 return <li onClick={this.handleChatClick(user._id)} 
                                         key={user._id}>
                                         {user.username}

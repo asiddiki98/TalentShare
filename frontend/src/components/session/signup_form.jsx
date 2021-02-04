@@ -23,7 +23,7 @@ class SignupForm extends React.Component {
 
   UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.signedIn === true) {
-      this.props.history.push('/login');
+      this.props.history.push('/browse');
     }
 
     this.setState({ errors: nextProps.errors })
