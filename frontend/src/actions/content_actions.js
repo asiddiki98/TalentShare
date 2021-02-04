@@ -27,7 +27,7 @@ export const receiveErrors = errors => ({
 export const sendFile = file => dispatch => {
   return (
     ContentUtil.sendFile(file).then(
-      res => (dispatch(receiveContent(res.data))),
+      res => (dispatch(receiveContent(res.data.image))),
       err => (dispatch(receiveErrors(err.response.data)))
     )
   )

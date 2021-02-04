@@ -22,7 +22,7 @@ module.exports = function validatePostInput(data) {
 
     if (!Validator.equals(data.category, "Dance") && !Validator.equals(data.category, "Art") 
         && !Validator.equals(data.category, "Music") && !Validator.equals(data.category, "Photography")) {
-        errors.category = 'Category field must be dance, art, music, or photography';
+        errors.category = 'Category field must be Dance, Art, Music, or Photography';
     }
 
     if(Validator.isEmpty(data.category)){

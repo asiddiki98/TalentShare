@@ -12,7 +12,8 @@ export default function (state = initialState, action) {
       action.users.forEach(element => { users[element._id] = element })
       return users
     case RECEIVE_USER:
-      return Object.assign({}, state, { [action.user.id]: action.user });
+      debugger;
+      return Object.assign({}, state, { [action.user._id]: action.user });
     default:
       return state;
   }
