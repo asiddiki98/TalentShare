@@ -26,7 +26,6 @@ class CommentItem extends React.Component {
         <div className="comment-header">
           <div className="comment-pfp">
             <img src={this.props.pfp} alt="comment-pfp"/>
-            
           </div>
         </div>
       </div>

@@ -63,7 +63,8 @@ module.exports = (upload) => {
                 });
             }
 
-            if (file.contentType === 'image/jpeg' || file.contentType === 'image/png') {
+            if (file.contentType.includes("image")) {
+            // if (file.contentType === 'image/jpeg' || file.contentType === 'image/png') {
                 const readstream = gfs.createReadStream(file.filename);
                 readstream.pipe(res);
             } else {
@@ -81,7 +82,8 @@ module.exports = (upload) => {
                 });
             }
 
-            if (file.contentType === 'video/mp4' || file.contentType === 'video/mov') {
+            // if (file.contentType === 'video/mp4' || file.contentType === 'video/mov') {
+            if (file.contentType.includes('video')) {
                 const readstream = gfs.createReadStream(file.filename);
                 readstream.pipe(res);
             } else {

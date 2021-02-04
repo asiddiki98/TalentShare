@@ -6,6 +6,11 @@ const Comment = require('../../models/Comment');
 const User = require('../../models/User');
 const jwt = require('jsonwebtoken');
 const validateComment = require('../../validation/comment');
+const Post = require('../../models/Post');
+
+router.get("/", (req, res) => {
+    Comment.find().sort({updatedAt: -1}).then(comments => res.json(comments), err => res.status(404).json({commentError: "No comments found"}));
+});
 
 router.get("/post/:post_id", (req, res) => {
     Comment.find({post: req.params.post_id}).then(comments => res.json({comments}), err => res.status(404).json({commentError: "No comments from this post"}));
@@ -65,7 +70,10 @@ router.post("/", passport.authenticate('jwt', {session: false}), (req, res) => {
         post: req.body.post
     });
 
-    newComment.save().then(comment => res.json(comment));
+    newComment.save().then(comment => {
+        Post.findById(comment.post).then(post => post.comments.push(comment));
+        res.json(comment);
+    });
 });
 
 router.delete("/:id", (req,res) => {

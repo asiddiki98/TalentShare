@@ -55,7 +55,8 @@ router.get("/category/:category_name", (req, res) => {
     Post.find({category: req.params.category_name}).then(posts => res.json({posts}), err => res.status(404).json({postError: "No posts found under this category"}));
 });
 
-// passport.authenticate('jwt', { session: false })
+
+// router.post("/", passport.authenticate('jwt', {session: false}), (req, res) => {
 router.post("/", (req, res) => {
     const {errors, isValid} = validatePost(req.body);
 
