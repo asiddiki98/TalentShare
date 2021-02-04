@@ -27,11 +27,15 @@ export const fetchAllUsers = () => dispatch => {
   ))
 }
 
-export const updateProfile = userId => dispatch => {
-  return (
-    UsersUtil.updateProfile(userId).then(
-      res => (dispatch(receiveUser(res.data.user))),
-      err => (dispatch(receiveUserErrors(err.response.data)))
+export const updateProfile = user => dispatch => {
+  return UsersUtil.updateProfile(user).then(
+      res =>{ 
+        debugger
+        return (dispatch(receiveUser(res.data)));
+      },
+      err =>{
+        debugger
+        return (dispatch(receiveUserErrors(err.response.data))) }
     )
-  )
+    
 };

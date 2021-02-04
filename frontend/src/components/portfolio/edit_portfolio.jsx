@@ -24,11 +24,13 @@ class EditPortfolio extends React.Component {
         const formData = new FormData();
         formData.append('file', this.state.file);
         formData.append('caption', "profile-pic");
-        this.props.sendFile(formData).then(this.props.updateUser({
+        this.props.sendFile(formData).then(() => this.props.updateUser({
             username: this.state.username,
             firstname: this.state.firstname,
             lastname: this.state.lastname,
-            bio: this.props.content.filename
+            propic: this.props.content.filename,
+            bio: this.state.bio,
+            _id: this.state.id
         })).then(this.props.closeModal);
     }
 
@@ -50,7 +52,7 @@ class EditPortfolio extends React.Component {
 
 }
 
-const mstp = ({ session }, ui) => ({
+const mstp = ({ session, ui }) => ({
     user: session.user,
     content: ui.content
 });
