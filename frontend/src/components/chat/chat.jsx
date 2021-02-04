@@ -2,7 +2,7 @@ import React from 'react';
 import 'whatwg-fetch'
 import openSocket from 'socket.io-client'
 import ChatBox from './chat_box';
-
+import '../../assets/chat/chat.scss'
 
 //chat is over all chat. gets all chat related to current user. will have 
 //individual chat component to that this component parses messages to
@@ -78,7 +78,7 @@ export default class Chat extends React.Component{
         if(this.state.isMounted){
             chatboxList = (
                 
-                <div id="chatbox-list">
+                <div class="chatbox-list">
                         <ul>
                             {   
                                 this.state.dispChats.map((otherUserId,idx) => {

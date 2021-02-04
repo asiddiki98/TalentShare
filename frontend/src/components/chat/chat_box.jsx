@@ -1,4 +1,6 @@
 import React from 'react';
+import '../../assets/chat/chat.scss'
+import ContentEditable from 'react-contenteditable';
 
 export default class ChatBox extends React.Component{
 
@@ -9,31 +11,58 @@ export default class ChatBox extends React.Component{
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.updateBody = this.updateBody.bind(this);
+        this.handleEnter = this.handleEnter.bind(this)
+        this.contentEditable = React.createRef();
     }
 
     updateBody(e){
-        e.preventDefault();
+      
         this.setState({body: e.target.value})
     }
 
     handleSubmit(e){
         e.preventDefault();
-        const message = {body: this.state.body,
+        const message = {
+                body: this.state.body,
                 sender: this.props.currentUser.id,
                 receiver: this.props.otherUser._id,
                 initialConnectingMessage: false
             }
+        
         // debugger
-        this.props.socket.emit('chat message', message);
-        this.setState({body: ""})
+        if(message.body.length !== 0){
+
+            this.props.socket.emit('chat message', message);
+            this.setState({body: ""})
+        }
     }
+
+    handleEnter(e){
+        if(e.key === "Enter"){
+            e.preventDefault();
+            const message = {
+                body: this.state.body,
+                sender: this.props.currentUser.id,
+                receiver: this.props.otherUser._id,
+                initialConnectingMessage: false
+            }
+        
+            debugger
+             if(message.body.length !== 0){
+
+                this.props.socket.emit('chat message', message);
+                this.setState({body: ""})
+            }
+        }
+    }
+
 
     render(){
         // debugger
         return(
-            <div>
+            <div className="chatbox">
                 <div className="chatbox-header">
-                    {this.props.otherUser.username}
+                    <div>{this.props.otherUser.username}</div>
                     <button onClick={e => this.props.handleCloseChat(this.props.otherUser._id)}>X</button>
                 </div>
                 <div className="chatbox-message-container">
@@ -49,8 +78,16 @@ export default class ChatBox extends React.Component{
                 </div>
                 <div className="chatbox-input">
                     <form onSubmit={this.handleSubmit}>
-                        <input type="text" value={this.state.body} onChange={this.updateBody}/>
-                        <button>Submit</button>
+                        <ContentEditable innerRef={this.contentEditable}
+                            html={this.state.body}
+                            onChange={this.updateBody}
+                            className="chatbox-input-area"
+                            onKeyDown={this.handleEnter}
+                        />
+                        {/* <input type="text" value={this.state.body} onChange={this.updateBody}/> */}
+                        <button>
+                            <img src="https://img.icons8.com/nolan/64/filled-sent.png"/>
+                        </button>
                     </form>
                 </div>
             </div>
