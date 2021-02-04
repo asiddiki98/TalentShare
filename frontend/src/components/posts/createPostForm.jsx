@@ -11,7 +11,8 @@ class CreatePostForm extends React.Component{
         super(props);
         this.state = {
             description: "",
-            category: ""
+            category: "",
+            errors: ""
         }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -30,15 +31,20 @@ class CreatePostForm extends React.Component{
 
     handleSubmit(e) {
         e.preventDefault();
-        const formData = new FormData();
-        formData.append('file', this.state.file);
-        formData.append('caption', "post-pic");
-        this.props.sendFile(formData).then(() => this.props.createPost({
-            description: this.state.description,
-            category: this.state.category,
-            filename: this.props.content.filename,
-            creator: this.props.currentUserId
-        })).then(this.props.closeModal);
+        if(!this.state.file || !this.state.description || !this.state.category){
+            this.setState({errors: "all fields required"})
+        }else{
+
+            const formData = new FormData();
+            formData.append('file', this.state.file);
+            formData.append('caption', "post-pic");
+            this.props.sendFile(formData).then(() => this.props.createPost({
+                description: this.state.description,
+                category: this.state.category,
+                filename: this.props.content.filename,
+                creator: this.props.currentUserId
+            })).then(this.props.closeModal);
+        }
     }
 
     render(){
@@ -62,6 +68,7 @@ class CreatePostForm extends React.Component{
                     </label>
                     <button>Submit</button>
                 </form>
+                {this.state.errors ? <div>{this.state.errors}</div> : null}
             </div>
         )
     }
