@@ -1,4 +1,5 @@
-import * as UsersUtil from '../util/users_util'
+import * as UsersUtil from '../util/users_util';
+import {receiveCurrentUser} from './session_actions';
 
 export const RECEIVE_ALL_USERS = "RECEIVE_ALL_USERS";
 export const RECEIVE_USER_ERRORS = "RECEIVE_USER_ERRORS";
@@ -31,7 +32,7 @@ export const updateProfile = user => dispatch => {
   return UsersUtil.updateProfile(user).then(
       res =>{ 
         debugger
-        return (dispatch(receiveUser(res.data)));
+        return (dispatch(receiveCurrentUser(res.data)));
       },
       err =>{
         debugger
