@@ -8,10 +8,12 @@ import MainPageContainer from './main/main_page_container';
 import "../assets/reset.css";
 
 import PortfolioContainer from './portfolio/portfolio_container';
+import Modal from './modal/modal';
 import ChatContainer from './chat/chat_container';
 
 const App = () => (
   <div>
+    <Modal />
     <ProtectedRoute path="/" component={NavBarContainer} />
     <Switch>
       <AuthRoute exact path="/" component={SplashContainer} />
