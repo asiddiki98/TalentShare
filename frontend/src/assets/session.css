@@ -4,7 +4,7 @@
     width: 400px;
     height: 800px;
     font-size: 20px;
-    box-shadow: 0px 1px 28px 0.5px dimgrey;
+    box-shadow: 0px 1px 28px 0.5px black;
     padding: 16px 16px 16px 16px;
     
 }
@@ -20,11 +20,10 @@
     margin-bottom: 20px;
 }
 .session-form-input {
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
-    margin-bottom: 10px;
-   
+  display: flex;
+  flex-direction: column;
+  margin-top: 33px;
+  margin-bottom: 30px;
 }
 
 .name-input-fields{
@@ -49,22 +48,25 @@
 
 .session-form .form-prompt{
     box-sizing: border-box;
-    margin: 8px 10px 8px 0;
-    font-size: 14px;
+    margin: 8px 10px 8px 5px;
+    font-size: 22px;
     font-weight: 500;
     font-weight: bold;
     text-transform: uppercase;
     height: 20px;
+    color: white;
 }
 
 .session-form-input input{
-    box-sizing: border-box;
-    font-size: 16px;
-    border: 1px solid #a3a1b1;
-    padding: 5px;
-    margin-right: 10px;
-    outline: none;
-    height: 50px;
+  box-sizing: border-box;
+  font-size: 16px;
+  border: 1px solid #a3a1b1;
+  padding: 5px 0px 5px 14px;
+  margin-right: 10px;
+  outline: none;
+  height: 50px;
+  font-family: 'Poppins';
+  border-radius: 10px;
 }
 
 .session-form-input input:focus{
@@ -72,15 +74,16 @@
 }
 
 .session-errors{
-    color: red;
-    font-size: 12px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+  color: red;
+  font-size: 12px;
+  margin-top: 12px;
+  margin-bottom: 5px;
+  margin-left: 5px;
 }
 
 .session-form button{
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     outline: none;
     background-color: #5d5fa4;
     color: white;
@@ -88,11 +91,14 @@
     width: 110px;
     font-weight: bold;
     position: absolute;
-    right: 10px;
+    right: 40px;
+    top: -14px;
+    margin-bottom: 5px;
+    transition: 0.3s;
 }
 
 .session-form button:hover{
-    background-color: #2a3d66;
+    background-color: #787bd3;
 }
 
 .session-form button:active{
@@ -101,6 +107,9 @@
 
 .session-switch{
     font-size: 13px;
+    font-weight: 600;
+    color: white;
+    margin-left: 25px;
     
 }
 
@@ -109,4 +118,15 @@
     justify-content: space-between;
     box-sizing: border-box;
     position: relative;
+}
+
+.session-switch a {
+    text-decoration: none;
+    color: #787bd3;
+    transition: 0.3s;
+}
+
+.session-switch a:hover {
+    text-decoration: none;
+    color: #989bff;
 }
