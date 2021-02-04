@@ -73,7 +73,7 @@ router.post("/", passport.authenticate('jwt', {session: false}), (req, res) => {
     newComment.save().then(comment => {
         Post.findById(comment.post).then(post => { 
             post.comments.push(comment);
-            post.save().then(post => res.json(comment));
+            post.save().then(post => res.json(post));
         });
     });
 });

@@ -9,7 +9,7 @@ const jwt = require('jsonwebtoken');
 const validatePost = require('../../validation/post');
 
 router.get("/", (req, res) => {
-    Post.find().sort({updatedAt: -1}).then(posts => res.json(posts), err => res.status(404).json({postError: "No posts found"}));
+    Post.find().sort({createdAt: -1}).then(posts => res.json(posts), err => res.status(404).json({postError: "No posts found"}));
 });
 
 router.get("/creator/:creator_id", (req, res) => {

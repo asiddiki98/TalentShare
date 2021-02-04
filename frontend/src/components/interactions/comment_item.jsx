@@ -21,13 +21,16 @@ class CommentItem extends React.Component {
 
   render() { 
     const commenter = this.props.comment.creator
-    return (
+    return !commenter ? null : (
       <div className="comment-container">
         <div className="comment-header">
           <div className="comment-pfp">
-            <img src={this.props.pfp} alt="comment-pfp"/>
+            {/* <img src={`content/image/${this.props.pfp}`} alt="comment-pfp"/> */}
           </div> 
+            <Link to={`/portfolios/${this.props.creator}`}>{this.props.creator.username}</Link>
         </div>
+
+        <span className="comment-content">{this.props.comment.content}</span>
       </div>
     );
   }

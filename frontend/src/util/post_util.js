@@ -15,6 +15,9 @@ export const unlikePost = (postId, userId) => {
    return axios.delete(`/api/posts/${postId}/liker/${userId}`)
 }
 
+export const createComment = (comment) => {
+   return axios.post("/api/comments/", comment)
+}
 
 export const deletePost = (postId) => {
    return axios.delete(`/api/posts/${postId}`)

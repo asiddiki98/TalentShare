@@ -128,6 +128,15 @@ export const unlikePost = (postId, userId) => dispatch => {
   )
 };
 
+export const createComment = (comment) => dispatch => {
+  return (
+    PostAPIUtil.createComment(comment).then(
+      res => (dispatch(receivePost(res.data))),
+      err => (dispatch(receiveErrors(err.response.data)))
+    )
+  )
+}
+
 export const deletePost = postId => dispatch => {
   return (
     PostAPIUtil.deletePost(postId).then(
