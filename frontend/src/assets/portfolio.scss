@@ -1,0 +1,44 @@
+.portfolio-container * {
+    box-sizing: border-box;
+}
+
+.portfolio-container {
+    background: red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .profilepic {
+        height: 128px;
+        width: 128px;
+        border-radius: 50%;
+        img, video {
+            height: inherit;
+            width: inherit;
+            border-radius: inherit;
+            object-fit: cover;
+        }
+    }
+
+    .posts-index-container {
+        width: 900px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .post-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 300px;
+            height: 300px;
+            background-color: blue;
+
+            img, video {
+                height: inherit;
+                width: inherit;
+            }
+        }
+    }
+}

@@ -11,6 +11,7 @@ import NavBar from './navbar.jsx';
 
 const mapStateToProps = state => {
   return {
+    user: state.session.user,
     propic: state.session.user.propic,
     loggedIn: state.session.isAuthenticated
   }
