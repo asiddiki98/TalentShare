@@ -1,9 +1,10 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { fetchUserPosts } from '../../actions/post_actions';
 import PostIndex from './post_index';
-import "../../assets/portfolio.scss";
 import {fetchAllUsers} from "../../actions/user_actions";
+import { openModal } from '../../actions/modal_actions';
+import "../../assets/portfolio.scss";
 
 class Portfolio extends React.Component {
     componentDidMount() {
@@ -12,14 +13,14 @@ class Portfolio extends React.Component {
     }
 
     render() {
-        const {user, posts} = this.props;
+        const {user, posts, editProfile} = this.props;
         return !user ? null : (
             <div className="portfolio-container">
                 <div className="profilepic">
                     <img src={`content/image/${user.propic}`} alt="" />
                 </div>
 
-                <div className="edit-profile-button">Edit Profile</div>
+                {editProfile}
 
                 <div className="bio">{user.bio}</div>
                 <PostIndex posts={posts} user={user} />
@@ -38,7 +39,8 @@ const mstp = ({entities}, ownProps) => {
 
 const mdtp = dispatch => ({
     fetchUserPosts: userId => dispatch(fetchUserPosts(userId)),
-    fetchAllUsers: () => dispatch(fetchAllUsers())
+    fetchAllUsers: () => dispatch(fetchAllUsers()),
+    editProfile: (<div className="edit-profile-button" onClick={() => dispatch(openModal('editPortfolio'))}>Edit Profile</div>)
 });
 
 

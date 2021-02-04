@@ -102,6 +102,24 @@ router.get("/:id", (req, res) => {
     User.findById(req.params.id).then(user => res.json(user), err => res.status(404).json({userError: "user does not exist"}))
 });
 
+router.get("/email/:email", (req, res) => {
+    const email = req.params.email;
+    User.findOne({email}).then(user => res.json(user), err => res.status(404).json({userError: "user does not exist"}))
+});
+
+// passport.authenticate('jwt', {session: false})
+
+router.patch("/:id", (req, res) => {
+    User.findById(req.params.id).then(user => {
+        user.username = req.body.username;
+        user.firstname = req.body.firstname;
+        user.lastname = req.body.lastname;
+        user.bio = req.body.bio;
+        user.propic = req.body.propic;
+        user.save().then(user => res.json(user));
+    }, err => res.status(404).json({userError: "user does not exist"}));
+});
+
 router.post("/:id/followers/:follower_id", (req, res) => {
     User.findById(req.params.id).then(user => {
         user.followers.push(req.params.follower_id);

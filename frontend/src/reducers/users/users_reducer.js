@@ -1,5 +1,6 @@
+/* eslint-disable import/no-anonymous-default-export */
 import {
-  RECEIVE_ALL_USERS,
+  RECEIVE_ALL_USERS, RECEIVE_USER
 } from '../../actions/user_actions';
 
 const initialState = {}
@@ -10,6 +11,8 @@ export default function (state = initialState, action) {
       const users = {};
       action.users.forEach(element => { users[element._id] = element })
       return users
+    case RECEIVE_USER:
+      return Object.assign({}, state, { [action.user.id]: action.user });
     default:
       return state;
   }
