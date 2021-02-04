@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-import {OPEN_MODAL, CLOSE_MODAL} from '../actions/modal_actions';
+import {OPEN_MODAL, CLOSE_MODAL} from '../../actions/modal_actions';
 
 export default (state = null, action) => {
     Object.freeze(state);
