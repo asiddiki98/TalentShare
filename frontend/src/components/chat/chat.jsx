@@ -97,7 +97,7 @@ export default class Chat extends React.Component{
                 </div>
             )    
         }
-        return(
+        return (
             <div id="chat">
                 <div id="open-chats-container">
                     <h1>messages</h1>
