@@ -47,20 +47,21 @@ export default class PostItem extends React.Component {
   }
 
   handleMessage(e){
-    // debugger
+    debugger
     let message = {
       body: "initiate",
       sender: this.props.currentUser.id,
-      receiver: this.props.artist.id,
+      receiver: this.props.artist,
       initialConnectingMessage: true
     }
-    // debugger
+    debugger
     this.props.sendMessage(message).then(() =>{
-      this.props.clickMessage(this.props.artist.id)
+      this.props.clickMessage(this.props.artist)
     })
   }
   
   render() {
+    debugger
     let artist;
     if (!this.props.users){
       artist = null
