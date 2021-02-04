@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import Likes from '../interactions/likes'
 
 export default class PostItem extends React.Component {
   constructor(props) {
     super(props);
+    this.handleMessage = this.handleMessage.bind(this);
   }
 
   renderContent(){
@@ -43,19 +45,44 @@ export default class PostItem extends React.Component {
 
     return null;
   }
+
+  handleMessage(e){
+    debugger
+    let message = {
+      body: "initiate",
+      sender: this.props.currentUser.id,
+      receiver: this.props.artist,
+      initialConnectingMessage: true
+    }
+    debugger
+    this.props.sendMessage(message).then(() =>{
+      this.props.clickMessage(this.props.artist)
+    })
+  }
   
   render() {
-    return(
+    debugger
+    let artist;
+    if (!this.props.users){
+      artist = null
+    } else {
+      artist = this.props.users[this.props.artist]
+    }
+    return !artist ? null :  (
       <div className="post-container">
 
         <div className="post-header">
-          <Link to={`/portfolios/${this.props.artist.id}`}>Artist Name</Link>
+          <img className="post-profile-pic" src={`/content/image/${artist.propic}`} alt=""/>
+          <Link to={`/portfolios/${this.props.artist}`}>{artist.username}</Link>
+          <button onClick={this.handleMessage}>Send Message</button>
+          <p>{this.props.post.description}</p>
+          <p>{this.props.post.createdAt.split('T')[0]}</p>
         </div>
 
         <div className="post-content">
           {this.renderContent()}
+          <Likes likers={this.props.post.likers} postId={this.props.post._id}/>
         </div>
-
       </div>
     )
   }

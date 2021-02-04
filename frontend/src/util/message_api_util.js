@@ -5,5 +5,6 @@ export const fetchMessages = userId => {
 }
 
 export const sendInitialMessage = message => {
+    // debugger
     return axios.post('/api/messages/', message);
 }
