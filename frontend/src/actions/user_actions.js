@@ -1,4 +1,5 @@
-import * as UsersUtil from '../util/users_util'
+import * as UsersUtil from '../util/users_util';
+import {receiveCurrentUser} from './session_actions';
 
 export const RECEIVE_ALL_USERS = "RECEIVE_ALL_USERS";
 export const RECEIVE_USER_ERRORS = "RECEIVE_USER_ERRORS";
@@ -27,11 +28,15 @@ export const fetchAllUsers = () => dispatch => {
   ))
 }
 
-export const updateProfile = userId => dispatch => {
-  return (
-    UsersUtil.updateProfile(userId).then(
-      res => (dispatch(receiveUser(res.data.user))),
-      err => (dispatch(receiveUserErrors(err.response.data)))
+export const updateProfile = user => dispatch => {
+  return UsersUtil.updateProfile(user).then(
+      res =>{ 
+        debugger
+        return (dispatch(receiveCurrentUser(res.data)));
+      },
+      err =>{
+        debugger
+        return (dispatch(receiveUserErrors(err.response.data))) }
     )
-  )
+    
 };

@@ -5,162 +5,29 @@
   min-width: 1400px;
 }
 
-#splash-background {
-  max-width: 55%;
-  min-width: 1000px;
-  margin: -8px 0px 0px -9px;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  z-index: 1;
-}
-
 #splash-logo {
-  width: 30%;
+  width: 38%;
   position: absolute;
   z-index: 3;
-  top: 3.125%;
-  left: 3.75%;
+  top: 100px;
+  left: 11%;
   margin: -8px 0px 0px -9px;
 }
 
 .session-form {
   position: absolute;
-  right: 0;
   float: right;
+  right: 16vw;
+  top: 3vw;
   z-index: 5;
-}
-/* @media only screen and (max-width: 600px) {
-  #splash-design-container {
-    position: relative;
-    width: 100%;
-    max-width: 1920px;
-    min-width: 1300px;
-  }
-  
-  #splash-background {
-    max-width: 600px;
-    margin: -150px 0px 0px -9px;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    z-index: 1;
-  }
-  
-  #splash-logo {
-    width: 50%;
-    position: absolute;
-    z-index: 3;
-    top: 3.125%;
-    left: 3.75%;
-    margin: -8px 0px 0px -9px;
-  }
+  background: #F0F2F5;
+  border-radius: 19px;
 }
 
-@media only screen and (min-width: 600px) {
-  #splash-design-container {
-    position: relative;
-    width: 100%;
-    max-width: 1920px;
-    min-width: 1300px;
-  }
-  
-  #splash-background {
-    max-width: 600px;
-    margin: -150px 0px 0px -9px;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    z-index: 1;
-  }
-  
-  #splash-logo {
-    width: 50%;
-    position: absolute;
-    z-index: 3;
-    top: 3.125%;
-    left: 3.75%;
-    margin: -8px 0px 0px -9px;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  #splash-design-container {
-    position: relative;
-    width: 100%;
-    max-width: 1920px;
-    min-width: 1300px;
-  }
-  
-  #splash-background {
-    max-width: 600px;
-    margin: -150px 0px 0px -9px;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    z-index: 1;
-  }
-  
-  #splash-logo {
-    width: 50%;
-    position: absolute;
-    z-index: 3;
-    top: 3.125%;
-    left: 3.75%;
-    margin: -8px 0px 0px -9px;
-  }
-}
-
-@media only screen and (min-width: 992px) {
-  #splash-design-container {
-    position: relative;
-    width: 100%;
-    max-width: 1920px;
-    min-width: 1300px;
-  }
-  
-  #splash-background {
-    max-width: 80%;
-    margin: -9px 0px 0px -242px;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    z-index: 1;
-  }
-  
-  #splash-logo {
-    width: 40%;
-    position: absolute;
-    z-index: 3;
-    top: 3.125%;
-    left: 3.75%;
-    margin: -8px 0px 0px -9px;
-  }
-} */
-
-@media only screen and (min-width: 1200px) {
-  #splash-design-container {
-    position: relative;
-    width: 100%;
-    max-width: 1920px;
-    min-width: 1300px;
-  }
-
-  #splash-background {
-    max-width: 60%;
-    min-width: 50%;
-    min-height: 80%;
-    margin: -43px 1px 0px -9px;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    z-index: 1;
-  }
-
-  #splash-logo {
-    max-width: 500px;
-    position: fixed;
-    z-index: 3;
-    margin: -8px 0px 0px -9px;
-  }
+div.splash-page {
+  background: url("./images/splash-background.png") no-repeat center center;
+  background-size: cover;
+  background-blend-mode: multiply;
+  height: 800px;
+  overflow: hidden;
 }
