@@ -46,6 +46,7 @@ class NavBar extends React.Component {
         <Link className='categories' to='/browse'><div className='categories' onClick={() => this.props.fetchMusic()}>Music</div></Link>
         <Link className='categories' to='/browse'><div className='categories' onClick={() => this.props.fetchDance()}>Dance</div></Link>
         <SearchBar /> 
+        {this.props.createPost}
         <div className="dropdown" onClick={this.handleClick} ref={div => this.dropDown = div} >
           <img className='nav-profile-image' src={`content/image/${this.props.propic}`} alt='' /> 
           {!this.state.hidden && <div className="dropdown-contents" onClick={e => e.stopPropagation()}>

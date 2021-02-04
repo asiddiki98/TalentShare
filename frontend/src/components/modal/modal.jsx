@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import {closeModal} from '../../actions/modal_actions';
 import EditPortfolio from '../portfolio/edit_portfolio';
 import ViewPost from '../portfolio/view_post';
+import CreatePostForm from '../posts/createPostForm';
 
 const Modal = ({modal, closeModal}) => {
     if(!modal) return null;
@@ -17,6 +18,9 @@ const Modal = ({modal, closeModal}) => {
         //     break;
         case 'viewPost':
             component = <ViewPost />;
+            break;
+        case 'createPost':
+            component = <CreatePostForm />;
             break;
         default:
             return null;

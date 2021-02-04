@@ -67,6 +67,9 @@
                     ul{
                         display: flex;
                         flex-direction: column;
+                        .message-sender{
+                            font-weight: bold;
+                        }
                     }
                 }
 

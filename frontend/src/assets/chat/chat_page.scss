@@ -53,6 +53,10 @@
             box-sizing: border-box;
             height: 90%;
             padding: 15px;
+
+            .message-sender{
+                font-weight: bold;
+            }
         }
         .chatbox-input{
             padding: 10px;

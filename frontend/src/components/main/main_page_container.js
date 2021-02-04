@@ -7,7 +7,9 @@ const mstp = ({ entities: { posts } }) => {
   let postCollection;
   posts ? postCollection = Object.values(posts) : postCollection = null;
   return {
-    posts: postCollection
+    posts: postCollection.sort((a,b) => {
+      return new Date(b.createdAt) - new Date(a.createdAt);
+    })
   };
 }
 

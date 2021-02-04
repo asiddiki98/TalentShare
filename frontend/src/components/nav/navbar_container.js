@@ -8,6 +8,7 @@ import {
   fetchPosts
 } from '../../actions/post_actions'
 import NavBar from './navbar.jsx';
+import { openModal } from '../../actions/modal_actions';
 
 const mapStateToProps = state => {
   return {
@@ -24,7 +25,8 @@ const mapDispatchToProps = (dispatch) => {
     fetchArt: () => dispatch(fetchArt()),
     fetchDance: () => dispatch(fetchDance()),
     fetchMusic: () => dispatch(fetchMusic()),
-    fetchPhotography: () => dispatch(fetchPhotography())
+    fetchPhotography: () => dispatch(fetchPhotography()),
+    createPost: (<div className="create-post-button" onClick={() => dispatch(openModal('createPost'))}>New Post</div>)
   }
 }
 
