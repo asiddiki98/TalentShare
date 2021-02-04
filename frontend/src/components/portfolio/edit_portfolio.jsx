@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { sendFile } from '../../actions/content_actions';
 import { closeModal } from '../../actions/modal_actions';
 import { updateProfile } from '../../actions/user_actions';
 
@@ -19,7 +20,16 @@ class EditPortfolio extends React.Component {
     }
 
     handleSubmit(e) {
-        this.props.update(this.state).then(this.props.closeModal);
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append('file', this.state.file);
+        formData.append('caption', "profile-pic");
+        this.props.sendFile(formData).then(this.props.updateUser({
+            username: this.state.username,
+            firstname: this.state.firstname,
+            lastname: this.state.lastname,
+            bio: this.props.content.filename
+        })).then(this.props.closeModal);
     }
 
     render() {
@@ -28,19 +38,27 @@ class EditPortfolio extends React.Component {
             <div className="edit-portfolio-container">
                 <div>HELLO WORLD</div>
                 <div className="closemodal" onClick={closeModal}>✕</div>
+                <form onSubmit={this.handleSubmit} encType='multipart/form-data'>
+                    <label>Choose a New Profile Picture: 
+                        <input type="file" accept=".png, .jpg, .jpeg" onChange={this.handleFile("file")}/>
+                    </label>
+                    <button>Submit</button>
+                </form>
             </div>
         )
     }
 
 }
 
-const mstp = ({ session }) => ({
-    user: session.user
+const mstp = ({ session }, ui) => ({
+    user: session.user,
+    content: ui.content
 });
 
 const mdtp = dispatch => ({
-    update: user => dispatch(updateProfile(user)),
-    closeModal: () => dispatch(closeModal())
+    updateUser: user => dispatch(updateProfile(user)),
+    closeModal: () => dispatch(closeModal()),
+    sendFile: file => dispatch(sendFile(file))
 });
 
 export default connect(mstp, mdtp)(EditPortfolio);
