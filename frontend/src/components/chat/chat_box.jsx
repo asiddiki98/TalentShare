@@ -48,7 +48,7 @@ export default class ChatBox extends React.Component{
                 initialConnectingMessage: false
             }
         
-            debugger
+            // debugger
              if(message.body.length !== 0){
 
                 this.props.socket.emit('chat message', message);

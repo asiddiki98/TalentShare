@@ -34,7 +34,7 @@ class CommentIndex extends React.Component{
     }
 
     handleSubmit(e){
-        debugger
+        // debugger
         e.preventDefault()
         this.props.createComment(this.state)
         this.setState({

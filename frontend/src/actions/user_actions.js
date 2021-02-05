@@ -31,11 +31,11 @@ export const fetchAllUsers = () => dispatch => {
 export const updateProfile = user => dispatch => {
   return UsersUtil.updateProfile(user).then(
       res =>{ 
-        debugger
+        // debugger
         return (dispatch(receiveCurrentUser(res.data)));
       },
       err =>{
-        debugger
+        // debugger
         return (dispatch(receiveUserErrors(err.response.data))) }
     )
     

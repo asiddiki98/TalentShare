@@ -17,7 +17,7 @@ export default class PostItem extends React.Component {
 
     let fileType = this.props.post.filename.split('.')[1];
     let fileName = this.props.post.filename;
-    debugger
+    // debugger
     if (photoTypes.includes(fileType)) {
       return (
         <img
