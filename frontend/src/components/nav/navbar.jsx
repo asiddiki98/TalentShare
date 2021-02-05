@@ -44,7 +44,7 @@ class NavBar extends React.Component {
   }
 
   handleArt(){
-    this.props.fetchArt()
+    // this.props.fetchArt()
     this.setState({
       art: true,
       photography: false,
@@ -53,7 +53,7 @@ class NavBar extends React.Component {
     })
   }
   handlePhotography(){
-    this.props.fetchPhotography()
+    // this.props.fetchPhotography()
     this.setState({
       art: false,
       photography: true,
@@ -62,7 +62,7 @@ class NavBar extends React.Component {
     })
   }
   handleMusic(){
-    this.props.fetchMusic()
+    // this.props.fetchMusic()
     this.setState({
       art: false,
       photography: false,
@@ -71,7 +71,7 @@ class NavBar extends React.Component {
     })
   }
   handleDance(){
-    this.props.fetchDance()
+    // this.props.fetchDance()
     this.setState({
       art: false,
       photography: false,
@@ -99,10 +99,15 @@ class NavBar extends React.Component {
       
       <div className="nav-bar">
         <Link to='/browse'><img className='nav-logo' onClick={this.fetchPosts} src={NavLogo} alt='' /></Link>
-        <Link id={`art-${this.state.art}`} className='categories' to='/browse'><div className='categories' onClick={this.handleArt}>Art</div></Link>
-        <Link id={`photography-${this.state.photography}`} className='categories' to='/browse'><div className='categories' onClick={this.handlePhotography}>Photography</div></Link>
-        <Link id={`music-${this.state.music}`} className='categories' to='/browse'><div className='categories' onClick={this.handleMusic}>Music</div></Link>
-        <Link id={`dance-${this.state.dance}`} className='categories' to='/browse'><div className='categories' onClick={this.handleDance}>Dance</div></Link>
+        {/* <Link id={`art-${this.state.art}`} className='categories' to='/browse/Art'><div className='categories' onClick={this.handleArt}>Art</div></Link>
+        <Link id={`photography-${this.state.photography}`} className='categories/Photography' to='/browse'><div className='categories' onClick={this.handlePhotography}>Photography</div></Link>
+        <Link id={`music-${this.state.music}`} className='categories' to='/browse/Music'><div className='categories' onClick={this.handleMusic}>Music</div></Link>
+        <Link id={`dance-${this.state.dance}`} className='categories' to='/browse/Dance'><div className='categories' onClick={this.handleDance}>Dance</div></Link> */}
+        {/* <Link to='/browse'><img className='nav-logo'  src={NavLogo} alt='' /></Link> */}
+        <Link id={`art-${this.state.art}`} className='categories' to='/browse/Art' onClick={this.handleArt}><div className='categories' >Art</div></Link>
+        <Link id={`photography-${this.state.photography}`} className='categories' to='/browse/Photography' onClick={this.handlePhotography}><div className='categories' >Photography</div></Link>
+        <Link id={`music-${this.state.music}`} className='categories' to='/browse/Music' onClick={this.handleMusic}><div className='categories' >Music</div></Link>
+        <Link id={`dance-${this.state.dance}`} className='categories' to='/browse/Dance' onClick={this.handleDance}><div className='categories' >Dance</div></Link>
         <SearchBar /> 
         {this.props.createPost}
         <div className="dropdown" onClick={this.handleClick} ref={div => this.dropDown = div} >

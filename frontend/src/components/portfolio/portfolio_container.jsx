@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchUserPosts } from '../../actions/post_actions';
+import { fetchPosts, fetchUserPosts } from '../../actions/post_actions';
 import PostIndex from './post_index';
 import {fetchAllUsers} from "../../actions/user_actions";
 import { openModal } from '../../actions/modal_actions';
@@ -9,13 +9,16 @@ import { clickPost } from '../../actions/filter_action';
 
 class Portfolio extends React.Component {
     componentDidMount() {
-        // this.props.fetchAllUsers();
+        this.props.fetchAllUsers();
         // this.props.fetchUserPosts(this.props.match.params.user_id);
+        // debugger
+        return this.props.fetchPosts();
     }
 
 
     render() {
-        const {currentUser, user, posts, editProfile, fetchUserPosts, viewPost} = this.props;
+        debugger
+        const {currentUser, user, posts, editProfile,  viewPost} = this.props;
         return !user ? null : (
             <div className="portfolio-container">
                 <div className="profilepic">
@@ -24,7 +27,7 @@ class Portfolio extends React.Component {
                 <div className="name">{user.firstname} {user.lastname}</div>
                 <div className="bio">{user.bio}</div>
                 {currentUser._id === user._id ? editProfile : null}
-                <PostIndex viewPost={viewPost} fetchUserPosts={fetchUserPosts} posts={posts} user={user} />
+                <PostIndex viewPost={viewPost}  posts={posts} user={user} />
             </div>
         )
     }
@@ -32,16 +35,19 @@ class Portfolio extends React.Component {
    
 
 const mstp = ({entities, session}, ownProps) => {
-    // debugger
+    debugger
     return {
         user: entities.users[ownProps.match.params.user_id],
         currentUser: session.user,
-        posts: Object.values(entities.posts)
+        posts: Object.values(entities.posts).filter(post => {
+            return post.creator === ownProps.match.params.user_id
+        })
     }
 };
 
 const mdtp = dispatch => ({
-    fetchUserPosts: userId => dispatch(fetchUserPosts(userId)),
+    fetchPosts: () => dispatch(fetchPosts()),
+    // fetchUserPosts: userId => dispatch(fetchUserPosts(userId)),
     fetchAllUsers: () => dispatch(fetchAllUsers()),
     editProfile: (<div className="edit-profile-button" onClick={() => dispatch(openModal('editPortfolio'))}>Edit Profile</div>),
     viewPost: (postId) => {

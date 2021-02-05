@@ -21,11 +21,11 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch) => {
   return {
     logout: () => dispatch(logout()),
-    fetchPosts: () => dispatch(fetchPosts()),
-    fetchArt: () => dispatch(fetchArt()),
-    fetchDance: () => dispatch(fetchDance()),
-    fetchMusic: () => dispatch(fetchMusic()),
-    fetchPhotography: () => dispatch(fetchPhotography()),
+    // fetchPosts: () => dispatch(fetchPosts()),
+    // fetchArt: () => dispatch(fetchArt()),
+    // fetchDance: () => dispatch(fetchDance()),
+    // fetchMusic: () => dispatch(fetchMusic()),
+    // fetchPhotography: () => dispatch(fetchPhotography()),
     createPost: (<div><div className="create-post-button" onClick={() => dispatch(openModal('createPost'))}>New Post</div> </div>)
   }
 }
