@@ -58,7 +58,7 @@ io.on('connection', function(socket){
         
     })
 })
-io.listen(8000);
+io.listen(process.env.PORT || 8000);
 
 mongoose
     .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
