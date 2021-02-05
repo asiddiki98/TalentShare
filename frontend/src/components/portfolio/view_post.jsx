@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { removeShow } from '../../actions/filter_action';
 import { closeModal } from '../../actions/modal_actions';
+import CommentIndex from '../interactions/comment_index'
 
 class ViewPost extends React.Component {
     constructor(props) {
@@ -20,21 +21,30 @@ class ViewPost extends React.Component {
                 <div className="content-container">
                     {imageTypes.includes(post.filename.split('.')[1]) ? <img src={`/content/image/${post.filename}`} alt=""/> : <video src={`/content/video/${post.filename}`} controls></video>}
                 </div>
+
+                <div className="right">
+                    <div className="name-propic">
+                        <img className='pic' src={`content/image/$  {user.propic}`} alt='' />
+                        <div className="name">{user.firstname} {user.   lastname}</div>
+                    </div>
+                    <div className="description">{post.description}</   div>
+                    <CommentIndex postId={this.props.post._id}  comments={this.props.post.comments}/> 
+                </div>
             </div>
         )
     }
 
 }
 
-const mstp = ({ session, ui, entities}) => ({
-    user: session.user,
-    post: entities.posts[ui.filters.postId]
+const mstp = ({ ui, entities: {posts, users}}) => ({
+    user: users[posts[ui.filters.postId].creator],
+    post: posts[ui.filters.postId]
 });
 
 const mdtp = dispatch => ({
     closeModal: () => {
-        dispatch(removeShow());
         dispatch(closeModal());
+        dispatch(removeShow());
     },
 
 });

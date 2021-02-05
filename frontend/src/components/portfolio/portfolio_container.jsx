@@ -14,7 +14,7 @@ class Portfolio extends React.Component {
     }
 
     componentDidUpdate(){
-        this.props.fetchUserPosts(this.props.match.params.user_id);
+        // this.props.fetchUserPosts(this.props.match.params.user_id);
     }
 
 
@@ -26,10 +26,8 @@ class Portfolio extends React.Component {
                     <img src={`content/image/${user.propic}`} alt="" />
                 </div>
                 <div className="name">{user.firstname} {user.lastname}</div>
-
-                {currentUser._id === user._id ? editProfile : null}
-
                 <div className="bio">{user.bio}</div>
+                {currentUser._id === user._id ? editProfile : null}
                 <PostIndex viewPost={viewPost} fetchUserPosts={fetchUserPosts} posts={posts} user={user} />
             </div>
         )
