@@ -53,7 +53,7 @@
     
 
     .posts-index-container {
-        width: 908px;
+        width: 930px;
         height: auto;
         display: flex;
         justify-content: flex-start;
@@ -63,6 +63,7 @@
         box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
         border-radius: 8px;
         
+        
 
         .post-item {
             display: flex;
@@ -70,11 +71,14 @@
             align-items: center;
             width: 300px;
             height: 300px;
-            margin: 1px;
+            margin: 5px;
             
             &:hover {
                 cursor: pointer;
             }
+            &:hover {
+            transform: scale(1.02);
+        }
 
             img, video {
                 height: inherit;
@@ -214,6 +218,12 @@
 }
 
 .view-post-container {
+    box-sizing: border-box;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    width: 800px;
+    height: 700px;
     .closemodal {
         display: flex;
         align-items: center;
@@ -238,6 +248,17 @@
             height: 500px;
             width: 500px;
             object-fit: contain;
+        }
+    }
+
+    .right {
+        .name-pic {
+            img {
+                height: 200px;
+                width: 200px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
         }
     }
     

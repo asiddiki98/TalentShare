@@ -24,10 +24,10 @@ class ViewPost extends React.Component {
 
                 <div className="right">
                     <div className="name-propic">
-                        <img className='pic' src={`content/image/$  {user.propic}`} alt='' />
-                        <div className="name">{user.firstname} {user.   lastname}</div>
+                        <img className='pic' src={`content/image/${user.propic}`} alt='' />
+                        <div className="name">{user.firstname} {user.lastname}</div>
                     </div>
-                    <div className="description">{post.description}</   div>
+                    <div className="description">{post.description}</div>
                     <CommentIndex postId={this.props.post._id}  comments={this.props.post.comments}/> 
                 </div>
             </div>
