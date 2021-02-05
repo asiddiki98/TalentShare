@@ -61,7 +61,7 @@ io.on('connection', function(socket){
 })
 
 // http.listen(process.env.NODE_ENV === 'production' ? "http://talentshare-aa.herokuapp.com/" : 8000);
-http.listen(process.env.PORT || 80);
+http.listen(process.env.PORT || 8000);
 
 mongoose
 .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })

@@ -23,7 +23,7 @@ export default class Chat extends React.Component{
 
     componentDidMount(){
         this.props.fetchMessages(this.props.currentUser._id)
-        this.socket = openSocket(process.env.PORT || 'http://localhost:80',{
+        this.socket = openSocket(process.env.PORT || 'http://localhost:8000',{
             withCredentials: false,
             extraHeaders: {
                 "my-custom-header": "abcd"
