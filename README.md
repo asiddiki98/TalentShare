@@ -1,4 +1,7 @@
-# TalentShare
+<div align="center">
+  <img src="frontend/src/assets/images/talentsharenavlogo.png" alt="logo" width="500" style="vertical-align:middle">
+</div>
+
 ## Background and Overview
 TalentShare is a social media application that provides a platform for creatives to showcase their work, gain exposure, and chat with prospective clients/scouts.
  
