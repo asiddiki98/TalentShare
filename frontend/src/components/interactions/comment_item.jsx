@@ -14,10 +14,10 @@ class CommentItem extends React.Component {
     this.state = {  }
   }
 
-  componentDidMount(){
-    const commentId = this.props.comment._id
-    this.props.fetchComment(commentId);
-  }
+  // componentDidMount(){
+  //   const commentId = this.props.comment._id
+  //   this.props.fetchComment(commentId);
+  // }
 
   render() { 
     const commenter = this.props.comment.creator
