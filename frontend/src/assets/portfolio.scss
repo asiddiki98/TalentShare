@@ -159,6 +159,7 @@
         &:hover {
           filter: brightness(1.1);
           cursor: pointer;
+          background: #dadde1;
         }
     }
 
@@ -313,11 +314,12 @@
                 margin: 15px 10px;
             }
         }
-
-        .comment-index {
+        .comment-sec {
+            height: 400px;
+            .comment-index {
             padding: 10px;
             width: 350px;
-            height: 400px;
+            height: 230px;
             overflow: auto;
             .comment-container {
                 padding: 5px 0;
@@ -329,6 +331,20 @@
                         color: #d789d7;
                         font-weight: 500;
                     }
+
+                    .comment-pfp{
+                                img{
+                                height: 30px;
+                                margin-right: 20px;
+                                margin-top: 3px;
+                                border-radius: 75%;
+                                width: 30px;
+                                object-fit: cover;
+                                margin-bottom: 3px;
+                                cursor: pointer;
+                                }
+        
+                            }
                 }
                 .comment-content {
                     padding: 5px 0;
@@ -336,8 +352,12 @@
 
                 
             }
-            form {
+            
+        }
+
+        form {
                 margin-top: 10px;
+                margin-left: 10px;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
@@ -374,6 +394,7 @@
                 }
             }
         }
+        
         
     }
     
