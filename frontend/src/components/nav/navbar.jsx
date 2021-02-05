@@ -81,7 +81,7 @@ class NavBar extends React.Component {
   }
 
   fetchPosts(){
-    this.props.fetchPosts()
+    // this.props.fetchPosts()
     this.setState({
       art: false,
       photography: false,

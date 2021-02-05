@@ -79,7 +79,6 @@ app.use(bodyParser.json());
 app.use(methodOverride('_method'));
 
 app.use("/api/users", users);
-// app.use("/api/document", fileUploadRoutes);
 
 const storage = new GridFsStorage({
     url: db,
@@ -100,7 +99,6 @@ const storage = new GridFsStorage({
 
 const upload = multer({storage});
 
-// app.post('/upload', upload.single('file'))
 
 app.use('/content', imageRouter(upload));
 app.use("/api/posts", posts)
@@ -108,7 +106,5 @@ app.use('/api/messages', messages)
 
 app.use("/api/comments", comments);
 
-// const port = process.env.PORT || 5000;
-// app.listen(port, () => console.log(`Server is running on port ${port}`));
 const port = process.env.PORT || 5000;
-// app.listen(port, () => console.log(`Server is running on port ${port}`));
+app.listen(port, () => console.log(`Server is running on port ${port}`));
