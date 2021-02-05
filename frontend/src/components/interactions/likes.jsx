@@ -34,7 +34,8 @@ class Likes extends React.Component {
 
     render() {
         return (
-            <p onClick={() => this.handleClick()}>{this.props.likers.length} likes</p>
+            <div> <p className="like-number" onClick={() => this.handleClick()}>{this.state.liked ? <i id="liked" className="fas fa-thumbs-up"></i> : <i id='pending-like' className="far fa-thumbs-up"></i>} <div className="like-actual-number">{this.props.likers.length}</div></p></div>
+
         )
     }
 }

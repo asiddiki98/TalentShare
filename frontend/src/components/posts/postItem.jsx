@@ -8,6 +8,10 @@ export default class PostItem extends React.Component {
   constructor(props) {
     super(props);
     this.handleMessage = this.handleMessage.bind(this);
+    this.state = {
+      revealComments: false
+    }
+    this.onClick = this.onClick.bind(this)
   }
 
   renderContent(){
@@ -62,11 +66,19 @@ export default class PostItem extends React.Component {
       this.props.clickMessage(this.props.artistId)
     })
   }
-  // componentDidUpdate(oldProps){
-  //   if (this.props.comments.length !== oldProps.comments.length){
-      
-  //   }
-  // }
+
+  onClick(){
+    if (!this.state.revealComments){
+      this.setState({
+        revealComments: true
+      })
+    } else {
+      this.setState({
+        revealComments: false
+      })
+    }
+  }
+
   
   render() {
     // debugger
@@ -76,6 +88,7 @@ export default class PostItem extends React.Component {
     } else {
       artist = this.props.users[this.props.artistId]
     }
+    const comments = this.props.post.comments.length
     return !artist ? null :  (
       <div className="post-container">
 
@@ -96,10 +109,15 @@ export default class PostItem extends React.Component {
 
         <div className="post-content">
           {this.renderContent()}
-          <Likes likers={this.props.post.likers} postId={this.props.post._id}/>
-          <CommentIndex postId={this.props.post._id} comments={this.props.post.comments}/> 
         </div>
+        <div className="likes-comments">
+            <Likes likers={this.props.post.likers} postId={this.props.post._id}/>
+          {this.state.revealComments ? <div ><p className="comment-number" onClick={this.onClick}><i id="comment-open" className="fas fa-comment"></i> <div>{comments}</div></p></div> : <div> <p className="comment-number" onClick={this.onClick}><i id="comment" className="far fa-comment"></i> <div>{comments}</div></p></div> }
+        </div>
+        <div></div>
+            {this.state.revealComments ? <CommentIndex postId={this.props.post._id} comments={this.props.post.comments}/> : null }
       </div>
     )
   }
 }
+
