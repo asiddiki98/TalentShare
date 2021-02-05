@@ -66,6 +66,12 @@
 
 .poster{
     text-decoration: none;
+    color: #d789d7;
+    transition: 0.3s;
+    cursor: pointer;
+    &:hover {
+        filter: brightness(1.2);
+    }
     
 }
 
