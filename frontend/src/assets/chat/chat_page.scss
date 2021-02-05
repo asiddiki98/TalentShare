@@ -50,6 +50,7 @@
         }
 
         .chatbox-message-container{
+            overflow-y: scroll;
             box-sizing: border-box;
             height: 90%;
             padding: 15px;

@@ -1,3 +1,118 @@
 .create-post-category.chosen{
     background: lightgray;
 }
+
+input{
+    font-family: poppins;
+}
+
+button{
+    font-family: poppins;
+}
+
+.create-post-container{
+    box-sizing: border-box;
+    padding: 10px;
+    height: 450px;
+    width: 300px;
+    
+
+    .create-post-header{
+        font-weight: bold;
+        font-size: 20px;
+        text-transform: uppercase;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    .closemodal{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        
+        box-sizing: border-box;
+        padding: 7px;
+        
+    }
+
+    .closemodal:hover{
+        background: lightgray;
+        
+    }
+    .closemodal:active{
+        background: darkcyan
+    }
+
+    #create-post-form-errors{
+        color: red;
+        width: 100%;
+        text-align: center;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        
+        input[type=text]{
+            height: 30px;
+            border-radius: 20px;
+            border: none;
+            width: 100%;
+            background: lightgray;
+            padding-left: 10px;
+            box-sizing: border-box;
+        }
+        input[type=text]:focus{
+            border: 1px solid #5d54a4;
+            outline: none;
+        }
+
+        label{
+            
+            .create-post-category{
+                text-transform: none;
+                margin-bottom: 5px;
+                box-sizing: border-box;
+                height: 30px;
+                padding: 8px;
+                border-radius: 20px;
+                text-align: center;
+                transition: .3s;
+            }
+
+            .create-post-category:hover{
+                background: lightgray;
+            }
+            .create-post-input-label{
+                text-transform: uppercase;
+                margin: 10px 0 10px 0;
+                font-size: 16px;
+                font-weight: bold;
+            }
+        }
+
+        button{
+            margin-top: 10px;
+            background: #9d65c9;
+            
+            border: none;
+            border-radius: 20px;
+            height: 35px;
+            font-weight: bold;
+            color: white;
+            transition: .3s;
+            margin-bottom: 5px;
+        }
+
+        button:hover{
+            
+            background: #5d54a4;
+
+        }
+
+        button:focus{
+            outline: none;
+            background: #d789d7;
+        }
+    }
+}

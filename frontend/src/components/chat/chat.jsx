@@ -13,11 +13,12 @@ export default class Chat extends React.Component{
         this.state = {
             //has array of userids current user is chatting with to display
             dispChats: [],
-            isMounted: false
+            isMounted: false,
+            showUsers: false
         }
 
         this.handleCloseChat = this.handleCloseChat.bind(this);
-        
+        this.toggleShowUsers = this.toggleShowUsers.bind(this);
     }
 
     componentDidMount(){
@@ -73,6 +74,10 @@ export default class Chat extends React.Component{
 
     }
 
+    toggleShowUsers(e){
+        this.setState({showUsers: !this.state.showUsers})
+    }
+
     render(){
         // debugger
         if(this.props.location.pathname === "/chat"){
@@ -101,22 +106,28 @@ export default class Chat extends React.Component{
                 </div>
             )    
         }
+        let userList = null;
+        if(this.state.showUsers){
+            userList = (
+                <ul>
+                    {
+                        this.props.otherUsers ? 
+                        Object.values(this.props.otherUsers).map((user,idx) => {
+                            // debugger
+                            return <li className="message-user-item" onClick={this.handleChatClick(user._id)} 
+                                    key={user._id}>
+                                    {user.username}
+                                </li>
+                        }) : null
+                    }
+                </ul>
+            )
+        }
         return (
             <div id="chat">
                 <div id="open-chats-container">
-                    <h1>messages</h1>
-                    <ul>
-                        {
-                            this.props.otherUsers ? 
-                            Object.values(this.props.otherUsers).map((user,idx) => {
-                                debugger
-                                return <li onClick={this.handleChatClick(user._id)} 
-                                        key={user._id}>
-                                        {user.username}
-                                    </li>
-                            }) : null
-                        }
-                    </ul>
+                    <div className="message-user-list-header" onClick={this.toggleShowUsers}><h1>messages</h1></div>
+                    {userList}
                 </div>
                 {chatboxList}
             </div>
