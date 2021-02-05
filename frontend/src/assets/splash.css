@@ -6,14 +6,20 @@
 #splash-logo {
   width: 400px;
   margin-top: 110px;
+  transition: 0.2s;
 }
+
+#splash-logo:hover {
+  transform: scale(1.04)
+}
+
 
 div.splash-page {
   background: url("./images/splash-background.png") no-repeat center center;
   background-size: cover;
   background-blend-mode: multiply;
   height: 800px;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 #tagline {
@@ -45,6 +51,24 @@ div#splash-form {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.test-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.sess-form, .signup-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.signup-form {
+  flex-direction: column;
 }
 
 @media only screen and (min-width: 1484px) {
