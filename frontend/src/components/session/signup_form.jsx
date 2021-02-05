@@ -123,7 +123,7 @@ class SignupForm extends React.Component {
               <input type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
-                placeholder="Enter Password"
+                placeholder="Create a password."
               />
               <p className="session-errors">{this.state.errors.password}</p>
             </div>
@@ -133,14 +133,14 @@ class SignupForm extends React.Component {
               <input type="password"
                 value={this.state.password2}
                 onChange={this.update('password2')}
-                placeholder="Confirm your password"
+                placeholder="Enter your password again."
               />
               <p className="session-errors">{this.state.errors.password2}</p>
             </div>
 
             <div className="session-form-footer">
-              <div className="session-switch">Already have an account? <Link to="/">Login!</Link></div>
-              <button onSubmit={this.handleSubmit}>Continue</button>
+              <div className="signup-switch">Already have an account? <Link to="/">Login!</Link></div>
+              <button id="signup-button"onSubmit={this.handleSubmit}>Sign Up</button>
             </div>
           </div>
           
