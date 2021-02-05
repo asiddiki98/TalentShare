@@ -59,8 +59,9 @@ io.on('connection', function(socket){
         
     })
 })
+
 // http.listen(process.env.NODE_ENV === 'production' ? "http://talentshare-aa.herokuapp.com/" : 8000);
-http.listen(8000);
+http.listen(process.env.PORT || 5000);
 
 mongoose
 .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -110,4 +111,4 @@ app.use("/api/comments", comments);
 // const port = process.env.PORT || 5000;
 // app.listen(port, () => console.log(`Server is running on port ${port}`));
 const port = process.env.PORT || 5000;
-app.listen(port, () => console.log(`Server is running on port ${port}`));
+// app.listen(port, () => console.log(`Server is running on port ${port}`));
