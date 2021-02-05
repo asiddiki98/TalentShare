@@ -1,5 +1,6 @@
 import React from 'react';
 import PostItemContainer from './postItemContainer'
+import '../../assets/posts/postIndex.scss'
 
 class PostIndex extends React.Component{
   constructor(props) {

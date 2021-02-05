@@ -13,7 +13,8 @@
     rgba(42,61,102,1.0) 100%
   );
     // padding: 10px;
-    position: relative;
+    z-index: 1000;
+    position: sticky;
     // margin-top: 5px;
 }
 
