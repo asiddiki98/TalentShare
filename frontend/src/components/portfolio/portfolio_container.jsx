@@ -9,11 +9,7 @@ import { clickPost } from '../../actions/filter_action';
 
 class Portfolio extends React.Component {
     componentDidMount() {
-        this.props.fetchAllUsers();
-        this.props.fetchUserPosts(this.props.match.params.user_id);
-    }
-
-    componentDidUpdate(){
+        // this.props.fetchAllUsers();
         // this.props.fetchUserPosts(this.props.match.params.user_id);
     }
 
