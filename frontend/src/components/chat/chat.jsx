@@ -23,13 +23,11 @@ export default class Chat extends React.Component{
 
     componentDidMount(){
         this.props.fetchMessages(this.props.currentUser._id)
-        const url = process.env.NODE_ENV === 'production' ? window.location.hostname : 'http://localhost:8000';
-        this.socket = openSocket(url,{
+        this.socket = openSocket('http://localhost:8000',{
             withCredentials: false,
             extraHeaders: {
                 "my-custom-header": "abcd"
-            }, 
-            transport: ['websocket']
+            }
         });
         this.socket.emit("connect user", this.props.currentUser._id)
         this.socket.on('chat message', message => {
