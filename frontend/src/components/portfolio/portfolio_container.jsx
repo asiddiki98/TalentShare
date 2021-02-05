@@ -5,6 +5,7 @@ import PostIndex from './post_index';
 import {fetchAllUsers} from "../../actions/user_actions";
 import { openModal } from '../../actions/modal_actions';
 import "../../assets/portfolio.scss";
+import { clickPost } from '../../actions/filter_action';
 
 class Portfolio extends React.Component {
     componentDidMount() {
@@ -49,7 +50,10 @@ const mdtp = dispatch => ({
     fetchUserPosts: userId => dispatch(fetchUserPosts(userId)),
     fetchAllUsers: () => dispatch(fetchAllUsers()),
     editProfile: (<div className="edit-profile-button" onClick={() => dispatch(openModal('editPortfolio'))}>Edit Profile</div>),
-    viewPost: () => dispatch(openModal('viewPost'))
+    viewPost: (postId) => {
+        dispatch(clickPost(postId));
+        dispatch(openModal('viewPost'));
+    }
 });
 
 

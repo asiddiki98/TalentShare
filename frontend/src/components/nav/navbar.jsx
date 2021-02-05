@@ -108,7 +108,7 @@ class NavBar extends React.Component {
         <div className="dropdown" onClick={this.handleClick} ref={div => this.dropDown = div} >
           <img className='nav-profile-image' src={`content/image/${this.props.propic}`} alt='' /> 
           {!this.state.hidden && <div className="dropdown-contents" onClick={e => e.stopPropagation()}>
-            <Link className="dropdown-portfolio" to={`/portfolio/${this.props.user.id}`} ><div className="dropdown-options">portfolio</div></Link>
+            <Link className="dropdown-portfolio" to={`/portfolio/${this.props.user._id}`} ><div className="dropdown-options">portfolio</div></Link>
             <div className="divider"></div>
             <div className="dropdown-options">notifications</div>
             <div className="divider"></div>

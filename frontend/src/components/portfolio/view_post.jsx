@@ -1,67 +1,42 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { removeShow } from '../../actions/filter_action';
 import { closeModal } from '../../actions/modal_actions';
 
 class ViewPost extends React.Component {
     constructor(props) {
         super(props);
         this.state = this.props.user;
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChange(field) {
-        return e => this.setState({ [field]: e.currentTarget.value });
-    }
-
-    handleFile(field) {
-        return e => this.setState({[field]: e.currentTarget.files[0]});
-    }
-
-    handleSubmit(e) {
-        e.preventDefault();
-        const formData = new FormData();
-        formData.append('file', this.state.file);
-        formData.append('caption', "profile-pic");
-        if (this.state.file) {
-            this.props.sendFile(formData).then(() => this.props.updateUser({
-                username: this.state.username,
-                firstname: this.state.firstname,
-                lastname: this.state.lastname,
-                propic: this.props.content.filename,
-                bio: this.state.bio,
-                _id: this.state._id
-            })).then(this.props.closeModal);
-        } else {
-            this.props.updateUser({
-                username: this.state.username,
-                firstname: this.state.firstname,
-                lastname: this.state.lastname,
-                propic: this.state.propic,
-                bio: this.state.bio,
-                _id: this.state._id
-            }).then(this.props.closeModal);
-        }
-    }
+    
 
     render() {
-        const {closeModal, user} = this.props;
+        const {closeModal, user, post} = this.props;
+        const imageTypes = ['jpeg', 'jpg', 'png'];
         return (
             <div className="view-post-container">
                 <div className="closemodal" onClick={closeModal}>✕</div>
-                <div className="content-container"></div>
+                <div className="content-container">
+                    {imageTypes.includes(post.filename.split('.')[1]) ? <img src={`/content/image/${post.filename}`} alt=""/> : <video src={`/content/video/${post.filename}`} controls></video>}
+                </div>
             </div>
         )
     }
 
 }
 
-const mstp = ({ session, ui }) => ({
+const mstp = ({ session, ui, entities}) => ({
     user: session.user,
-    content: ui.content
+    post: entities.posts[ui.filters.postId]
 });
 
 const mdtp = dispatch => ({
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => {
+        dispatch(removeShow());
+        dispatch(closeModal());
+    },
+
 });
 
 export default connect(mstp, mdtp)(ViewPost);
