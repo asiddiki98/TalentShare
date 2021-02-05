@@ -47,7 +47,7 @@ class CommentIndex extends React.Component{
     render(){
         let display = this.props.comments.map((comment, idx) => {
             const creator = this.props.users[comment.creator]
-            debugger
+            // debugger
             return (
                 <CommentItem
                   key={`comment-${comment._id}`}

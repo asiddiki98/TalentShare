@@ -31,11 +31,12 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
+
 app.use(cors());
-const http = require('http').Server(app);
+const http = require('http').createServer(app);
 const io = require('socket.io')(http, {
     cors: {
-        origin: "http://localhost:3000",
+        
         methods: ["GET", "POST"],
         credentials: true
     }
@@ -58,12 +59,14 @@ io.on('connection', function(socket){
         
     })
 })
-io.listen(8000);
+
+// http.listen(process.env.NODE_ENV === 'production' ? "http://talentshare-aa.herokuapp.com/" : 8000);
+http.listen(process.env.PORT || 8000);
 
 mongoose
-    .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log("Connected to MongoDB successfully"))
-    .catch(err => console.log(err));
+.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+.then(() => console.log("Connected to MongoDB successfully"))
+.catch(err => console.log(err));
 
 app.use(bodyParser.urlencoded({
     extended: false
@@ -105,5 +108,7 @@ app.use('/api/messages', messages)
 
 app.use("/api/comments", comments);
 
+// const port = process.env.PORT || 5000;
+// app.listen(port, () => console.log(`Server is running on port ${port}`));
 const port = process.env.PORT || 5000;
-app.listen(port, () => console.log(`Server is running on port ${port}`));
+// app.listen(port, () => console.log(`Server is running on port ${port}`));

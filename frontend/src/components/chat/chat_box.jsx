@@ -28,7 +28,7 @@ export default class ChatBox extends React.Component{
     }
 
     handleSubmit(e){
-        debugger
+        // debugger
         e.preventDefault();
         
         const message = {
@@ -37,7 +37,7 @@ export default class ChatBox extends React.Component{
                 receiver: this.props.otherUser._id,
                 initialConnectingMessage: false
             }
-        debugger
+        // debugger
         
         if(message.body.length !== 0){
 
@@ -72,7 +72,7 @@ export default class ChatBox extends React.Component{
     }
 
     render(){
-        debugger
+        // debugger
         return(
             <div className="chatbox">
                 <div className="chatbox-header" onClick={e => this.props.handleCloseChat(this.props.otherUser._id)}>
