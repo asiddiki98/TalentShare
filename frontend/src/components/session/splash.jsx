@@ -12,7 +12,6 @@ const Splash = () => {
     <div className="splash-page">
       <div id="splash-design-container">
         <img id="splash-logo" src={WhiteLogo} alt="Splash Logo"/>
-        <img id="tagline" src={Tagline} alt="Tagline"/>
       </div>
       <LoginFormContainer id="login-form"/>
     </div>
