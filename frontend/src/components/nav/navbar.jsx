@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import NavLogo from '../../assets/images/talentsharelight.png';
+import NavLogo from '../../assets/images/talentsharenavlogo.png';
 import SearchBar from './search';
 import '../../assets/nav.scss'
 
