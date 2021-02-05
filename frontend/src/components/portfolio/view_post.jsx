@@ -10,8 +10,6 @@ class ViewPost extends React.Component {
         this.state = this.props.user;
     }
 
-    
-
     render() {
         const {closeModal, user, post} = this.props;
         const imageTypes = ['jpeg', 'jpg', 'png'];

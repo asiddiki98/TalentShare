@@ -229,7 +229,7 @@
     display: flex;
     justify-content: space-between;
     width: 800px;
-    height: 700px;
+    height: auto;
     .closemodal {
         display: flex;
         align-items: center;
@@ -278,8 +278,8 @@
 
             .name-propic {
                 display: flex;
-                justify-content: space-between;
-                width: 150px;
+                justify-content: flex-start;
+                width: 350px;
                 img {
                     height: 60px;
                     width: 60px;
@@ -290,6 +290,7 @@
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
+                    margin-left: 20px;
                     .name {
                         padding-bottom: 10px;
                     }
@@ -302,6 +303,10 @@
             .description {
                 margin: 15px 0;
             }
+        }
+
+        .comment-index {
+            border: 1px solid red;
         }
         
     }
