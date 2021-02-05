@@ -71,17 +71,17 @@ class SignupForm extends React.Component {
           <form onSubmit={this.handleSubmit}>
           <div className="signup-form">
             
-            <div className="session-form-input">
+            <div className="signup-form-input">
               <p className="form-prompt">Email</p>
               <input type="text"
                 value={this.state.email}
                 onChange={this.update('email')}
-                placeholder="Enter your email"
+                placeholder="Please enter your email."
               />
               <p className="session-errors">{this.state.errors.email}</p>
             </div>
 
-            <div className="session-form-input">
+            <div className="signup-form-input">
               <p className="form-prompt">
                 Username
                 
@@ -89,12 +89,12 @@ class SignupForm extends React.Component {
               <input type="text"
                 value={this.state.username}
                 onChange={this.update('username')}
-                placeholder="Enter Username"
+                placeholder="Enter a username."
               />
               <p className="session-errors">{this.state.errors.username}</p>
             </div>
             
-            <div className="session-form-input">
+            <div className="signup-form-input">
               <p className="form-prompt">Name</p>
               <div className="name-input-fields">
                 <div>
@@ -102,7 +102,7 @@ class SignupForm extends React.Component {
                   <input type="text"
                     value={this.state.firstname}
                     onChange={this.update('firstname')}
-                    placeholder="Enter First name"
+                    placeholder="First name"
                   />
                   <p className="session-errors">{this.state.errors.firstname}</p>
                 </div>
@@ -111,14 +111,14 @@ class SignupForm extends React.Component {
                   <input type="text"
                     value={this.state.lastname}
                     onChange={this.update('lastname')}
-                    placeholder="Enter Last name"
+                    placeholder="Last name"
                   />
                   <p className="session-errors">{this.state.errors.lastname}</p>
                 </div>
               </div>
             </div>
             
-            <div className="session-form-input">  
+            <div className="signup-form-input">  
               <p className="form-prompt">Password</p>
               <input type="password"
                 value={this.state.password}
@@ -128,7 +128,7 @@ class SignupForm extends React.Component {
               <p className="session-errors">{this.state.errors.password}</p>
             </div>
 
-            <div className="session-form-input">  
+            <div className="signup-form-input">  
               <p className="form-prompt">Confirm Password</p>
               <input type="password"
                 value={this.state.password2}

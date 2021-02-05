@@ -11,16 +11,20 @@ const Splash = (props) => {
   let component;
   // debugger
   if(props.location.pathname === "/"){
-    component = <LoginFormContainer id="login-form"/>
+    component = <div className="sess-form"><LoginFormContainer id="login-form"/></div>
   }else if(props.location.pathname === "/signup"){
-    component = <SignupFormContainer />
+    component = <div className="signup-form"><SignupFormContainer id="signup-form-container" /></div>
   }
+
   return (
     <div className="splash-page">
       <div id="splash-design-container">
         <img id="splash-logo" src={WhiteLogo} alt="Splash Logo"/>
       </div>
-      {component}
+
+      <div className="test-center">
+        {component}
+      </div>
     </div>
   )
 };
