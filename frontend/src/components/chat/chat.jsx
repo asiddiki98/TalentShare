@@ -24,7 +24,7 @@ export default class Chat extends React.Component{
     componentDidMount(){
         this.props.fetchMessages(this.props.currentUser._id)
         this.socket = openSocket('http://localhost:8000',{
-            withCredentials: true,
+            withCredentials: false,
             extraHeaders: {
                 "my-custom-header": "abcd"
             }, 

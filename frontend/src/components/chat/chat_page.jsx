@@ -38,7 +38,7 @@ class ChatPage extends React.Component{
             this.setState({isMounted: true})
         })
         this.socket = openSocket('http://localhost:8000',{
-            withCredentials: true,
+            withCredentials: false,
             extraHeaders: {
                 "my-custom-header": "abcd"
             }, 
