@@ -252,10 +252,14 @@
     }
 
     .right {
-        .name-pic {
+        display: flex;
+        flex-direction: column;
+        .name-propic {
+            display: flex;
+            justify-content: flex-start;
             img {
-                height: 200px;
-                width: 200px;
+                height: 60px;
+                width: 60px;
                 border-radius: 50%;
                 object-fit: cover;
             }
