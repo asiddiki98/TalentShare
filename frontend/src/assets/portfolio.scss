@@ -7,7 +7,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     .profilepic {
         margin-top: 60px;
         height: 128px;
@@ -34,6 +33,13 @@
 
     .edit-profile-button {
         background: #d789d7;
+        // background: linear-gradient( 
+        //     90deg,
+        //     rgba(215,137,215,1.0) 9%,
+        //     rgba(157,101,201,1.0) 50%,
+        //     rgba(93,84,164,1.0) 80%,
+        //     rgb(60, 87, 145) 90%
+        // );
         margin-top: 10px;
         margin-bottom: 10px;
         padding: 10px;
@@ -62,7 +68,7 @@
         margin-top: 20px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
         border-radius: 8px;
-        
+        margin-bottom: 500px;
         
 
         .post-item {
@@ -96,8 +102,8 @@
   bottom: 0;
   right: 0;
   left: 0;
-//   background: rgba(255, 255, 255, .8);
-  background: #d789d7c1;
+  background: rgba(0, 0, 0, .8);
+//   background: #d789d7c1;
   z-index: 10;
   vertical-align: middle;
   text-align: center;
@@ -244,9 +250,11 @@
     }
 
     .content-container {
+        height: 500px;
+        width: 500px;
         img, video {
-            height: 500px;
-            width: 500px;
+            height: inherit;
+            width: inherit;
             object-fit: contain;
         }
     }
@@ -254,6 +262,7 @@
     .right {
         display: flex;
         flex-direction: column;
+        align-items: center;
         .name-propic {
             display: flex;
             justify-content: flex-start;
@@ -262,6 +271,11 @@
                 width: 60px;
                 border-radius: 50%;
                 object-fit: cover;
+            }
+            .name {
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
         }
     }
