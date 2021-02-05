@@ -11,7 +11,7 @@
   z-index: 3;
   top: 100px;
   left: 11%;
-  margin: -8px 0px 0px -9px;
+  margin: -10px 0px 0px 17px;
 }
 
 .session-form {
@@ -20,8 +20,16 @@
   right: 16vw;
   top: 3vw;
   z-index: 5;
-  background: #F0F2F5;
   border-radius: 19px;
+  background: rgba(215,137,215, 0.5);
+  background: linear-gradient( 
+    1deg,
+    rgba(215,137,215,2.7) 9%,
+    rgba(157,101,201,0.4) 60%,
+    rgba(93,84,164,1.2) 79%,
+    rgba(42,61,102,0.7) 100%
+  );
+
 }
 
 div.splash-page {
@@ -30,4 +38,13 @@ div.splash-page {
   background-blend-mode: multiply;
   height: 800px;
   overflow: hidden;
+}
+
+#tagline {
+  width: 30%;
+  position: absolute;
+  z-index: 3;
+  top: 239px;
+  left: 19%;
+  margin: -10px 0px 0px 17px;
 }

@@ -57,7 +57,6 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div className="login-form-container session-form">
-        <h1>Login</h1>
         <form onSubmit={this.handleSubmit}>
           
           <div className="session-form-input">
@@ -82,7 +81,7 @@ class LoginForm extends React.Component {
 
           <div className="session-form-footer">
             <div className="session-switch">Need an account? <Link to="/signup">Sign Up!</Link></div>
-            <button>Submit</button>
+            <button>login</button>
           </div>  
           
         </form>
