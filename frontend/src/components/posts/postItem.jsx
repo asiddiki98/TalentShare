@@ -32,6 +32,7 @@ export default class PostItem extends React.Component {
         <video
           className="post-video"
           src={`/content/video/${fileName}`}
+          controls 
         />
       )
     }
@@ -41,6 +42,7 @@ export default class PostItem extends React.Component {
         <audio
           className="post-audio"
           src={`/content/audio/${fileName}`}
+          controls
         />
       )
     }

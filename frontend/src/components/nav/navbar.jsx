@@ -112,7 +112,7 @@ class NavBar extends React.Component {
             <div className="divider"></div>
             <div className="dropdown-options">notifications</div>
             <div className="divider"></div>
-            <div className="dropdown-options" >messages</div>
+            <Link className="dropdown-portfolio" to="/chat"><div className="dropdown-options" >messages</div></Link>
             <div className="divider"></div>
             <div className="dropdown-options" onClick={this.logoutUser}>
               <div>logout</div>
