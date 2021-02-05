@@ -25,7 +25,7 @@ class CommentItem extends React.Component {
       <div className="comment-container">
         <div className="comment-header">
           <div className="comment-pfp">
-            {/* <img src={`content/image/${this.props.pfp}`} alt="comment-pfp"/> */}
+            <img src={`content/image/${this.props.pfp}`} alt="comment-pfp"/>
           </div> 
             <Link to={`/portfolio/${this.props.creator._id}`}>{this.props.creator.username}</Link>
         </div>

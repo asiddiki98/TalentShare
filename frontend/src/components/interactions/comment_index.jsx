@@ -62,13 +62,15 @@ class CommentIndex extends React.Component{
 
 
         return !display ? null : (
-           <div className="comment-index" >
-               {display}
+            <div className="comment-sec">
+                <div className="comment-index" >
+                    {display}
+                </div> 
                 <form onSubmit={this.handleSubmit}>
                 <input type="input" placeholder="comment on this post" value={this.state.content} onChange={this.handleChange("content")}/>
                 <button type="submit">post</button>
                </form>
-           </div> 
+            </div>
                
         )
     }

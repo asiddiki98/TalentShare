@@ -114,8 +114,9 @@ export default class PostItem extends React.Component {
             <Likes likers={this.props.post.likers} postId={this.props.post._id}/>
           {this.state.revealComments ? <div ><p className="comment-number" onClick={this.onClick}><i id="comment-open" className="fas fa-comment"></i> <div>{comments}</div></p></div> : <div> <p className="comment-number" onClick={this.onClick}><i id="comment" className="far fa-comment"></i> <div>{comments}</div></p></div> }
         </div>
-        <div></div>
+        <div id="comment-section">
             {this.state.revealComments ? <CommentIndex postId={this.props.post._id} comments={this.props.post.comments}/> : null }
+        </div>
       </div>
     )
   }
