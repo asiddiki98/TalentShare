@@ -12,9 +12,13 @@ class Portfolio extends React.Component {
         this.props.fetchUserPosts(this.props.match.params.user_id);
     }
 
+    componentDidUpdate(){
+        this.props.fetchUserPosts(this.props.match.params.user_id);
+    }
+
 
     render() {
-        const {currentUser, user, posts, editProfile, fetchUserPosts} = this.props;
+        const {currentUser, user, posts, editProfile, fetchUserPosts, viewPost} = this.props;
         return !user ? null : (
             <div className="portfolio-container">
                 <div className="profilepic">
@@ -25,7 +29,7 @@ class Portfolio extends React.Component {
                 {currentUser.id === user._id ? editProfile : null}
 
                 <div className="bio">{user.bio}</div>
-                <PostIndex fetchUserPosts={fetchUserPosts} posts={posts} user={user} />
+                <PostIndex viewPost={viewPost} fetchUserPosts={fetchUserPosts} posts={posts} user={user} />
             </div>
         )
     }
@@ -45,7 +49,7 @@ const mdtp = dispatch => ({
     fetchUserPosts: userId => dispatch(fetchUserPosts(userId)),
     fetchAllUsers: () => dispatch(fetchAllUsers()),
     editProfile: (<div className="edit-profile-button" onClick={() => dispatch(openModal('editPortfolio'))}>Edit Profile</div>),
-    openModal: modal => dispatch(openModal('viewPost'))
+    viewPost: () => dispatch(openModal('viewPost'))
 });
 
 

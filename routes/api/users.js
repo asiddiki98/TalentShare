@@ -128,15 +128,15 @@ router.get("/email/:email", (req, res) => {
     User.findOne({email}).then(user => res.json(user), err => res.status(404).json({userError: "user does not exist"}))
 });
 
-// passport.authenticate('jwt', {session: false})
 
-router.patch("/:id", (req, res) => {
+
+router.patch("/:id", passport.authenticate('jwt', {session: false}), (req, res) => {
     User.findById(req.params.id).then(user => {
         user.username = req.body.username;
         user.firstname = req.body.firstname;
         user.lastname = req.body.lastname;
         user.bio = req.body.bio;
-        user.propic = req.body.propic;
+        if(req.body.propic) user.propic = req.body.propic;
         user.save().then(user => res.json(user));
     }, err => res.status(404).json({userError: "user does not exist"}));
 });
