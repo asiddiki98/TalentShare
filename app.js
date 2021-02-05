@@ -32,7 +32,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 app.use(cors());
-const http = require('http').Server(app);
+const http = require('http').createServer(app);
 const io = require('socket.io')(http, {
     cors: {
         
