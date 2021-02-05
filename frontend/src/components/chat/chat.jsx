@@ -21,7 +21,7 @@ export default class Chat extends React.Component{
     }
 
     componentDidMount(){
-        this.props.fetchMessages(this.props.currentUser.id)
+        this.props.fetchMessages(this.props.currentUser._id)
         this.socket = openSocket('http://localhost:8000',{
             withCredentials: true,
             extraHeaders: {
@@ -74,6 +74,7 @@ export default class Chat extends React.Component{
     }
 
     render(){
+        // debugger
         if(this.props.location.pathname === "/chat"){
             return null;
         }
@@ -108,7 +109,7 @@ export default class Chat extends React.Component{
                         {
                             this.props.otherUsers ? 
                             Object.values(this.props.otherUsers).map((user,idx) => {
-                                // debugger
+                                debugger
                                 return <li onClick={this.handleChatClick(user._id)} 
                                         key={user._id}>
                                         {user.username}

@@ -9,7 +9,7 @@ import '../../assets/splash.css'
 import SignupFormContainer from './signup_form_container';
 const Splash = (props) => {
   let component;
-  debugger
+  // debugger
   if(props.location.pathname === "/"){
     component = <LoginFormContainer id="login-form"/>
   }else if(props.location.pathname === "/signup"){

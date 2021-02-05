@@ -32,7 +32,7 @@ class EditPortfolio extends React.Component {
                 lastname: this.state.lastname,
                 propic: this.props.content.filename,
                 bio: this.state.bio,
-                _id: this.state.id
+                _id: this.state._id
             })).then(this.props.closeModal);
         } else {
             this.props.updateUser({
@@ -41,7 +41,7 @@ class EditPortfolio extends React.Component {
                 lastname: this.state.lastname,
                 propic: this.state.propic,
                 bio: this.state.bio,
-                _id: this.state.id
+                _id: this.state._id
             }).then(this.props.closeModal);
         }
     }

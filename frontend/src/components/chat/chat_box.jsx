@@ -25,7 +25,7 @@ export default class ChatBox extends React.Component{
         e.preventDefault();
         const message = {
                 body: this.state.body,
-                sender: this.props.currentUser.id,
+                sender: this.props.currentUser._id,
                 receiver: this.props.otherUser._id,
                 initialConnectingMessage: false
             }
@@ -43,12 +43,12 @@ export default class ChatBox extends React.Component{
             e.preventDefault();
             const message = {
                 body: this.state.body,
-                sender: this.props.currentUser.id,
+                sender: this.props.currentUser._id,
                 receiver: this.props.otherUser._id,
                 initialConnectingMessage: false
             }
         
-            debugger
+            // debugger
              if(message.body.length !== 0){
 
                 this.props.socket.emit('chat message', message);
@@ -72,9 +72,9 @@ export default class ChatBox extends React.Component{
                             this.props.messages.filter(message => {
                                 return !message.initialConnectingMessage
                             }).map((message,idx) => {
-                                debugger
+                                // debugger
                                 return <li key={idx}>
-                                        <div className="message-sender">{message.sender === this.props.currentUser.id ? this.props.currentUser.username : this.props.otherUser.username}</div>
+                                        <div className="message-sender">{message.sender === this.props.currentUser._id ? this.props.currentUser.username : this.props.otherUser.username}</div>
                                         <div>{message.body}</div>
                                     </li>
                             })

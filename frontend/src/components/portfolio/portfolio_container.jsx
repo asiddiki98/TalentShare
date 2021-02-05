@@ -22,7 +22,7 @@ class Portfolio extends React.Component {
                 </div>
                 <div className="name">{user.firstname} {user.lastname}</div>
 
-                {currentUser.id === user._id ? editProfile : null}
+                {currentUser._id === user._id ? editProfile : null}
 
                 <div className="bio">{user.bio}</div>
                 <PostIndex fetchUserPosts={fetchUserPosts} posts={posts} user={user} />
@@ -33,7 +33,7 @@ class Portfolio extends React.Component {
    
 
 const mstp = ({entities, session}, ownProps) => {
-    debugger
+    // debugger
     return {
         user: entities.users[ownProps.match.params.user_id],
         currentUser: session.user,

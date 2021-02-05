@@ -11,7 +11,7 @@ const validateLoginInput = require('../../validation/login');
 
 router.get('/current', passport.authenticate('jwt', {session: false}), (req, res) => {
   res.json({
-    id: req.user.id,
+    id: req.user._id,
     username: req.user.username,
     email: req.user.email
   });
@@ -46,7 +46,7 @@ router.post('/register', (req, res) => {
                         newUser.save()
                             .then(user => {
                                 const payload = {
-                                    id: user.id,
+                                    _id: user.id,
                                     username: user.username,
                                     email: user.email,
                                     firstname: user.firstname,
@@ -92,7 +92,7 @@ router.post('/login', (req, res) => {
                 .then(isMatch => {
                     if (isMatch) {
                         const payload = {
-                            id: user.id,
+                            _id: user.id,
                             username: user.username,
                             email: user.email,
                             firstname: user.firstname,

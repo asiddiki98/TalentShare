@@ -14,12 +14,12 @@ export default function (state = initialState, action) {
       action.users.forEach(element => { users[element._id] = element })
       return users
     case RECEIVE_USER:
-      debugger;
+      // debugger;
       return Object.assign({}, state, { [action.user._id]: action.user });
     case RECEIVE_CURRENT_USER:
       return {
         ...state,
-        [action.currentUser.id]: action.currentUser
+        [action.currentUser._id]: action.currentUser
       };
     default:
       return state;
