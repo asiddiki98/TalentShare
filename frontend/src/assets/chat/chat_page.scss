@@ -26,6 +26,18 @@
                 align-items: center;
                 padding: 0 10px 0 10px;
                 font-weight: bold;
+
+                img{
+                    box-sizing: border-box;
+                    height: 30px;
+                    
+                    border-radius: 75%;
+                    width: 30px;
+                    object-fit: cover;
+                    border: 1px solid white;
+                    margin-right: 10px;
+                    cursor: pointer;
+                }
             }
             li:hover{
                 background: lightgray;
@@ -50,9 +62,48 @@
             justify-content: space-between;
             height: 40px;
             box-sizing: border-box;
+            background: #5d54a4;
+
+            a.chatbox-user-link{
+                font-weight: bold;
+                color: white;
+                text-decoration: none;
+                div{
+                    font-weight: bold;
+                    color: white;
+                    text-decoration: none;
+                }
+                transition: .3s;
+            }
+            a:hover{
+                div{
+                    color: #d789d7;
+                    text-decoration: underline;
+                }
+            }
 
             div{
                 font-weight: bold;
+                color: white
+                
+            }
+            button{
+                border: none;
+                background: inherit;
+                color: white;
+                font-weight: bolder;
+                transition: .5s;
+            }
+
+            button:hover{
+                // -o-transform: scale(1.5);
+                // -ms-transform: scale(1.5);
+                // -webkit-transform: scale(1.5);
+                transform: scale(1.5);
+                z-index: 5;
+                -webkit-transition: transform .5s ease-in-out;
+                -moz-transition:transform .5s ease-in-out;
+                -ms-transition:transform .5s ease-in-out;
             }
         }
 
@@ -64,16 +115,43 @@
 
             .message-sender{
                 font-weight: bold;
+                margin-left: 10px;
             }
 
             li{
-                margin-top: 5px;
-                margin-bottom: 5px;
+                margin-top: 10px;
+                margin-bottom: 15px;
                 
-                div:nth-child(2){
-                    border-radius: 20px;
-                    height: 25px;
+                .message-header{
+                    display: flex;
+                    align-items: center;
+                    
+                    img{
+                        box-sizing: border-box;
+                        height: 30px;
+                        
+                        border-radius: 75%;
+                        width: 30px;
+                        object-fit: cover;
+                        border: 1px solid white;
+                        
+                        cursor: pointer;
+                    }
+                    .message-send-time{
+                        font-size: 10px;
+                        color: gray;
+                        margin-left: 5px;
+                        // align-self: flex-end;
+                    }
+                }
+                
+                .message-body{
+                    margin-top: 5px;
+                    border-radius: 15px;
+                    
                     background: lightgray;
+                    width: max-content;
+                    padding: 5px 10px 5px 10px;
                 }
             }
         }
@@ -87,13 +165,21 @@
                 align-items: flex-end;
                 
                 button{
-                    
+                    margin-right: 10px;
                     background-color: white;
                     border: none;
                     outline: none;
                     width: 25px;
                     height: 25px;
                     box-sizing: border-box;
+                    transition: .5s;
+                }
+                button:hover{
+                    transform: scale(1.2);
+                    z-index: 5;
+                    -webkit-transition: transform .5s ease-in-out;
+                    -moz-transition:transform .5s ease-in-out;
+                    -ms-transition:transform .5s ease-in-out;
                 }
                 img{
                     width: 25px;

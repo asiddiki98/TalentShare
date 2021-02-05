@@ -83,6 +83,7 @@ class ChatPage extends React.Component{
                                 // debugger
                                 return <li onClick={this.handleChatClick(user._id)} 
                                         key={user._id}>
+                                        <img src={`content/image/${user.propic}`} alt="" />
                                         <div>{user.username}</div>
                                     </li>
                             }) : null
