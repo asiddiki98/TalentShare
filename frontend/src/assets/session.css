@@ -2,7 +2,7 @@
    
     box-sizing: border-box;
     width: 400px;
-    height: 800px;
+    height: 600px;
     font-size: 20px;
     box-shadow: 0px 1px 28px -10.5px black;
     padding: 16px 16px 16px 16px;
@@ -32,11 +32,11 @@
   display: flex;
   flex-direction: column;
   width: 350px;
+  margin-top: -10px;
 }
 
 .name-input-fields{
     display: flex;
-
 }
 
 .session-name-input-errors{
@@ -107,7 +107,7 @@
 
 .session-form button{
     border: none;
-    border-radius: 10px;
+    border-radius: 20px;
     outline: none;
     background-color: #5d5fa4;
     color: white;
@@ -119,6 +119,11 @@
     top: -14px;
     margin-bottom: 5px;
     transition: 0.3s;
+}
+
+button#signup-button {
+  margin-left: 60px;
+  position: inherit;
 }
 
 .session-form button:hover{
@@ -134,14 +139,31 @@
     font-weight: 600;
     color: white;
     margin-left: 25px;
-    
 }
 
-.session-form-footer{
-    display: flex;
-    justify-content: space-between;
-    box-sizing: border-box;
-    position: relative;
+.signup-switch{
+    font-size: 13px;
+    font-weight: 600;
+    color: white;
+    margin-left: -125px;
+}
+
+.session-form-footer {
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  position: relative;
+  margin-left: 159px;
+  margin-top: 20px;
+  width: 262px;
+}
+
+.login-form-footer {
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  position: relative;
+  margin-top: 20px;
 }
 
 .session-switch a {
@@ -151,6 +173,17 @@
 }
 
 .session-switch a:hover {
+    text-decoration: none;
+    color: #989bff;
+}
+
+.signup-switch a {
+    text-decoration: none;
+    color: #787bd3;
+    transition: 0.3s;
+}
+
+.signup-switch a:hover {
     text-decoration: none;
     color: #989bff;
 }

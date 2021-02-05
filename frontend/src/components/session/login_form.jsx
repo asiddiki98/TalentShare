@@ -79,7 +79,7 @@ class LoginForm extends React.Component {
             <p className="session-errors">{this.state.errors.password}</p>
           </div>
 
-          <div className="session-form-footer">
+          <div className="login-form-footer">
             <div className="session-switch">Need an account? <Link to="/signup">Sign Up!</Link></div>
             <button>login</button>
           </div>  
