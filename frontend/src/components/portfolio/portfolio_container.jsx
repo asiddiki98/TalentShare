@@ -5,6 +5,7 @@ import PostIndex from './post_index';
 import {fetchAllUsers} from "../../actions/user_actions";
 import { openModal } from '../../actions/modal_actions';
 import "../../assets/portfolio.scss";
+import { clickPost } from '../../actions/filter_action';
 
 class Portfolio extends React.Component {
     componentDidMount() {
@@ -13,7 +14,7 @@ class Portfolio extends React.Component {
     }
 
     componentDidUpdate(){
-        this.props.fetchUserPosts(this.props.match.params.user_id);
+        // this.props.fetchUserPosts(this.props.match.params.user_id);
     }
 
 
@@ -25,10 +26,8 @@ class Portfolio extends React.Component {
                     <img src={`content/image/${user.propic}`} alt="" />
                 </div>
                 <div className="name">{user.firstname} {user.lastname}</div>
-
-                {currentUser._id === user._id ? editProfile : null}
-
                 <div className="bio">{user.bio}</div>
+                {currentUser._id === user._id ? editProfile : null}
                 <PostIndex viewPost={viewPost} fetchUserPosts={fetchUserPosts} posts={posts} user={user} />
             </div>
         )
@@ -49,7 +48,10 @@ const mdtp = dispatch => ({
     fetchUserPosts: userId => dispatch(fetchUserPosts(userId)),
     fetchAllUsers: () => dispatch(fetchAllUsers()),
     editProfile: (<div className="edit-profile-button" onClick={() => dispatch(openModal('editPortfolio'))}>Edit Profile</div>),
-    viewPost: () => dispatch(openModal('viewPost'))
+    viewPost: (postId) => {
+        dispatch(clickPost(postId));
+        dispatch(openModal('viewPost'));
+    }
 });
 
 

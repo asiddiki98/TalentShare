@@ -15,8 +15,7 @@
         
         h1{
             font-size: 30px;
-            background-color: #5d5fa4;
-            color: white;
+            
             padding: 5px;
         };
 
@@ -27,6 +26,9 @@
                 align-items: center;
                 padding: 0 10px 0 10px;
                 font-weight: bold;
+            }
+            li:hover{
+                background: lightgray;
             }
         }
         
@@ -44,18 +46,35 @@
             align-items: center;
             display: flex;
             border-bottom: 1px #2a3d66 solid;
+            box-shadow: 0 2px 3px -2px black;
             justify-content: space-between;
             height: 40px;
             box-sizing: border-box;
+
+            div{
+                font-weight: bold;
+            }
         }
 
         .chatbox-message-container{
+            overflow-y: scroll;
             box-sizing: border-box;
             height: 90%;
             padding: 15px;
 
             .message-sender{
                 font-weight: bold;
+            }
+
+            li{
+                margin-top: 5px;
+                margin-bottom: 5px;
+                
+                div:nth-child(2){
+                    border-radius: 20px;
+                    height: 25px;
+                    background: lightgray;
+                }
             }
         }
         .chatbox-input{
@@ -93,7 +112,7 @@
                 }
                 .chatbox-input-area:focus{
                     outline: none;
-                    border: none;
+                    border: 1px #d789d7 solid;
                     
                 }
             }

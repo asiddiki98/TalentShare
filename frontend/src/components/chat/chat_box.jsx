@@ -21,16 +21,24 @@ export default class ChatBox extends React.Component{
         this.setState({body: e.target.value})
     }
 
+    componentDidMount(){
+        if(this.bottom){
+            this.bottom.scrollIntoView();
+        }
+    }
+
     handleSubmit(e){
+        debugger
         e.preventDefault();
+        
         const message = {
-                body: this.state.body,
+                body: this.state.body.split("&nbsp;").join(""),
                 sender: this.props.currentUser._id,
                 receiver: this.props.otherUser._id,
                 initialConnectingMessage: false
             }
+        debugger
         
-        // debugger
         if(message.body.length !== 0){
 
             this.props.socket.emit('chat message', message);
@@ -42,7 +50,7 @@ export default class ChatBox extends React.Component{
         if(e.key === "Enter"){
             e.preventDefault();
             const message = {
-                body: this.state.body,
+                body: this.state.body.split("&nbsp;").join(""),
                 sender: this.props.currentUser._id,
                 receiver: this.props.otherUser._id,
                 initialConnectingMessage: false
@@ -57,14 +65,19 @@ export default class ChatBox extends React.Component{
         }
     }
 
+    componentDidUpdate(oldProps){
+        if(oldProps.messages.length !== this.props.messages.length){
+            this.bottom.scrollIntoView();
+        }
+    }
 
     render(){
-        // debugger
+        debugger
         return(
             <div className="chatbox">
-                <div className="chatbox-header">
+                <div className="chatbox-header" onClick={e => this.props.handleCloseChat(this.props.otherUser._id)}>
                     <div>{this.props.otherUser.username}</div>
-                    <button onClick={e => this.props.handleCloseChat(this.props.otherUser._id)}>X</button>
+                    <button onClick={e => this.props.handleCloseChat(this.props.otherUser._id)}>✕</button>
                 </div>
                 <div className="chatbox-message-container">
                     <ul>
@@ -79,6 +92,7 @@ export default class ChatBox extends React.Component{
                                     </li>
                             })
                         }
+                        <li><div key={-100} ref={el => this.bottom = el}></div></li>
                     </ul>
                 </div>
                 <div className="chatbox-input">

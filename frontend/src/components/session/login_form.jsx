@@ -14,6 +14,7 @@ class LoginForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
   }
 
@@ -41,6 +42,16 @@ class LoginForm extends React.Component {
 
     this.props.login(user)
   }
+  
+  handleDemo(e) {
+    e.preventDefault();
+    const demo = {
+      email: "demo@demo.com",
+      password: "demouser"
+    }
+    this.props.login(demo)
+      // .then(() => this.props.history.push('/browse'));
+  }
 
   renderErrors() {
     return (
@@ -53,6 +64,7 @@ class LoginForm extends React.Component {
       </ul>
     );
   }
+
 
   render() {
     return (
@@ -81,9 +93,15 @@ class LoginForm extends React.Component {
 
           <div className="login-form-footer">
             <div className="session-switch">Need an account? <Link to="/signup">Sign Up!</Link></div>
-            <button>login</button>
+            <button id="login-button">login</button>
           </div>  
-          
+
+          <button
+            id="demo-button-login"
+            onClick={this.handleDemo}>
+            demo login
+          </button>
+
         </form>
 
         {/* <Chat /> */}

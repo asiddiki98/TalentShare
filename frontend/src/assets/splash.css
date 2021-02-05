@@ -13,6 +13,9 @@
   transform: scale(1.04)
 }
 
+#demo-button-login {
+  margin: 358px 16px 0px 0px;
+}
 
 div.splash-page {
   background: url("./images/splash-background.png") no-repeat center center;
