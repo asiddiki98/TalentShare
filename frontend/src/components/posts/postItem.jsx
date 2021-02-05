@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import Likes from '../interactions/likes'
 import CommentIndex from '../interactions/comment_index'
+import '../../assets/posts/postIndexItem.scss'
 
 export default class PostItem extends React.Component {
   constructor(props) {
@@ -32,6 +33,7 @@ export default class PostItem extends React.Component {
         <video
           className="post-video"
           src={`/content/video/${fileName}`}
+          controls 
         />
       )
     }
@@ -41,6 +43,7 @@ export default class PostItem extends React.Component {
         <audio
           className="post-audio"
           src={`/content/audio/${fileName}`}
+          controls
         />
       )
     }
@@ -77,12 +80,18 @@ export default class PostItem extends React.Component {
       <div className="post-container">
 
         <div className="post-header">
-          <img className="post-profile-pic" src={`/content/image/${artist.propic}`} alt=""/>
-          <Link to={`/portfolio/${this.props.artist._id}`}>{artist.username}</Link>
-          {this.props.currentUser._id !== this.props.artistId ? <button onClick={this.handleMessage}>Send Message</button> : null}
-          
-          <p>{this.props.post.description}</p>
-          <p>{this.props.post.createdAt.split('T')[0]}</p>
+          <div className="not-message">
+            <img className="post-profile-pic" src={`/content/image/${artist.propic}`} alt=""/>
+            <div className="name-date">
+              <div>
+                <Link className="poster" to={`/portfolio/${this.props.artist._id}`}>{artist.username} </Link>
+                <p className="created-at">{this.props.post.createdAt.split('T')[0]}</p>
+              </div>
+              <p>{this.props.post.description}</p>
+            </div>
+          </div>
+         
+          {this.props.currentUser._id !== this.props.artistId ? <button className="send-message" onClick={this.handleMessage}><div>send message</div></button> : null}
         </div>
 
         <div className="post-content">

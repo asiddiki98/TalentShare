@@ -2,7 +2,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React from 'react';
 
-export default ({post}) => {
+export default ({post, viewPost}) => {
     const imageTypes = ['jpeg', 'jpg', 'png'];
     let content;
     if (!post) {
@@ -13,7 +13,7 @@ export default ({post}) => {
     }
 
     return (
-        <div className="post-item">
+        <div onClick={viewPost} className="post-item">
             {content}
         </div>
     )

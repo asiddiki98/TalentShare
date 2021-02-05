@@ -1,33 +1,101 @@
 #splash-design-container {
-  position: relative;
-  width: 100%;
-  max-width: 1920px;
-  min-width: 1400px;
+  display: flex;
+  justify-content: center;
 }
 
 #splash-logo {
-  width: 38%;
-  position: absolute;
-  z-index: 3;
-  top: 100px;
-  left: 11%;
-  margin: -8px 0px 0px -9px;
+  width: 400px;
+  margin-top: 110px;
+  transition: 0.2s;
 }
 
-.session-form {
-  position: absolute;
-  float: right;
-  right: 16vw;
-  top: 3vw;
-  z-index: 5;
-  background: #F0F2F5;
-  border-radius: 19px;
+#splash-logo:hover {
+  transform: scale(1.04)
 }
+
 
 div.splash-page {
   background: url("./images/splash-background.png") no-repeat center center;
   background-size: cover;
   background-blend-mode: multiply;
   height: 800px;
-  overflow: hidden;
+  overflow-x: hidden;
+}
+
+#tagline {
+  width: 400px;
+  position: absolute;
+  z-index: 3;
+  top: 239px;
+  left: 19%;
+  margin: -10px 0px 0px 17px;
+}
+
+.session-form {
+  position: fixed;
+  margin: 0 auto;
+  top: 28vh;
+  z-index: 5;
+  border-radius: 19px;
+  background: rgba(215,137,215, 0.5);
+  background: linear-gradient( 
+    1deg,
+    rgba(215,137,215,2.7) 9%,
+    rgba(157,101,201,0.4) 60%,
+    rgba(93,84,164,1.2) 79%,
+    rgba(42,61,102,0.7) 100%
+  );
+}
+
+div#splash-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.test-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.sess-form, .signup-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.signup-form {
+  flex-direction: column;
+}
+
+@media only screen and (min-width: 1484px) {
+    .session-form {
+      position: absolute;
+      float: right;
+      right: 20vw;
+      top: 12vh;
+      z-index: 5;
+      border-radius: 19px;
+      background: rgba(215,137,215, 0.5);
+      background: linear-gradient( 
+        1deg,
+        rgba(215,137,215,2.7) 9%,
+        rgba(157,101,201,0.4) 60%,
+        rgba(93,84,164,1.2) 79%,
+        rgba(42,61,102,0.7) 100%
+      );
+    }
+
+    #splash-logo {
+      width: 38%;
+      position: absolute;
+      z-index: 3;
+      top: 100px;
+      left: 11%;
+      margin: -10px 0px 0px 17px;
+    }
+
 }
