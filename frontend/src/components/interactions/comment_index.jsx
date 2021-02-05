@@ -9,6 +9,7 @@ import {
 } from '../../actions/comment_action'
 import { createComment } from '../../actions/post_actions'
 import CommentItem from './comment_item'
+import '../../assets/posts/comments.scss'
 
 
 class CommentIndex extends React.Component{
