@@ -3,6 +3,7 @@ import React from 'react';
 import { sendFile } from '../../actions/content_actions';
 import { closeModal } from '../../actions/modal_actions';
 import { createPost } from '../../actions/post_actions';
+import '../../assets/post/createPost.scss'
 
 
 class CreatePostForm extends React.Component{
