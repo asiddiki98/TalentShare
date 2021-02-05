@@ -11,7 +11,7 @@ const mSTP = (state, ownProps) => {
   return {
     currentUser: state.session.user,
     users: state.entities.users,
-    artistId: ownProps.artist.id,
+    artistId: ownProps.artist._id,
     post: ownProps.post
   }
 }

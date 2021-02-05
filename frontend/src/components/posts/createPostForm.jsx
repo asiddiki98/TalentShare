@@ -77,7 +77,7 @@ class CreatePostForm extends React.Component{
 
 const mSTP = (state = {}, ownProps) => {
     return {
-        currentUserId: state.session.user.id,
+        currentUserId: state.session.user._id,
         content: state.ui.content
     }
 }

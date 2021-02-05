@@ -33,7 +33,7 @@ class ChatPage extends React.Component{
 
     componentDidMount(){
         this.props.fetchAllUsers().then(() => {
-            this.props.fetchMessages(this.props.currentUser.id)
+            this.props.fetchMessages(this.props.currentUser._id)
         }).then(() => {
             this.setState({isMounted: true})
         })

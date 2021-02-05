@@ -34,7 +34,7 @@ class CommentIndex extends React.Component{
     }
 
     handleSubmit(e){
-        debugger
+        // debugger
         e.preventDefault()
         this.props.createComment(this.state)
         this.setState({
@@ -77,7 +77,7 @@ const mstp = (state, ownProps) => {
     const postComments = Object.values(comments)
     return {
     //   comments: postComments,
-      currentUser: state.session.user.id,
+      currentUser: state.session.user._id,
       users: state.entities.users
     }
 }

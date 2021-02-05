@@ -17,7 +17,7 @@ export default class PostItem extends React.Component {
 
     let fileType = this.props.post.filename.split('.')[1];
     let fileName = this.props.post.filename;
-    debugger
+    // debugger
     if (photoTypes.includes(fileType)) {
       return (
         <img
@@ -51,7 +51,7 @@ export default class PostItem extends React.Component {
   handleMessage(e){
     let message = {
       body: "initiate",
-      sender: this.props.currentUser.id,
+      sender: this.props.currentUser._id,
       receiver: this.props.artistId,
       initialConnectingMessage: true
     }
@@ -66,6 +66,7 @@ export default class PostItem extends React.Component {
   // }
   
   render() {
+    // debugger
     let artist;
     if (!this.props.users){
       artist = null
@@ -77,8 +78,9 @@ export default class PostItem extends React.Component {
 
         <div className="post-header">
           <img className="post-profile-pic" src={`/content/image/${artist.propic}`} alt=""/>
-          <Link to={`/portfolio/${this.props.artist.id}`}>{artist.username}</Link>
-          <button onClick={this.handleMessage}>Send Message</button>
+          <Link to={`/portfolio/${this.props.artist._id}`}>{artist.username}</Link>
+          {this.props.currentUser._id !== this.props.artistId ? <button onClick={this.handleMessage}>Send Message</button> : null}
+          
           <p>{this.props.post.description}</p>
           <p>{this.props.post.createdAt.split('T')[0]}</p>
         </div>

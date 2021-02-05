@@ -42,7 +42,7 @@ class Likes extends React.Component {
 
 const mstp = (state, ownProps) => {
     return {
-        userId: state.session.user.id
+        userId: state.session.user._id
     }
 }
 

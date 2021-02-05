@@ -9,6 +9,40 @@ class ViewPost extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    handleChange(field) {
+        return e => this.setState({ [field]: e.currentTarget.value });
+    }
+
+    handleFile(field) {
+        return e => this.setState({[field]: e.currentTarget.files[0]});
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append('file', this.state.file);
+        formData.append('caption', "profile-pic");
+        if (this.state.file) {
+            this.props.sendFile(formData).then(() => this.props.updateUser({
+                username: this.state.username,
+                firstname: this.state.firstname,
+                lastname: this.state.lastname,
+                propic: this.props.content.filename,
+                bio: this.state.bio,
+                _id: this.state._id
+            })).then(this.props.closeModal);
+        } else {
+            this.props.updateUser({
+                username: this.state.username,
+                firstname: this.state.firstname,
+                lastname: this.state.lastname,
+                propic: this.state.propic,
+                bio: this.state.bio,
+                _id: this.state._id
+            }).then(this.props.closeModal);
+        }
+    }
+
     render() {
         const {closeModal, user} = this.props;
         return (
