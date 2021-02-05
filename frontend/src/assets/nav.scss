@@ -32,7 +32,12 @@
     font-family: poppins;
     font-weight: bold;
     padding: 3px;
+    transition: 0.3s;
+    &:hover{
+        color: rgba(93,84,164,1.0); 
+    }
 }
+
 
 .search-bar{
     border-radius: 20px;
@@ -69,7 +74,7 @@
     top: 20;
     right: 0;
     border-radius: 5px;
-
+   
     :hover{
         background:  #5045a9;
     }
@@ -85,6 +90,7 @@
     padding: 10px;
     padding-right: 100px;
     border-radius: 3px;
+    transition: 0.3s;
 }
 .dropdown-portfolio{
     background: transparent;
@@ -104,6 +110,10 @@
     height: 26px;
     width: 70px;
     border-radius: 4px;
+    transition: 0.3s;
+    div.categories:hover{
+        color: rgba(215,137,215,1.0);
+    }
 }
 
 #photography-true{
@@ -112,6 +122,10 @@
     height: 26px;
     width: 150px;
     border-radius: 4px;
+    transition: 0.3s;
+    div.categories:hover{
+        color: rgba(215,137,215,1.0);
+    }
 }
 #music-true{
     // color: #5d54a4;
@@ -119,6 +133,10 @@
     height: 26px;
     width: 100px;
     border-radius: 4px;
+    transition: 0.3s;
+    div.categories:hover{
+        color: rgba(215,137,215,1.0);
+    }
 }
 #dance-true{
     // color: #5d54a4;
@@ -126,4 +144,25 @@
     height: 26px;
     width: 100px;
     border-radius: 4px;
+    transition: 0.3s;
+    div.categories:hover{
+        color: rgba(215,137,215,1.0);
+    }
+}
+
+.create-post-button{
+    margin-top: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+      width: 150px;
+    font-family: poppins;
+    font-weight: bold;
+    padding: 3px;
+    position: sticky;
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover{
+        color: rgba(215,137,215,1.0);
+    }
 }

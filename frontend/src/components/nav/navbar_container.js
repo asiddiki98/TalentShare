@@ -26,7 +26,7 @@ const mapDispatchToProps = (dispatch) => {
     fetchDance: () => dispatch(fetchDance()),
     fetchMusic: () => dispatch(fetchMusic()),
     fetchPhotography: () => dispatch(fetchPhotography()),
-    createPost: (<div className="create-post-button" onClick={() => dispatch(openModal('createPost'))}>New Post</div>)
+    createPost: (<div><div className="create-post-button" onClick={() => dispatch(openModal('createPost'))}>New Post</div> </div>)
   }
 }
 
