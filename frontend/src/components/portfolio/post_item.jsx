@@ -13,7 +13,7 @@ export default ({post, viewPost}) => {
     }
 
     return (
-        <div onClick={viewPost} className="post-item">
+        <div onClick={() => viewPost(post._id)} className="post-item">
             {content}
         </div>
     )

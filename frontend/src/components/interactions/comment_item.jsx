@@ -27,7 +27,7 @@ class CommentItem extends React.Component {
           <div className="comment-pfp">
             {/* <img src={`content/image/${this.props.pfp}`} alt="comment-pfp"/> */}
           </div> 
-            <Link to={`/portfolios/${this.props.creator}`}>{this.props.creator.username}</Link>
+            <Link to={`/portfolio/${this.props.creator._id}`}>{this.props.creator.username}</Link>
         </div>
 
         <span className="comment-content">{this.props.comment.content}</span>

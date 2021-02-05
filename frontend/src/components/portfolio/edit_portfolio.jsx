@@ -50,11 +50,11 @@ class EditPortfolio extends React.Component {
         const {closeModal, user} = this.props;
         return (
             <div className="edit-portfolio-container">
-                <div>HELLO WORLD</div>
+                <div className="title" >Edit Profile</div>
                 <div className="closemodal" onClick={closeModal}>✕</div>
                 <form onSubmit={this.handleSubmit} encType='multipart/form-data'>
                     <label>Choose New Profile Picture: 
-                        <input type="file" accept=".png, .jpg, .jpeg" onChange={this.handleFile("file")}/>
+                        <input className="file" type="file" accept=".png, .jpg, .jpeg" onChange={this.handleFile("file")}/>
                     </label>
 
                     <label>Edit Username:
@@ -73,7 +73,7 @@ class EditPortfolio extends React.Component {
                         <input type="text" value={this.state.bio} onChange={this.handleChange("bio")} />
                     </label>
 
-                    <button>Submit</button>
+                    <button>submit</button>
                 </form>
             </div>
         )
