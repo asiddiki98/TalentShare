@@ -31,9 +31,12 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
+const port = process.env.PORT || 5000;
+app.listen(port, () => console.log(`Server is running on port ${port}`));
+
 app.use(cors());
-const http = require('http').createServer(app);
-const io = require('socket.io')(http, {
+// const http = require('http').createServer(app);
+const io = require('socket.io')(app, {
     cors: {
         
         methods: ["GET", "POST"],
@@ -58,7 +61,7 @@ io.on('connection', function(socket){
         
     })
 })
-http.listen(8000);
+// http.listen(8000);
 
 mongoose
     .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -105,5 +108,5 @@ app.use('/api/messages', messages)
 
 app.use("/api/comments", comments);
 
-const port = process.env.PORT || 5000;
-app.listen(port, () => console.log(`Server is running on port ${port}`));
+// const port = process.env.PORT || 5000;
+// app.listen(port, () => console.log(`Server is running on port ${port}`));
