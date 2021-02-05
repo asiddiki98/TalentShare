@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Likes from '../interactions/likes'
 import CommentIndex from '../interactions/comment_index'
 import '../../assets/posts/postIndexItem.scss'
+import { timeDisplay } from '../../util/date_util';
 
 export default class PostItem extends React.Component {
   constructor(props) {
@@ -85,7 +86,7 @@ export default class PostItem extends React.Component {
             <div className="name-date">
               <div>
                 <Link className="poster" to={`/portfolio/${this.props.artist._id}`}>{artist.username} </Link>
-                <p className="created-at">{this.props.post.createdAt.split('T')[0]}</p>
+                <p className="created-at">{timeDisplay(this.props.post.createdAt)}</p>
               </div>
               <p>{this.props.post.description}</p>
             </div>

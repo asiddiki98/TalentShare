@@ -110,7 +110,8 @@ export default class Chat extends React.Component{
                             // debugger
                             return <li className="message-user-item" onClick={this.handleChatClick(user._id)} 
                                     key={user._id}>
-                                    {user.username}
+                                    <img src={`content/image/${user.propic}`} alt="" />
+                                    <div>{user.username}</div>
                                 </li>
                         }) : null
                     }
