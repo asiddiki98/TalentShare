@@ -11,7 +11,6 @@ export default ({post, viewPost}) => {
         content = imageTypes.includes(post.filename.split('.')[1]) ? <img src={`/content/image/${post.filename}`}/> : <video src={`/content/video/${post.filename}`} controls></video>;
 
     }
-    debugger
     return (
         <div onClick={() => viewPost(post._id)} className="post-item">
             {content}

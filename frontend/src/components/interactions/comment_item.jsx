@@ -27,10 +27,11 @@ class CommentItem extends React.Component {
           <div className="comment-pfp">
             <img src={`content/image/${this.props.pfp}`} alt="comment-pfp"/>
           </div> 
+          <div className="c-name-content">
             <Link to={`/portfolio/${this.props.creator._id}`}>{this.props.creator.username}</Link>
+            <span className="comment-content">{this.props.comment.content}</span>
+          </div>
         </div>
-
-        <span className="comment-content">{this.props.comment.content}</span>
       </div>
     );
   }

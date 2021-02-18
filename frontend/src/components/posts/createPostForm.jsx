@@ -34,7 +34,10 @@ class CreatePostForm extends React.Component{
         e.preventDefault();
         if(!this.state.file || !this.state.description || !this.state.category){
             this.setState({errors: "*all fields required*"})
-        }else{
+        } else if(this.state.description.length > 100) {
+            this.setState({errors: "Description must be less than 100 characters"});
+        }
+        else{
             // debugger
             const formData = new FormData();
             formData.append('file', this.state.file);
@@ -85,7 +88,8 @@ class CreatePostForm extends React.Component{
 const mSTP = (state = {}, ownProps) => {
     return {
         currentUserId: state.session.user._id,
-        content: state.ui.content
+        content: state.ui.content,
+        errors: state.errors.posts
     }
 }
 
