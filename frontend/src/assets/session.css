@@ -1,12 +1,10 @@
 .session-form{
-   
     box-sizing: border-box;
     width: 400px;
-    height: 600px;
+    height: 585px;
     font-size: 20px;
     box-shadow: 0px 1px 28px -10.5px black;
     padding: 16px 16px 16px 16px;
-    
 }
 
 .login-form-container{
@@ -33,6 +31,7 @@
   flex-direction: column;
   width: 350px;
   margin-top: -10px;
+  margin-bottom: 22px;
 }
 
 .name-input-fields{
@@ -55,14 +54,14 @@
 }
 
 .session-form .form-prompt{
-    box-sizing: border-box;
-    margin: 8px 10px 8px 5px;
-    font-size: 22px;
-    font-weight: 500;
-    font-weight: bold;
-    text-transform: uppercase;
-    height: 20px;
-    color: white;
+  box-sizing: border-box;
+  margin: 15px 12px 3px 5px;
+  font-size: 19px;
+  font-weight: 500;
+  font-weight: bold;
+  text-transform: uppercase;
+  height: 20px;
+  color: white;
 }
 
 .session-form-input input{
@@ -84,9 +83,9 @@
   padding: 5px 0px 5px 14px;
   margin-right: 10px;
   outline: none;
-  height: 50px;
+  height: 40px;
   font-family: 'Poppins';
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 .session-form-input input:focus{
@@ -97,12 +96,31 @@
     background-color: #f6f6f6;
 }
 
-.session-errors{
+.signup-errors {
   color: red;
   font-size: 12px;
-  margin-top: 12px;
+  margin-top: 85px;
+  margin-bottom: 5px;
+  margin-left: 4px;
+  position: absolute;
+}
+
+.signup-name-errors {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
   margin-bottom: 5px;
   margin-left: 5px;
+  position: absolute;
+}
+
+.login-errors {
+  color: red;
+  font-size: 12px;
+  margin-top: 94px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  position: absolute;
 }
 
 .session-form button {
@@ -165,7 +183,7 @@ button#signup-button {
   justify-content: space-between;
   box-sizing: border-box;
   position: relative;
-  margin-top: 20px;
+  margin-top: 66px;
 }
 
 .session-switch a {

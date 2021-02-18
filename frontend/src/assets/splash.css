@@ -5,7 +5,7 @@
 
 #splash-logo {
   width: 400px;
-  margin-top: 110px;
+  margin-top: 60px;
   transition: 0.2s;
 }
 
@@ -14,14 +14,14 @@
 }
 
 #demo-button-login {
-  margin: 358px 16px 0px 0px;
+  margin: 50px 0px 0px 0px;
 }
 
 div.splash-page {
   background: url("./images/splash-background.png") no-repeat center center;
   background-size: cover;
   background-blend-mode: multiply;
-  height: 800px;
+  height: 100vh;
   overflow-x: hidden;
 }
 
@@ -35,9 +35,9 @@ div.splash-page {
 }
 
 .session-form {
-  position: fixed;
+  position: absolute;
   margin: 0 auto;
-  top: 28vh;
+  top: 22vh;
   z-index: 5;
   border-radius: 19px;
   background: rgba(215,137,215, 0.5);
@@ -102,4 +102,10 @@ div#splash-form {
       margin: -10px 0px 0px 17px;
     }
 
+}
+
+@media only screen and (max-height: 735px) {
+  .session-form {
+    top: 35vh
+  }
 }
