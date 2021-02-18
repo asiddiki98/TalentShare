@@ -78,7 +78,7 @@ class LoginForm extends React.Component {
               onChange={this.update('email')}
               placeholder="Email"
             />
-            <p className="session-errors">{this.state.errors.email}</p>
+            <p className="login-errors">{this.state.errors.email}</p>
           </div>
 
           <div className="session-form-input">
@@ -88,19 +88,16 @@ class LoginForm extends React.Component {
               onChange={this.update('password')}
               placeholder="Password"
             />
-            <p className="session-errors">{this.state.errors.password}</p>
+            <p className="login-errors">{this.state.errors.password}</p>
           </div>
 
           <div className="login-form-footer">
             <div className="session-switch">Need an account? <Link to="/signup">Sign Up!</Link></div>
-            <button id="login-button">login</button>
+            <div className="login-buttons-container">
+              <button id="login-button">login</button>
+              <button id="demo-button-login" onClick={this.handleDemo}>demo login</button>
+            </div>
           </div>  
-
-          <button
-            id="demo-button-login"
-            onClick={this.handleDemo}>
-            demo login
-          </button>
 
         </form>
 

@@ -78,7 +78,7 @@ class SignupForm extends React.Component {
                 onChange={this.update('email')}
                 placeholder="Please enter your email."
               />
-              <p className="session-errors">{this.state.errors.email}</p>
+              <p className="signup-errors">{this.state.errors.email}</p>
             </div>
 
             <div className="signup-form-input">
@@ -91,7 +91,7 @@ class SignupForm extends React.Component {
                 onChange={this.update('username')}
                 placeholder="Enter a username."
               />
-              <p className="session-errors">{this.state.errors.username}</p>
+              <p className="signup-errors">{this.state.errors.username}</p>
             </div>
             
             <div className="signup-form-input">
@@ -104,7 +104,7 @@ class SignupForm extends React.Component {
                     onChange={this.update('firstname')}
                     placeholder="First name"
                   />
-                  <p className="session-errors">{this.state.errors.firstname}</p>
+                  <p className="signup-name-errors">{this.state.errors.firstname}</p>
                 </div>
                 <div>
 
@@ -113,7 +113,7 @@ class SignupForm extends React.Component {
                     onChange={this.update('lastname')}
                     placeholder="Last name"
                   />
-                  <p className="session-errors">{this.state.errors.lastname}</p>
+                  <p className="signup-name-errors">{this.state.errors.lastname}</p>
                 </div>
               </div>
             </div>
@@ -125,7 +125,7 @@ class SignupForm extends React.Component {
                 onChange={this.update('password')}
                 placeholder="Create a password."
               />
-              <p className="session-errors">{this.state.errors.password}</p>
+              <p className="signup-errors">{this.state.errors.password}</p>
             </div>
 
             <div className="signup-form-input">  
@@ -135,7 +135,7 @@ class SignupForm extends React.Component {
                 onChange={this.update('password2')}
                 placeholder="Enter your password again."
               />
-              <p className="session-errors">{this.state.errors.password2}</p>
+              <p className="signup-errors">{this.state.errors.password2}</p>
             </div>
 
             <div className="session-form-footer">
