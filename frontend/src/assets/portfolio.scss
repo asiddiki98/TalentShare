@@ -375,17 +375,28 @@
             overflow: auto;
             .comment-container {
                 padding: 5px 0;
+                display: flex;
                 
+                .c-name-content {
+                    display: flex;
+                    flex-direction: column;
+                    background-color: #dadde1;
+                    padding: 10px 15px 5px 15px;
+                    border-radius: 10px;
+                    // width: 100%;
+                    // margin-right: 20px;
+                    a{
+                    text-decoration: none;
+                    color: #d789d7;
+                    font-weight: 500;
+                    }
+                }
                 .comment-header {
                     padding: 5px 0;
                     display: flex;
                     
                     position: relative;
-                    a{
-                        text-decoration: none;
-                        color: #d789d7;
-                        font-weight: 500;
-                    }
+                    
 
                     .comment-pfp{
                         display: flex;
@@ -403,15 +414,7 @@
                                 }
         
                     }
-                    .c-name-content {
-                        display: flex;
-                        flex-direction: column;
-                        background-color: #dadde1;
-                        padding: 10px 15px 5px 15px;
-                        border-radius: 10px;
-                        // width: 100%;
-                        // margin-right: 20px;
-                    }
+                    
                     .option-dots{
                         position: absolute;
                         top: 10px;
@@ -480,7 +483,7 @@
             
         }
 
-        form {
+        .comment-submit-form {
             
                 margin-top: 10px;
                 margin-left: 10px;

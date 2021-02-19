@@ -106,18 +106,22 @@ class CommentItem extends React.Component {
           <div className="comment-pfp">
             <img src={`content/image/${this.props.pfp}`} alt="comment-pfp"/>
           </div> 
-            <Link to={`/portfolio/${this.props.creator._id}`}>{this.props.creator.username}</Link>
-            {
-            (this.props.creator._id === this.props.currentUserId) ? 
-            <button className="option-dots" onClick={this.openOptions}>
-              <img src="https://img.icons8.com/ios/50/000000/ellipsis.png"/>
-            </button> : null
-            }
-            {optionsMenu}
+            
+            
         </div>
+
         <div className="c-name-content">
-            {commentItem}
+          <Link to={`/portfolio/${this.props.creator._id}`}>{this.props.creator.username}</Link>
+          {commentItem}
+          
         </div>
+        {
+          (this.props.creator._id === this.props.currentUserId) ? 
+          <button className="option-dots" onClick={this.openOptions}>
+            <img src="https://img.icons8.com/ios/50/000000/ellipsis.png"/>
+          </button> : null
+        }
+        {optionsMenu}
         
           
           
