@@ -40,21 +40,28 @@ class SearchBar extends React.Component {
             return user.username.toLowerCase().includes(this.state.searchUser.toLowerCase()) || user.firstname.toLowerCase().includes(this.state.searchUser.toLowerCase()) || user.lastname.toLowerCase().includes(this.state.searchUser.toLowerCase())
         })
 
-        let users = filteredUsers.map(user => {
-            debugger
-            return(
+        let users;
+        if (filteredUsers.length > 0){
 
-                <Link className="search-link" to={`/portfolio/${user._id}`}>
-                    <div className="search-results">
-                        <img className="search-propic" src={`content/image/${user.propic}`} alt=""/>
-                            <div className="search-user-name">
-                                <p className="search-username">{user.username}</p>
-                                <p className="search-name">{`${user.firstname} ${user.lastname}`}</p>
-                            </div>
-                    </div>
-                </Link>
-            )
-        }) 
+            users = filteredUsers.map(user => {
+                debugger
+                return(
+    
+                    <Link className="search-link" to={`/portfolio/${user._id}`}>
+                        <div className="search-results">
+                            <img className="search-propic" src={`content/image/${user.propic}`} alt=""/>
+                                <div className="search-user-name">
+                                    <p className="search-username">{user.username}</p>
+                                    <p className="search-name">{`${user.firstname} ${user.lastname}`}</p>
+                                </div>
+                        </div>
+                    </Link>
+                )
+            }) 
+        } else {
+
+            users = <div className="search-no-results">no results</div>
+        }
   
         return (
             <div>
