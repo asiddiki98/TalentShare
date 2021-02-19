@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import PostItem from './postItem';
 import {
   likePost,
-  deletePost
+  deletePost,
+  patchPost
 } from '../../actions/post_actions';
 import { sendInitialMessage } from '../../actions/message_action';
 import { clickMessage } from '../../actions/filter_action';
@@ -22,8 +23,7 @@ const mDTP = dispatch => {
     // unlikePost: (post) => dispatch(unlikePost(post)),
     deletePost: (post) => dispatch(deletePost(post)),
     sendMessage: message => dispatch(sendInitialMessage(message)),
-    clickMessage: userId => dispatch(clickMessage(userId)),
-    
+    clickMessage: userId => dispatch(clickMessage(userId))
   }
 }
 

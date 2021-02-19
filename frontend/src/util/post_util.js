@@ -4,8 +4,8 @@ export const fetchPost = (postId) => {
    return axios.get(`/api/posts/${postId}`)
 }
 
-export const patchPost = (postId) => {
-   return axios.patch(`/api/posts/${postId}`)
+export const patchPost = (post) => {
+   return axios.patch(`/api/posts/${post._id}`, post)
 }
 
 export const likePost = (postId, userId) => {

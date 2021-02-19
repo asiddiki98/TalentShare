@@ -4,6 +4,7 @@ import {closeModal} from '../../actions/modal_actions';
 import EditPortfolio from '../portfolio/edit_portfolio';
 import ViewPost from '../portfolio/view_post';
 import CreatePostForm from '../posts/createPostForm';
+import EditPostForm from '../portfolio/edit_post_form';
 
 const Modal = ({modal, closeModal}) => {
     if(!modal) return null;
@@ -13,9 +14,9 @@ const Modal = ({modal, closeModal}) => {
         case 'editPortfolio':
             component = <EditPortfolio />;
             break;
-        // case 'createPost':
-        //     component = <CreatePostForm />;
-        //     break;
+        case 'editPost':
+            component = <EditPostForm/>;
+            break;
         case 'viewPost':
             component = <ViewPost />;
             break;
