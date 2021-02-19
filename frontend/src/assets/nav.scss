@@ -96,6 +96,16 @@
     
     }
 }
+.search-no-results{
+    background:  #5d54a4;
+    display: flex;
+    justify-content: center;
+    color: white;
+    display: flex;
+    padding: 5px;
+    text-decoration: none;
+    border-radius: 5px;
+}
 
 .nav-profile-image{
     height: 30px;
