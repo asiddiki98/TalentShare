@@ -12,10 +12,6 @@ class EditPostForm extends React.Component{
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleFile(field) {
-        return e => this.setState({[field]: e.currentTarget.files[0]});
-    }
-
     handleChange(field) {
         return e => this.setState({ [field]: e.currentTarget.value });
     }
@@ -25,19 +21,8 @@ class EditPostForm extends React.Component{
     }
 
     handleSubmit(e) {
-        debugger;
         e.preventDefault();
-        const formData = new FormData();
-        formData.append('caption', "post-pic");
-        formData.append('file', this.state.file);
-        if(this.state.file) {
-            this.props.sendFile(formData).then(() => {
-                this.state.filename = this.props.content.filename;
-                return this.props.editPost(this.state);
-            }).then(this.props.closeModal);
-        } else {
-            this.props.editPost(this.state).then(this.props.closeModal);
-        }
+        this.props.editPost(this.state).then(this.props.closeModal);
     }
 
     render(){
@@ -47,10 +32,6 @@ class EditPostForm extends React.Component{
                 <div className="create-post-header">Edit Post</div>
                 <div className="closemodal" onClick={closeModal}>✕</div>
                 <form onSubmit={this.handleSubmit} encType='multipart/form-data'>
-                    <label> 
-                        <div className="create-post-input-label">Post:</div>
-                        <input type="file" accept=".png, .jpg, .jpeg, mp4, mov, mp3, wav, mp4" onChange={this.handleFile("file")}/>
-                    </label>
                     <label>
                         <div className="create-post-input-label">Description:</div>
                         <input type="text" value={this.state.description} onChange={this.handleChange('description')}/>
