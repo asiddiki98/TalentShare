@@ -275,6 +275,7 @@
         border-radius: 8px;
         padding: 10px;
         .top {
+            
             box-sizing: border-box;
             width: 100%;
             display: flex;
@@ -332,6 +333,7 @@
                     padding: 5px 0;
                     display: flex;
                     
+                    position: relative;
                     a{
                         text-decoration: none;
                         color: #d789d7;
@@ -363,7 +365,65 @@
                         // width: 100%;
                         // margin-right: 20px;
                     }
+                    .option-dots{
+                        position: absolute;
+                        top: 10px;
+                        right: 10px;
+                        
+                        background: transparent;
+                        border: none;
+                        outline: none;
+                        border-radius: 50%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        transition: .5s;
+                        img{
+                            box-sizing: border-box;
+                            width: 20px;
+                            background: transparent;
+                            border: none;
+                            outline: none;
+                            border-radius: 50%;
+                        }
+                        
+                    }
+                    .option-dots:hover{
+                        background-color: #dadde1;
+                    }
+                    .comment-option-menu{
+                        position: absolute;
+                        top: 11px;
+                        right: 46px;
+                        background: #dadde1;;
+                        border-radius: 5px;
+                        padding: 5px;
+                        z-index: 150;
+                        div{
+                            margin-top: 3px;
+                            margin-bottom: 3px;
+                            transition: .1s;
+                            font-size: 14px;
+                        }
+                        div:hover{
+                            font-weight: 500;
+                        }
+                    }
                 }
+
+                form{
+                    input{
+                        border: 1px solid #d789d7;
+                        border-radius: 0px;
+                        margin-right: 45px;
+                    }
+                    input:focus{
+                        border: 1px solid #d789d7;
+                        border-radius: 0px;
+                        background: white;
+                    }
+                }
+
                 .comment-content {
                     padding: 5px 0;
                 }
@@ -377,6 +437,7 @@
             
                 margin-top: 10px;
                 margin-left: 10px;
+                margin-bottom: 10px;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;

@@ -50,6 +50,7 @@
 .post-header{
     display: flex;
     justify-content:  space-between;
+    position: relative;
     .name-date{
         display: flex;
         flex-direction: column;
@@ -88,6 +89,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
     &:hover{
        background: rgba(215,137,215,1.0); 
     }

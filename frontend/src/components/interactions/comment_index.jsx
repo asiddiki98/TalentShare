@@ -56,6 +56,7 @@ class CommentIndex extends React.Component{
                   postId={this.props.postId}
                   pfp={creator.propic}
                   creator={creator}
+                  currentUserId={this.props.currentUser}
                 />
             )
         })
