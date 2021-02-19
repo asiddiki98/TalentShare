@@ -30,7 +30,7 @@ export default class ChatBox extends React.Component{
     }
 
     handleSubmit(e){
-        // debugger
+        
         e.preventDefault();
         
         const message = {
@@ -39,7 +39,7 @@ export default class ChatBox extends React.Component{
                 receiver: this.props.otherUser._id,
                 initialConnectingMessage: false
             }
-        // debugger
+        
         
         if(message.body.length !== 0){
 
@@ -58,7 +58,7 @@ export default class ChatBox extends React.Component{
                 initialConnectingMessage: false
             }
         
-            // debugger
+            
              if(message.body.length !== 0){
 
                 this.props.socket.emit('chat message', message);
@@ -74,7 +74,7 @@ export default class ChatBox extends React.Component{
     }
 
     render(){
-        // debugger
+        
         let currentUserImage = <img src={`content/image/${this.props.currentUser.propic}`} alt="" />;
         let otherUserImage = <img src={`content/image/${this.props.otherUser.propic}`} alt="" />;
         return(
@@ -89,7 +89,7 @@ export default class ChatBox extends React.Component{
                             this.props.messages.filter(message => {
                                 return !message.initialConnectingMessage
                             }).map((message,idx) => {
-                                // debugger
+                                
                                 return <li key={idx}>
                                         <div className="message-header">
 

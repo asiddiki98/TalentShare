@@ -47,8 +47,8 @@ class ViewPost extends React.Component {
                 <div className="post-dropdown"onClick={this.handleClick}  ref={div => this.dropDown = div} >
                     •••
                     {!this.state.hidden && <div className="post-dropdown-contents" onClick={e => e.stopPropagation()}>
-                        <div className="open-edit-post" onClick={() => editPost(post._id)} >Edit</div>
                         <div className="delete-post-button" onClick={() => deletePost(post._id)} >Delete</div>
+                        <div className="open-edit-post" onClick={() => editPost(post._id)} >Edit</div>
                     </div>}
                 </div>
                 <div className="content-container">

@@ -14,7 +14,6 @@ const PostsReducer = (state = initialState, action) => {
       action.posts.forEach(element => {posts[element._id] = element})
       return posts
     case RECEIVE_POST:
-      debugger
       return Object.assign({}, state, { [action.post._id]: action.post });
     case DELETE_POST:
       let newState = Object.assign({}, state);

@@ -35,7 +35,7 @@ class CommentIndex extends React.Component{
     }
 
     handleSubmit(e){
-        // debugger
+        
         e.preventDefault()
         this.props.createComment(this.state)
         this.setState({
@@ -48,7 +48,7 @@ class CommentIndex extends React.Component{
     render(){
         let display = this.props.comments.map((comment, idx) => {
             const creator = this.props.users[comment.creator]
-            // debugger
+            
             return (
                 <CommentItem
                   key={`comment-${comment._id}`}

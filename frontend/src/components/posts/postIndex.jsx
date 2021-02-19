@@ -21,7 +21,6 @@ class PostIndex extends React.Component{
 
   render(){
     let display;
-    // debugger
     if (this.props.posts){
       display = this.props.posts.map((post) => { 
         return (
@@ -31,7 +30,6 @@ class PostIndex extends React.Component{
     } else {
       return null;
     }
-    // debugger
     return (
       <div className="post-index">
         {display}

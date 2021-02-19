@@ -41,7 +41,7 @@ class CommentItem extends React.Component {
   }
 
   closeOptions(e){
-    debugger
+    
     if(this.state.openOptions){
 
       this.setState({openOptions: false});
@@ -109,7 +109,7 @@ class CommentItem extends React.Component {
             
             
         </div>
-
+        
         <div className="c-name-content">
           <Link to={`/portfolio/${this.props.creator._id}`}>{this.props.creator.username}</Link>
           {commentItem}

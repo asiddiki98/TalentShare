@@ -26,7 +26,7 @@ export default class Chat extends React.Component{
         this.socket = openSocket();
         this.socket.emit("connect user", this.props.currentUser._id)
         this.socket.on('chat message', message => {
-            // debugger
+            
             this.props.receiveMessage(message)
         })
         this.setState({isMounted: true})
@@ -73,7 +73,7 @@ export default class Chat extends React.Component{
     }
 
     render(){
-        // debugger
+        
         if(this.props.location.pathname === "/chat"){
             return null;
         }
@@ -85,7 +85,7 @@ export default class Chat extends React.Component{
                         <ul>
                             {   
                                 this.state.dispChats.map((otherUserId,idx) => {
-                                    // debugger
+                                    
                                     return <ChatBox otherUser={this.props.otherUsers[otherUserId]}
                                         currentUser={this.props.currentUser}
                                         messages={this.props.messages[otherUserId]}
@@ -107,7 +107,7 @@ export default class Chat extends React.Component{
                     {
                         this.props.otherUsers ? 
                         Object.values(this.props.otherUsers).map((user,idx) => {
-                            // debugger
+                            
                             return <li className="message-user-item" onClick={this.handleChatClick(user._id)} 
                                     key={user._id}>
                                     <img src={`content/image/${user.propic}`} alt="" />

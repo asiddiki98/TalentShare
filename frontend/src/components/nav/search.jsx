@@ -19,7 +19,7 @@ class SearchBar extends React.Component {
     }
 
     closeResults(e) {
-        debugger
+        
         if (this.state.searchUser.length > 0) {
 
             this.setState({ searchUser: "" });
@@ -44,7 +44,7 @@ class SearchBar extends React.Component {
         if (filteredUsers.length > 0){
 
             users = filteredUsers.map(user => {
-                debugger
+                
                 return(
     
                     <Link className="search-link" to={`/portfolio/${user._id}`}>

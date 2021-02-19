@@ -11,7 +11,7 @@ class Portfolio extends React.Component {
     componentDidMount() {
         this.props.fetchAllUsers();
         // this.props.fetchUserPosts(this.props.match.params.user_id);
-        // debugger
+        
         return this.props.fetchPosts();
     }
 

@@ -25,7 +25,7 @@ router.post("/", passport.authenticate('jwt',{session: false}), (req,res) => {
         receiver: req.body.receiver,
         initialConnectingMessage: true
     })
-    // debugger
+    
     newMessage.save().then(message => res.json(message))
 })
 

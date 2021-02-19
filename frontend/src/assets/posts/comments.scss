@@ -50,6 +50,8 @@ p.comment-number > div {
                     border-radius: 7px;
                     .comment-container {
                         padding: 0px 0px 10px 50px;
+                        display: flex;
+                        position: relative;
                         .comment-header {
                             padding: 5px 0;
                             display: flex;
@@ -64,7 +66,7 @@ p.comment-number > div {
                             .comment-pfp{
                                 img{
                                 height: 30px;
-                                margin-right: 20px;
+                                margin-right:10px;
                                 margin-top: 3px;
                                 border-radius: 75%;
                                 width: 30px;
@@ -75,63 +77,79 @@ p.comment-number > div {
         
                             }
 
-                            .option-dots{
-                                position: absolute;
-                                top: 10px;
-                                right: 10px;
-                                
+                            
+                        }
+                        .c-name-content {
+                            display: flex;
+                            flex-direction: column;
+                            background-color: white;
+                            padding: 10px 15px 5px 15px;
+                            border-radius: 10px;
+                            // width: 100%;
+                            // margin-right: 20px;
+                            a{
+                            text-decoration: none;
+                            color: #d789d7;
+                            font-weight: 500;
+                            }
+                        }
+                        .option-dots{
+                            position: absolute;
+                            top: 10px;
+                            right: 10px;
+                            
+                            background: transparent;
+                            border: none;
+                            outline: none;
+                            border-radius: 50%;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            transition: .5s;
+                            img{
+                                box-sizing: border-box;
+                                width: 20px;
                                 background: transparent;
                                 border: none;
                                 outline: none;
                                 border-radius: 50%;
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
-                                transition: .5s;
-                                img{
-                                    box-sizing: border-box;
-                                    width: 25px;
-                                    background: transparent;
-                                    border: none;
-                                    outline: none;
-                                    border-radius: 50%;
-
-                                }
-                                
                             }
 
-                            .option-dots:hover{
-                                background-color: white;
+                        }
+                        .option-dots:hover{
+                            background-color: white;
+                        }
+                        .comment-option-menu{
+                            position: absolute;
+                            top: 11px;
+                            right: 46px;
+                            background: white;
+                            border-radius: 5px;
+                            padding: 5px;
+                            z-index: 150;
+                            div{
+                                margin-top: 3px;
+                                margin-bottom: 3px;
+                                transition: .1s;
+                                font-size: 14px;
                             }
-
-                            .comment-option-menu{
-                                position: absolute;
-                                top: 11px;
-                                right: 46px;
-                                background: white;
-                                border-radius: 10px;
-                                padding: 10px;
-                                div{
-                                    margin-top: 5px;
-                                    margin-bottom: 5px;
-                                    transition: .1s;
-                                }
-                                div:hover{
-                                    font-weight: 500;
-                                }
-
+                            div:hover{
+                                font-weight: 500;
                             }
                         }
                         form{
+                            box-sizing: border-box;
+                            width: 500px;
                             input{
                                 border: 1px solid #d789d7;
                                 border-radius: 0px;
                                 margin-right: 45px;
+                                background-color: white;
                             }
                             input:focus{
                                 border: 1px solid #d789d7;
                                 border-radius: 0px;
-                                background: white;
+                                background: #dadde1;
                             }
 
                         }

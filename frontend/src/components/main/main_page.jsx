@@ -8,7 +8,6 @@ class MainPage extends React.Component {
   }
 
   componentDidMount() {
-    // debugger
     this.props.fetchPosts();
     this.props.fetchAllUsers();
   }

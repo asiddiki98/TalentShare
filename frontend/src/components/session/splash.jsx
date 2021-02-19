@@ -13,7 +13,6 @@ import Tasnim from "../../assets/images/tasnim.jpg"
 import Stephen from "../../assets/images/stephen.jpg"
 const Splash = (props) => {
   let component;
-  // debugger
   if(props.location.pathname === "/"){
     component = <div className="sess-form"><LoginFormContainer id="login-form"/></div>
   }else if(props.location.pathname === "/signup"){

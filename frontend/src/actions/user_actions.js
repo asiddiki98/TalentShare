@@ -34,7 +34,7 @@ export const updateProfile = user => dispatch => {
         return (dispatch(receiveCurrentUser(res.data)));
       },
       err =>{
-        // debugger
+        
         return (dispatch(receiveUserErrors(err.response.data))) }
     )
     

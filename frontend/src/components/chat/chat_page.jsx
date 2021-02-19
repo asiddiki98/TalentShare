@@ -21,7 +21,7 @@ class ChatPage extends React.Component{
         }
 
         this.handleCloseChat = this.handleCloseChat.bind(this)
-        // debugger
+        
     }
 
     handleChatClick(userId){
@@ -40,7 +40,7 @@ class ChatPage extends React.Component{
         this.socket = openSocket();
         this.socket.emit("connect user", this.props.currentUser._id)
         this.socket.on('chat message', message => {
-            // debugger
+            
             this.props.receiveMessage(message)
         })
         
@@ -80,7 +80,7 @@ class ChatPage extends React.Component{
                         {
                             this.props.otherUsers ? 
                             Object.values(this.props.otherUsers).map((user,idx) => {
-                                // debugger
+                                
                                 return <li onClick={this.handleChatClick(user._id)} 
                                         key={user._id}>
                                         <img src={`content/image/${user.propic}`} alt="" />

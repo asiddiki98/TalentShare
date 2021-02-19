@@ -39,7 +39,7 @@ const port = process.env.PORT || 5000;
 server.listen(port, () => console.log(`Server is running on port ${port}`));
 
 io.sockets.on('connection', function(socket){
-    // debugger
+    
     console.log('user is connected');
     socket.on('disconnect', function(){
         console.log('user disconnected');

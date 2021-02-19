@@ -38,12 +38,11 @@ class CreatePostForm extends React.Component{
             this.setState({errors: "Description must be less than 100 characters"});
         }
         else{
-            // debugger
             const formData = new FormData();
             formData.append('file', this.state.file);
             formData.append('caption', "post-pic");
             this.props.sendFile(formData).then(() => {
-                // debugger
+              
                 return this.props.createPost({
                 description: this.state.description,
                 category: this.state.category,

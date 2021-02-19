@@ -23,7 +23,6 @@ export default class PostItem extends React.Component {
 
     let fileType = this.props.post.filename.split('.')[1];
     let fileName = this.props.post.filename;
-    // debugger
     if (photoTypes.includes(fileType)) {
       return (
         <img
@@ -82,7 +81,6 @@ export default class PostItem extends React.Component {
 
   
   render() {
-    // debugger
     let artist;
     if (!this.props.users){
       artist = null
