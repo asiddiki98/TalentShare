@@ -7,7 +7,7 @@ export default class PostsIndex extends React.Component {
     }
    
     render() {
-        debugger
+    
         return (
             <div className="posts-index-container">
                 {this.props.posts.map(post => <PostItem key={post._id} post={post} viewPost={this.props.viewPost} />)}
