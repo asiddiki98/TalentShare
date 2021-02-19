@@ -54,6 +54,7 @@ p.comment-number > div {
                             padding: 5px 0;
                             display: flex;
                             align-items: center;
+                            position: relative;
                             a{
                                 text-decoration: none;
                                 color: #d789d7;
@@ -73,7 +74,68 @@ p.comment-number > div {
                                 }
         
                             }
+
+                            .option-dots{
+                                position: absolute;
+                                top: 10px;
+                                right: 10px;
+                                
+                                background: transparent;
+                                border: none;
+                                outline: none;
+                                border-radius: 50%;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                transition: .5s;
+                                img{
+                                    box-sizing: border-box;
+                                    width: 25px;
+                                    background: transparent;
+                                    border: none;
+                                    outline: none;
+                                    border-radius: 50%;
+
+                                }
+                                
+                            }
+
+                            .option-dots:hover{
+                                background-color: white;
+                            }
+
+                            .comment-option-menu{
+                                position: absolute;
+                                top: 11px;
+                                right: 46px;
+                                background: white;
+                                border-radius: 10px;
+                                padding: 10px;
+                                div{
+                                    margin-top: 5px;
+                                    margin-bottom: 5px;
+                                    transition: .1s;
+                                }
+                                div:hover{
+                                    font-weight: 500;
+                                }
+
+                            }
                         }
+                        form{
+                            input{
+                                border: 1px solid #d789d7;
+                                border-radius: 0px;
+                                margin-right: 45px;
+                            }
+                            input:focus{
+                                border: 1px solid #d789d7;
+                                border-radius: 0px;
+                                background: white;
+                            }
+
+                        }
+
                         .comment-content {
                             padding: 5px 0;
                         }
