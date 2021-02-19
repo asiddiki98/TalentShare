@@ -39,12 +39,11 @@
     }
 }
 
-
 .search-bar{
     border-radius: 20px;
-    width: 150px;
+    width: 160px;
     border: none;
-    margin: 5px;
+    margin: 10px 5px 0px 5px;
     text-align: center;
     font-family: poppins;
     color: #9d65c9;
@@ -56,6 +55,56 @@
 
 .search-bar::placeholder{
     color: #9d65c9;
+}
+
+.search-items{
+    background:  #5d54a4;
+    border-radius: 5px;
+    a.search-link{
+        text-decoration: none;
+        .search-results{
+            background:  #5d54a4;
+            display: flex;
+            padding: 5px;
+            text-decoration: none;
+            border-radius: 5px;
+            &:hover{
+                background:  #5045a9;
+            }
+            .search-propic{
+            height: 30px;
+            border-radius: 75%;
+            width: 30px;
+            object-fit: cover;
+            margin-right: 5px;
+            }
+        
+            .search-user-name{
+                text-decoration: none;
+        
+                .search-username{
+                    color: white;
+                    text-decoration: none;
+                }
+                .search-name{
+                    color: white;
+                    font-size: 10px ;
+                    text-decoration: none;
+                }
+            }
+        }
+    
+    }
+}
+.search-no-results{
+    background:  #5d54a4;
+    display: flex;
+    justify-content: center;
+    color: white;
+    display: flex;
+    padding: 5px;
+    text-decoration: none;
+    border-radius: 5px;
 }
 
 .nav-profile-image{

@@ -18,6 +18,14 @@ export const unlikePost = (postId, userId) => {
 export const createComment = (comment) => {
    return axios.post("/api/comments/", comment)
 }
+export const editComment = (comment) => {
+   debugger
+   return axios.patch(`/api/comments/${comment._id}`, comment)
+}
+export const deleteComment = (commentId, postId) => {
+   debugger
+   return axios.delete(`/api/comments/${commentId}/${postId}`)
+}
 
 export const deletePost = (postId) => {
    return axios.delete(`/api/posts/${postId}`)

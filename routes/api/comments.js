@@ -24,10 +24,28 @@ router.get("/:id", (req, res) => {
     Comment.findById(req.params.id).then(comment => res.json(comment), err => res.status(404).json({commentError: "Comment does not exist"}))
 });
 
-router.patch("/:id", (req, res) => {
+router.patch("/:id", passport.authenticate('jwt', {session: false}), (req, res) => {
     Comment.findById(req.params.id).then(comment => {
         comment.content = req.body.content;
-        comment.save().then(comment => res.json(comment));
+        comment.save().then(comment => {
+            Post.findById(comment.post).then(post => {
+                let postComments = post.comments;
+                let commentIdx = -1;
+                for(let i = 0; i < postComments.length; i++) {
+                    if(postComments[i]._id == req.params.id){
+                        commentIdx = i;
+                        break;
+                    }
+                }
+                if(commentIdx !== -1){
+                    postComments[commentIdx].content = comment.content;
+                }
+                post.comments = postComments;
+                post.markModified('comments');
+                post.save().then(post2 => res.json(post2)
+                , err => res.status(404).json({commentError: "comment didnt save"}));
+            });
+        });
     }, err => res.status(404).json({commentError: "comment does not exist"}));
 });
 
@@ -78,8 +96,29 @@ router.post("/", passport.authenticate('jwt', {session: false}), (req, res) => {
     });
 });
 
-router.delete("/:id", (req,res) => {
-    Comment.remove({ _id: req.params.id, }).then(() => res.json({ commentId: req.params.id}), err => res.status(404).json({commentError: "Something went wrong"}));
+router.delete("/:id/:postId", passport.authenticate('jwt', {session: false}), (req,res) => {
+
+   
+    Comment.remove({ _id: req.params.id, })
+        .then(() => {
+            Post.findById(req.params.postId).then(post => { 
+                let postComments = post.comments;
+                let commentIdx = -1;
+                for(let i = 0; i < postComments.length; i++) {
+                    if(postComments[i]._id == req.params.id){
+                        commentIdx = i;
+                        break;
+                    }
+                }
+                if(commentIdx !== -1){
+                    postComments.splice(commentIdx,1);
+                }
+                post.comments = postComments;
+                post.save().then(post => res.json(post));
+            });
+        })
+    
+    
 })
 
 module.exports = router;

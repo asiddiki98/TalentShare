@@ -17,6 +17,7 @@ class Portfolio extends React.Component {
 
 
     render() {
+
         const {currentUser, user, posts, editProfile,  viewPost} = this.props;
         return !user ? null : (
             <div className="portfolio-container">
@@ -34,6 +35,7 @@ class Portfolio extends React.Component {
    
 
 const mstp = ({entities, session}, ownProps) => {
+    
     return {
         user: entities.users[ownProps.match.params.user_id],
         currentUser: session.user,
