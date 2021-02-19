@@ -101,9 +101,9 @@ export const fetchPost = postId => dispatch => {
     )
   )
 };
-export const patchPost = postId => dispatch => {
+export const patchPost = post => dispatch => {
   return (
-    PostAPIUtil.patchPost(postId).then(
+    PostAPIUtil.patchPost(post).then(
       res => (dispatch(receivePost(res.data))),
       err => (dispatch(receiveErrors(err.response.data)))
     )
@@ -140,7 +140,7 @@ export const createComment = (comment) => dispatch => {
 export const deletePost = postId => dispatch => {
   return (
     PostAPIUtil.deletePost(postId).then(
-      res => (dispatch(removePost(res.postId))),
+      res => (dispatch(removePost(res.data.postId))),
       err => (dispatch(receiveErrors(err.response.data)))
     )
   )
