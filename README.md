@@ -13,7 +13,7 @@ TalentShare is a social media application with a focus on user-generated content
 <br/>
 
 <div align="center">
-  <img src="frontend/src/assets/images/category_demo.gif" alt="Category Selection Demo" width="500" style="vertical-align:middle">
+  <img src="frontend/src/assets/images/category_demo.gif" alt="Category Selection Demo" width="800" style="vertical-align:middle">
 </div>
 
 <br/>
@@ -24,13 +24,13 @@ TalentShare is a social media application with a focus on user-generated content
 <br/>
 
 <div align="center">
-  <img src="frontend/src/assets/images/portfolio_page.png" alt="Portfolio Page" width="500" style="vertical-align:middle">
+  <img src="frontend/src/assets/images/portfolio_page.png" alt="Portfolio Page" width="800" style="vertical-align:middle">
 </div>
 
 <br/>
 
 <div align="center">
-  <img src="frontend/src/assets/images/post_demo.gif" alt="Post Demo" width="500" style="vertical-align:middle">
+  <img src="frontend/src/assets/images/post_demo.gif" alt="Post Demo" width="800" style="vertical-align:middle">
 </div>
 
 <br/>
@@ -40,7 +40,7 @@ TalentShare is a social media application with a focus on user-generated content
  <br/>
 
 <div align="center">
-  <img src="frontend/src/assets/images/like_comment_demo.gif" alt="Like and Comment Demo" width="500" style="vertical-align:middle">
+  <img src="frontend/src/assets/images/like_comment_demo.gif" alt="Like and Comment Demo" width="800" style="vertical-align:middle">
 </div>
 
 <br/>
@@ -50,7 +50,7 @@ TalentShare is a social media application with a focus on user-generated content
 <br/>
  
 <div align="center">
-  <img src="frontend/src/assets/images/livechat_demo.gif" alt="Live Chat Demo" width="500" style="vertical-align:middle">
+  <img src="frontend/src/assets/images/livechat_demo.gif" alt="Live Chat Demo" width="800" style="vertical-align:middle">
 </div>
 
 <br/>
