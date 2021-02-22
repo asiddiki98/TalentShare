@@ -27,7 +27,6 @@ class MainPage extends React.Component {
               return post.category === "Music";
             case "/browse/Dance":
               return post.category === "Dance";
-            
           }
         })} />
         {/* <FollowIndex /> */}
