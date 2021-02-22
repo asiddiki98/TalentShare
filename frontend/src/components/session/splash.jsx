@@ -149,7 +149,7 @@ const Splash = (props) => {
                 </a>
               </li>
               <li>
-                <a href="https://www.linkedin.com/in/syangrea/">
+                <a href="https://www.linkedin.com/in/syangrea/" target="_blank">
                   <i className="fab fa-linkedin-in"></i>
                 </a>
               </li>
