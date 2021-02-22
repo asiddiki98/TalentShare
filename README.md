@@ -8,12 +8,12 @@ TalentShare is a social media application with a focus on user-generated content
 [Live Demo](https://talentshare-aa.herokuapp.com/#/) 
  
 ## Functionality and MVP
- Users can create accounts to browse a talent feed; Options include art, photography, music, and dance
+ Users can create accounts to browse talent feeds; Options include art, photography, music, and dance (All categories are  combined by default)
   
- Artists can create portfolios and posts
+ Artists have their own portfolio pages and can create posts that belong to a specific category
    * Posts can be any file type (audio/video/image) and will be rendered accordingly
   
- Users can comment/like posts
+ Users can like and comment on posts
  
  Users can live chat with artists
  
