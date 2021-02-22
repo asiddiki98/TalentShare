@@ -3,10 +3,12 @@
 </div>
 
 ## Background and Overview
-TalentShare is a social media application that provides a platform for creatives to showcase their work, gain exposure, and chat with prospective clients/scouts.
+TalentShare is a social media application with a focus on user-generated content that revolves around art, photography, music, and dance. It provides a platform for creatives to showcase their work, gain exposure, and chat with with their fans.
+ 
+[Live Demo](https://talentshare-aa.herokuapp.com/#/) 
  
 ## Functionality and MVP
- Users can create accounts/look at a curated talent feed
+ Users can create accounts to browse a talent feed; Options include art, photography, music, and dance
   
  Artists can create portfolios and posts
    * Posts can be any file type (audio/video/image) and will be rendered accordingly
@@ -14,11 +16,6 @@ TalentShare is a social media application that provides a platform for creatives
  Users can comment/like posts
  
  Users can live chat with artists
- 
-## Bonus
-   Find artists in your area
-   
-   Livestreaming
  
 ## Technologies and Challenges
  ### Backend
@@ -33,9 +30,11 @@ TalentShare is a social media application that provides a platform for creatives
   
  ### Realtime Communication
   * WebSocket
+
+
  
  
-## Group Members and Work Breakdown
+## Team 
   * **Team Lead**: Azim Siddiki
   * **Backend Lead**: Tasnim Saiduzzaman
   * **Frontend Lead**: Paul Ramirez
