@@ -3,7 +3,7 @@
 </div>
 
 ## **Background and Overview**
-TalentShare is a social media application with a focus on user-generated content that revolves around art, photography, music, and dance. It provides a platform for creatives to showcase their work, gain exposure, and chat with with their fans.
+TalentShare is a social media application with a focus on user-generated content that revolves around art, photography, music, and dance. It provides a platform for creatives to showcase their work, gain exposure, and chat with their fans.
  
 [Live Demo](https://talentshare-aa.herokuapp.com/#/) 
  
