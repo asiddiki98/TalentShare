@@ -19,7 +19,11 @@ class CreatePostForm extends React.Component{
     }
 
     handleFile(field) {
-        return e => this.setState({[field]: e.currentTarget.files[0]});
+        return e => {
+            const file = e.currentTarget.files[0];
+            const normalized = new File([file], file.name.toLowerCase(), {type: file.type});
+            this.setState({[field]: normalized});
+        }
     }
 
     handleChange(field) {
@@ -54,6 +58,7 @@ class CreatePostForm extends React.Component{
     }
 
     render(){
+        console.log(this.state.file);
         const {closeModal} = this.props;
         return (
             <div className="create-post-container">
