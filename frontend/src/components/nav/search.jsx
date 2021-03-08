@@ -47,7 +47,7 @@ class SearchBar extends React.Component {
                 
                 return(
     
-                    <Link className="search-link" to={`/portfolio/${user._id}`}>
+                    <Link onClick={() => this.setState({searchUser: ""})} key={`${user._id}`} className="search-link" to={`/portfolio/${user._id}`}>
                         <div className="search-results">
                             <img className="search-propic" src={`content/image/${user.propic}`} alt=""/>
                                 <div className="search-user-name">
@@ -65,7 +65,7 @@ class SearchBar extends React.Component {
   
         return (
             <div>
-            <input className="search-bar" type="input" placeholder="search" onChange={this.handleChange("searchUser")} onClick={this.handleCLick}/>
+            <input className="search-bar" type="input" placeholder="search users" onChange={this.handleChange("searchUser")} value={this.state.searchUser}/>
             <div className="search-items">
                 {this.state.searchUser === "" ? null : users}
             </div>

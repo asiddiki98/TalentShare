@@ -17,7 +17,11 @@ class EditPortfolio extends React.Component {
     }
 
     handleFile(field) {
-        return e => this.setState({[field]: e.currentTarget.files[0]});
+        return e => {
+            const file = e.currentTarget.files[0];
+            const normalized = new File([file], file.name.toLowerCase(), {type: file.type});
+            this.setState({[field]: normalized});
+        }
     }
 
     handleSubmit(e) {
