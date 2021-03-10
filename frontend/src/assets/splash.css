@@ -203,6 +203,15 @@ div#splash-form {
   color: white;
   font-weight: 700;
   font-size: 25px;
+  
+}
+.developer-name a{
+  color: inherit;
+  text-decoration: none;
+}
+
+.developer-name a:hover{
+  text-decoration: underline;
 }
 
 .developer-position {

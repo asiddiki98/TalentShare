@@ -47,7 +47,7 @@ const Splash = (props) => {
                 <img src={Azim} alt="Azim" />
               </div>
 
-              <p className="developer-name">Azim Siddiki</p>
+              <p className="developer-name"><a href="" target="_blank">Azim Siddiki</a></p>
               <p className="developer-position">Team Lead</p>
               <ul className="about-us-links">
                 <li>
@@ -78,7 +78,7 @@ const Splash = (props) => {
                 <img src={Paul} alt="Paul"/>
               </div>
 
-              <p className="developer-name">Paul Ramirez</p>
+              <p className="developer-name"><a href="" target="_blank">Paul Ramirez</a></p>
               <p className="developer-position">Frontend Lead</p>
               <ul className="about-us-links">
                 <li>
@@ -109,7 +109,7 @@ const Splash = (props) => {
                 <img src={Tasnim} alt="Tasnim" />
               </div>
 
-              <p className="developer-name">Tasnim Saiduzzaman</p>
+              <p className="developer-name"><a href="" target="_blank">Tasnim Saiduzzaman</a></p>
               <p className="developer-position">Backend Lead</p>
               <ul className="about-us-links">
                 <li>
@@ -140,7 +140,7 @@ const Splash = (props) => {
                 <img src={Stephen} alt="Stephen" />
               </div>
 
-              <p className="developer-name">Stephen Yang</p>
+              <p className="developer-name"><a href="https://syangrea.github.io/" target="_blank">Stephen Yang</a></p>
               <p className="developer-position">Flex</p>
               <ul className="about-us-links">
               <li>
@@ -159,7 +159,7 @@ const Splash = (props) => {
                 </a>
               </li>
               <li>
-                <a href="" target="_blank">
+                <a href="https://syangrea.github.io/" target="_blank">
                   <i className="fas fa-user-circle"></i>
                 </a>
               </li>

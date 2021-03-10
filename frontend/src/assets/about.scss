@@ -1,0 +1,101 @@
+#about-us-page{
+
+    color: rgb(215,137,215);
+
+    #talentshare-intro{
+        color: rgb(215,137,215);
+        font-size: 25px;
+        width: 75%;
+        text-align: center;
+        margin-bottom:  20px;
+    }
+    
+    #about-us-intro {
+      position: relative;
+      font-weight: 700;
+      font-size: 65px;
+      color: rgb(215,137,215);
+      text-align: center;
+      top: 60px;
+      margin-bottom: 10vh;
+    }
+
+    #team-intro{
+        margin-bottom: 10vh;
+        font-weight: 700;
+        font-size: 45px;
+        color: rgb(215,137,215);
+        text-align: center;
+        text-transform: uppercase;
+    }
+    
+    .about-us-links {
+      display: flex;
+      justify-content: space-around;
+      width: 220px;
+      margin-top: 10px;
+    }
+    
+    .about-us {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      position: relative;
+      top: 100px;
+    }
+    
+    .developer-name {
+      color: rgb(215,137,215);
+      font-weight: 700;
+      font-size: 25px;
+    }
+    
+    .developer-position {
+      color: rgb(215,137,215);
+    }
+    
+    a > i {
+      color: rgb(215,137,215);
+      font-size: 40px;
+      transition: 0.2s;
+    }
+    
+    a > i:hover {
+      color: #2a3d66;
+    }
+    
+    .developer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 19px;
+      transition: 0.2s;
+    }
+    
+    .developer:hover {
+      transform: scale(1.15);
+    }
+    
+    .dev-pic {
+      height: 100px;
+      width: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+    
+    .dev-pic > img {
+      height: inherit;
+      width: inherit;
+      border-radius: inherit;
+      object-fit: cover;
+    }
+    
+    .dev-container {
+      display: flex;
+    }
+}
+
+

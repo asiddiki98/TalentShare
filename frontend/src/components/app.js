@@ -7,6 +7,7 @@ import SignupFormContainer from './session/signup_form_container';
 import MainPageContainer from './main/main_page_container';
 import "../assets/reset.css";
 import "../assets/chat/chat_page.scss"
+import AboutPage from './nav/about_page';
 
 import PortfolioContainer from './portfolio/portfolio_container';
 import Modal from './modal/modal';
@@ -23,7 +24,7 @@ const App = () => (
       <ProtectedRoute path="/browse" component={MainPageContainer} />
       <ProtectedRoute exact path="/portfolio/:user_id" component={PortfolioContainer} />
       <ProtectedRoute exact path="/chat" component={ChatPage} />
-      
+      <ProtectedRoute exact path="/about" component={AboutPage}/>
     </Switch>
     <ProtectedRoute path="/" component={ChatContainer} />
   </div>
