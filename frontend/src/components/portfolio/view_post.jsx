@@ -19,10 +19,13 @@ class ViewPost extends React.Component {
     }
 
     componentDidMount() {
-        this.dropDownListener = e => {
-            if (!this.dropDown.contains(e.target)) this.setState({ hidden: true });
+
+        if (this.props.currentUser._id === this.props.user._id) {
+            this.dropDownListener = e => {
+                if (!this.dropDown.contains(e.target)) this.setState({ hidden: true });
+            }
+            document.addEventListener('click', this.dropDownListener, false);
         }
-        document.addEventListener('click', this.dropDownListener, false);
     }
 
     componentWillUnmount() {
@@ -39,18 +42,18 @@ class ViewPost extends React.Component {
     }
 
     render() {
-        const {closeModal, user, post, editPost, deletePost} = this.props;
+        const {closeModal, user, post, editPost, deletePost, currentUser} = this.props;
         const imageTypes = ['jpeg', 'jpg', 'png'];
         return (
             <div className="view-post-container" onClick={this.handleClose} >
                 <div className="closemodal" onClick={closeModal}>✕</div>
-                <div className="post-dropdown"onClick={this.handleClick}  ref={div => this.dropDown = div} >
+                {currentUser._id === user._id && <div className="post-dropdown"onClick={this.handleClick}  ref={div => this.dropDown = div} >
                     •••
                     {!this.state.hidden && <div className="post-dropdown-contents" onClick={e => e.stopPropagation()}>
                         <div className="delete-post-button" onClick={() => deletePost(post._id)} >Delete</div>
                         <div className="open-edit-post" onClick={() => editPost(post._id)} >Edit</div>
                     </div>}
-                </div>
+                </div>}
                 <div className="content-container">
                     {imageTypes.includes(post.filename.split('.')[1]) ? <img src={`/content/image/${post.filename}`} alt=""/> : <video src={`/content/video/${post.filename}`} controls></video>}
                 </div>
@@ -74,9 +77,10 @@ class ViewPost extends React.Component {
 
 }
 
-const mstp = ({ ui, entities: {posts, users}}) => ({
+const mstp = ({ ui, entities: {posts, users}, session}) => ({
     user: users[posts[ui.filters.postId].creator],
-    post: posts[ui.filters.postId]
+    post: posts[ui.filters.postId],
+    currentUser: session.user
 });
 
 const mdtp = dispatch => ({
