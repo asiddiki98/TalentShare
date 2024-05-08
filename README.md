@@ -3,13 +3,15 @@
 </div>
 
 ## **Background and Overview**
+
 TalentShare is a social media application with a focus on user-generated content that revolves around art, photography, music, and dance. It provides a platform for creatives to showcase their work, gain exposure, and chat with their fans.
- 
-[Live Demo](https://talentshare-aa.herokuapp.com/#/) 
- 
+
+[Live Demo](https://talentshare-aa.herokuapp.com/#/)
+
 ## **Functionality and MVP**
- * Users can create accounts to browse talent feeds; Options include art, photography, music, and dance (All categories are  combined by default)
-  
+
+- Users can create accounts to browse talent feeds; Options include art, photography, music, and dance (All categories are combined by default)
+
 <br/>
 
 <div align="center">
@@ -18,9 +20,9 @@ TalentShare is a social media application with a focus on user-generated content
 
 <br/>
 
- * Artists have their own portfolio pages and can create posts that belong to a specific category
-   * Posts can be any file type (audio/video/image) and will be rendered accordingly
-  
+- Artists have their own portfolio pages and can create posts that belong to a specific category
+  - Posts can be any file type (audio/video/image) and will be rendered accordingly
+
 <br/>
 
 <div align="center">
@@ -35,8 +37,8 @@ TalentShare is a social media application with a focus on user-generated content
 
 <br/>
 
- * Users can like and comment on posts
- 
+- Users can like and comment on posts
+
  <br/>
 
 <div align="center">
@@ -45,7 +47,7 @@ TalentShare is a social media application with a focus on user-generated content
 
 <br/>
 
- * Users can live chat with artists
+- Users can live chat with artists
 
 <br/>
  
@@ -56,18 +58,22 @@ TalentShare is a social media application with a focus on user-generated content
 <br/>
 
 ## **Technologies and Challenges**
- ### *Backend*
-  * MongoDB
-  * Express.js
-  * Node.js
-  * Mongoose
-  
- ### *Frontend*
-  * React
-  * Redux
-  
- ### *Realtime Communication*
-  * WebSocket 
+
+### _Backend_
+
+- MongoDB
+- Express.js
+- Node.js
+- Mongoose
+
+### _Frontend_
+
+- React
+- Redux
+
+### _Realtime Communication_
+
+- WebSocket
 
 A challenge our team encountered was quickly and efficiently filtering through posts to generate category specific feeds. We decided to make a single axios request to our backend to fetch every post in the database whenever a user logs in. To show all the posts that belong to a category, we filter the posts shown by using the posts that already exist in our state and taking advantage of React Router's location and pathname attributes.
 
@@ -125,7 +131,8 @@ handleSubmit(e) {
 ```
 
 ## **Team**
-  * **Team Lead**: Azim Siddiki
-  * **Backend Lead**: Tasnim Saiduzzaman
-  * **Frontend Lead**: Paul Ramirez
-  * **Flex**: Stephen Yang
+
+- **Team Lead**: Azim Siddiki
+- **Backend Lead**: Tasnim Saiduzzaman
+- **Frontend Lead**: Paul Ramirez
+- **Flex**: Stephen Yang
