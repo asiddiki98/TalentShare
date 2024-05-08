@@ -8,9 +8,7 @@ const options = {};
 options.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 options.secretOrKey = keys.secretOrKey;
 console.log("options", options);
-console.log(process.env.NODE_ENV);
-console.log(keys.secretOrKey);
-console.log(keys.mongoURI);
+console.log(process.env);
 module.exports = (passport) => {
   passport.use(
     new JwtStrategy(options, (jwt_payload, done) => {
